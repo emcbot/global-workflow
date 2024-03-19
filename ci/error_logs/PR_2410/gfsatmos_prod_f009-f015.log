@@ -1,0 +1,3293 @@
+Begin atmos_products.sh at Tue Mar 19 19:33:11 UTC 2024
++ atmos_products.sh[11]: . /work2/noaa/stmp/CI/ORION/2410/gfs/ush/load_fv3gfs_modules.sh
+++ load_fv3gfs_modules.sh[4]: [[ NO == \N\O ]]
+++ load_fv3gfs_modules.sh[5]: echo 'Loading modules quietly...'
+Loading modules quietly...
+++ load_fv3gfs_modules.sh[6]: set +x
+Resetting modules to system default. Reseting $MODULEPATH back to system default. All extra directories will be removed from $MODULEPATH.
+
+Currently Loaded Modules:
+  1) contrib/0.1                      41) grib-util/1.3.0
+  2) intel/2022.1.2                   42) g2tmpl/1.10.2
+  3) stack-intel/2022.0.2             43) gsi-ncdiag/1.1.2
+  4) impi/2022.1.2                    44) crtm-fix/2.4.0.1_emc
+  5) stack-intel-oneapi-mpi/2021.5.1  45) git-lfs/2.12.0
+  6) gettext/0.19.8.1                 46) crtm/2.4.0.1
+  7) libxcrypt/4.4.35                 47) openblas/0.3.24
+  8) zlib/1.2.13                      48) py-setuptools/63.4.3
+  9) sqlite/3.43.2                    49) py-numpy/1.23.4
+ 10) util-linux-uuid/2.38.1           50) bufr/11.7.0
+ 11) python/3.11.6                    51) gmake/3.82
+ 12) gempak/7.5.1                     52) wgrib2/2.0.8
+ 13) ncl/6.6.2                        53) py-cftime/1.0.3.4
+ 14) libjpeg/2.1.0                    54) py-netcdf4/1.5.8
+ 15) jasper/2.0.32                    55) libyaml/0.2.5
+ 16) libpng/1.6.37                    56) py-pyyaml/6.0
+ 17) openjpeg/2.3.1                   57) py-markupsafe/2.1.3
+ 18) eccodes/2.32.0                   58) py-jinja2/3.1.2
+ 19) fftw/3.3.10                      59) py-bottleneck/1.3.7
+ 20) nghttp2/1.57.0                   60) py-numexpr/2.8.4
+ 21) curl/8.4.0                       61) py-et-xmlfile/1.0.1
+ 22) proj/9.2.1                       62) py-openpyxl/3.1.2
+ 23) udunits/2.2.28                   63) py-pytz/2023.3
+ 24) cdo/2.0.5                        64) py-pyxlsb/1.0.10
+ 25) snappy/1.1.10                    65) py-xlrd/2.0.1
+ 26) zstd/1.5.2                       66) py-xlsxwriter/3.1.7
+ 27) c-blosc/1.21.5                   67) py-xlwt/1.3.0
+ 28) pkg-config/0.27.1                68) py-pandas/1.5.3
+ 29) hdf5/1.14.0                      69) py-six/1.16.0
+ 30) netcdf-c/4.9.2                   70) py-python-dateutil/2.8.2
+ 31) netcdf-fortran/4.6.1             71) g2c/1.6.4
+ 32) antlr/2.7.7                      72) netcdf-cxx4/4.3.1
+ 33) gsl/2.7.1                        73) met/9.1.3
+ 34) nco/5.0.6                        74) metplus/3.1.1
+ 35) bacio/2.4.1                      75) py-packaging/23.1
+ 36) w3emc/2.10.0                     76) py-xarray/2023.7.0
+ 37) prod_util/2.1.1                  77) prepobs/1.0.1
+ 38) g2/3.4.5                         78) fit2obs/1.0.0
+ 39) sp/2.5.0                         79) module_base.orion
+ 40) ip/4.3.0
+
+ 
+
++ atmos_products.sh[12]: status=0
++ atmos_products.sh[13]: ((  status != 0  ))
++ atmos_products.sh[15]: export job=atmos_products
++ atmos_products.sh[15]: job=atmos_products
++ atmos_products.sh[16]: export jobid=atmos_products.451129
++ atmos_products.sh[16]: jobid=atmos_products.451129
++ atmos[20]: IFS=_
++ atmos[20]: read -ra fhrs
++ atmos_products.sh[24]: for fhr in '"${fhrs[@]}"'
++ atmos_products.sh[27]: fhr=10#009
++ atmos_products.sh[28]: fhr=10#009
++ atmos_products.sh[29]: export FORECAST_HOUR=9
++ atmos_products.sh[29]: FORECAST_HOUR=9
++ atmos_products.sh[30]: /work2/noaa/stmp/CI/ORION/2410/gfs/jobs/JGLOBAL_ATMOS_PRODUCTS
+Begin JGLOBAL_ATMOS_PRODUCTS at Tue Mar 19 19:33:16 UTC 2024
++ JGLOBAL_ATMOS_PRODUCTS[4]: source /work2/noaa/stmp/CI/ORION/2410/gfs/ush/jjob_header.sh -e atmos_products -c 'base atmos_products'
+++ jjob_header.sh[44]: OPTIND=1
+++ jjob_header.sh[45]: getopts c:e: option
+++ jjob_header.sh[46]: case "${option}" in
+++ jjob_header.sh[48]: env_job=atmos_products
+++ jjob_header.sh[45]: getopts c:e: option
+++ jjob_header.sh[46]: case "${option}" in
+++ jjob_header.sh[47]: read -ra configs
+++ jjob_header.sh[45]: getopts c:e: option
+++ jjob_header.sh[59]: shift 4
+++ jjob_header.sh[61]: [[ -z atmos_products ]]
+++ jjob_header.sh[69]: export DATA=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129
+++ jjob_header.sh[69]: DATA=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129
+++ jjob_header.sh[70]: [[ YES == \Y\E\S ]]
+++ jjob_header.sh[71]: rm -rf /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129
+++ jjob_header.sh[73]: mkdir -p /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129
+++ jjob_header.sh[74]: cd /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129
+++ jjob_header.sh[80]: export cycle=t12z
+++ jjob_header.sh[80]: cycle=t12z
+++ jjob_header.sh[81]: setpdy.sh
+sed: can't read /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/date/t12z: No such file or directory
+ completed cleanly
+ completed cleanly
+Source PDY script to export PDYm7, ..., PDY, ..., PDYp7 variables.
+++ jjob_header.sh[82]: source ./PDY
++++ PDY[1]: export PDYm7=20210316
++++ PDY[1]: PDYm7=20210316
++++ PDY[2]: export PDYm6=20210317
++++ PDY[2]: PDYm6=20210317
++++ PDY[3]: export PDYm5=20210318
++++ PDY[3]: PDYm5=20210318
++++ PDY[4]: export PDYm4=20210319
++++ PDY[4]: PDYm4=20210319
++++ PDY[5]: export PDYm3=20210320
++++ PDY[5]: PDYm3=20210320
++++ PDY[6]: export PDYm2=20210321
++++ PDY[6]: PDYm2=20210321
++++ PDY[7]: export PDYm1=20210322
++++ PDY[7]: PDYm1=20210322
++++ PDY[8]: export PDY=20210323
++++ PDY[8]: PDY=20210323
++++ PDY[9]: export PDYp1=20210324
++++ PDY[9]: PDYp1=20210324
++++ PDY[10]: export PDYp2=20210325
++++ PDY[10]: PDYp2=20210325
++++ PDY[11]: export PDYp3=20210326
++++ PDY[11]: PDYp3=20210326
++++ PDY[12]: export PDYp4=20210327
++++ PDY[12]: PDYp4=20210327
++++ PDY[13]: export PDYp5=20210328
++++ PDY[13]: PDYp5=20210328
++++ PDY[14]: export PDYp6=20210329
++++ PDY[14]: PDYp6=20210329
++++ PDY[15]: export PDYp7=20210330
++++ PDY[15]: PDYp7=20210330
+++ jjob_header.sh[88]: export pid=451528
+++ jjob_header.sh[88]: pid=451528
+++ jjob_header.sh[89]: export pgmout=OUTPUT.451528
+++ jjob_header.sh[89]: pgmout=OUTPUT.451528
+++ jjob_header.sh[90]: export pgmerr=errfile
+++ jjob_header.sh[90]: pgmerr=errfile
+++ jjob_header.sh[96]: export EXPDIR=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16
+++ jjob_header.sh[96]: EXPDIR=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16
+++ jjob_header.sh[97]: for config in '"${configs[@]:-'\'''\''}"'
+++ jjob_header.sh[98]: source /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16/config.base
++++ config.base[6]: echo 'BEGIN: config.base'
+BEGIN: config.base
++++ config.base[9]: export machine=ORION
++++ config.base[9]: machine=ORION
++++ config.base[12]: export RUN_ENVIR=emc
++++ config.base[12]: RUN_ENVIR=emc
++++ config.base[15]: export ACCOUNT=nems
++++ config.base[15]: ACCOUNT=nems
++++ config.base[16]: export QUEUE=batch
++++ config.base[16]: QUEUE=batch
++++ config.base[17]: export QUEUE_SERVICE=batch
++++ config.base[17]: QUEUE_SERVICE=batch
++++ config.base[18]: export PARTITION_BATCH=orion
++++ config.base[18]: PARTITION_BATCH=orion
++++ config.base[19]: export PARTITION_SERVICE=service
++++ config.base[19]: PARTITION_SERVICE=service
++++ config.base[22]: export HPSS_PROJECT=emc-global
++++ config.base[22]: HPSS_PROJECT=emc-global
++++ config.base[25]: export HOMEgfs=/work2/noaa/stmp/CI/ORION/2410/gfs
++++ config.base[25]: HOMEgfs=/work2/noaa/stmp/CI/ORION/2410/gfs
++++ config.base[26]: export EXECgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/exec
++++ config.base[26]: EXECgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/exec
++++ config.base[27]: export FIXgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/fix
++++ config.base[27]: FIXgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/fix
++++ config.base[28]: export PARMgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/parm
++++ config.base[28]: PARMgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/parm
++++ config.base[29]: export SCRgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/scripts
++++ config.base[29]: SCRgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/scripts
++++ config.base[30]: export USHgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/ush
++++ config.base[30]: USHgfs=/work2/noaa/stmp/CI/ORION/2410/gfs/ush
++++ config.base[35]: export PACKAGEROOT=/work/noaa/global/glopara/nwpara
++++ config.base[35]: PACKAGEROOT=/work/noaa/global/glopara/nwpara
++++ config.base[36]: export COMROOT=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT
++++ config.base[36]: COMROOT=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT
++++ config.base[37]: export COMINsyn=/work/noaa/global/glopara/com/gfs/prod/syndat
++++ config.base[37]: COMINsyn=/work/noaa/global/glopara/com/gfs/prod/syndat
++++ config.base[38]: export DMPDIR=/work/noaa/rstprod/dump
++++ config.base[38]: DMPDIR=/work/noaa/rstprod/dump
++++ config.base[39]: export BASE_CPLIC=/work/noaa/global/glopara/data/ICSDIR/prototype_ICs
++++ config.base[39]: BASE_CPLIC=/work/noaa/global/glopara/data/ICSDIR/prototype_ICs
++++ config.base[42]: export HOMEDIR=/work/noaa/global/mterry
++++ config.base[42]: HOMEDIR=/work/noaa/global/mterry
++++ config.base[43]: export STMP=/work/noaa/stmp/mterry
++++ config.base[43]: STMP=/work/noaa/stmp/mterry
++++ config.base[44]: export PTMP=/work/noaa/stmp/mterry
++++ config.base[44]: PTMP=/work/noaa/stmp/mterry
++++ config.base[45]: export NOSCRUB=/work/noaa/global/mterry
++++ config.base[45]: NOSCRUB=/work/noaa/global/mterry
++++ config.base[48]: export BASE_GIT=/work/noaa/global/glopara/git
++++ config.base[48]: BASE_GIT=/work/noaa/global/glopara/git
++++ config.base[51]: export DO_GOES=NO
++++ config.base[51]: DO_GOES=NO
++++ config.base[52]: export DO_BUFRSND=NO
++++ config.base[52]: DO_BUFRSND=NO
++++ config.base[53]: export DO_GEMPAK=NO
++++ config.base[53]: DO_GEMPAK=NO
++++ config.base[54]: export DO_AWIPS=NO
++++ config.base[54]: DO_AWIPS=NO
++++ config.base[55]: export DO_NPOESS=NO
++++ config.base[55]: DO_NPOESS=NO
++++ config.base[56]: export DO_TRACKER=YES
++++ config.base[56]: DO_TRACKER=YES
++++ config.base[57]: export DO_GENESIS=YES
++++ config.base[57]: DO_GENESIS=YES
++++ config.base[58]: export DO_GENESIS_FSU=NO
++++ config.base[58]: DO_GENESIS_FSU=NO
++++ config.base[59]: export DO_VERFOZN=YES
++++ config.base[59]: DO_VERFOZN=YES
++++ config.base[60]: export DO_VERFRAD=YES
++++ config.base[60]: DO_VERFRAD=YES
++++ config.base[61]: export DO_VMINMON=YES
++++ config.base[61]: DO_VMINMON=YES
++++ config.base[62]: export DO_MOS=NO
++++ config.base[62]: DO_MOS=NO
++++ config.base[68]: export REALTIME=YES
++++ config.base[68]: REALTIME=YES
++++ config.base[71]: export MODE=forecast-only
++++ config.base[71]: MODE=forecast-only
++++ config.base[80]: export HOMEpost=/work2/noaa/stmp/CI/ORION/2410/gfs
++++ config.base[80]: HOMEpost=/work2/noaa/stmp/CI/ORION/2410/gfs
++++ config.base[81]: export HOMEobsproc=/work/noaa/global/glopara/git/obsproc/v1.1.2
++++ config.base[81]: HOMEobsproc=/work/noaa/global/glopara/git/obsproc/v1.1.2
++++ config.base[84]: export 'NCP=/bin/cp -p'
++++ config.base[84]: NCP='/bin/cp -p'
++++ config.base[85]: export NMV=/bin/mv
++++ config.base[85]: NMV=/bin/mv
++++ config.base[86]: export 'NLN=/bin/ln -sf'
++++ config.base[86]: NLN='/bin/ln -sf'
++++ config.base[87]: export VERBOSE=YES
++++ config.base[87]: VERBOSE=YES
++++ config.base[88]: export KEEPDATA=NO
++++ config.base[88]: KEEPDATA=NO
++++ config.base[89]: export DEBUG_POSTSCRIPT=NO
++++ config.base[89]: DEBUG_POSTSCRIPT=NO
++++ config.base[90]: export CHGRP_RSTPROD=YES
++++ config.base[90]: CHGRP_RSTPROD=YES
++++ config.base[91]: export 'CHGRP_CMD=chgrp rstprod'
++++ config.base[91]: CHGRP_CMD='chgrp rstprod'
++++ config.base[92]: export NCDUMP=/work/noaa/epic/role-epic/spack-stack/orion/spack-stack-1.6.0/envs/unified-env/install/intel/2022.0.2/netcdf-c-4.9.2-4g3gg4n/bin/ncdump
++++ config.base[92]: NCDUMP=/work/noaa/epic/role-epic/spack-stack/orion/spack-stack-1.6.0/envs/unified-env/install/intel/2022.0.2/netcdf-c-4.9.2-4g3gg4n/bin/ncdump
++++ config.base[93]: export NCLEN=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/getncdimlen
++++ config.base[93]: NCLEN=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/getncdimlen
++++ config.base[96]: export BASE_ENV=/work2/noaa/stmp/CI/ORION/2410/gfs/env
++++ config.base[96]: BASE_ENV=/work2/noaa/stmp/CI/ORION/2410/gfs/env
++++ config.base[97]: export BASE_JOB=/work2/noaa/stmp/CI/ORION/2410/gfs/jobs/rocoto
++++ config.base[97]: BASE_JOB=/work2/noaa/stmp/CI/ORION/2410/gfs/jobs/rocoto
++++ config.base[100]: export SDATE=2021032312
++++ config.base[100]: SDATE=2021032312
++++ config.base[101]: export EDATE=2021032312
++++ config.base[101]: EDATE=2021032312
++++ config.base[102]: export EXP_WARM_START=.false.
++++ config.base[102]: EXP_WARM_START=.false.
++++ config.base[103]: export assim_freq=6
++++ config.base[103]: assim_freq=6
++++ config.base[104]: export PSLOT=C48_ATM_6d50ea16
++++ config.base[104]: PSLOT=C48_ATM_6d50ea16
++++ config.base[105]: export EXPDIR=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16
++++ config.base[105]: EXPDIR=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16
++++ config.base[106]: export ROTDIR=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16
++++ config.base[106]: ROTDIR=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16
++++ config.base[107]: export ROTDIR_DUMP=YES
++++ config.base[107]: ROTDIR_DUMP=YES
++++ config.base[108]: export DUMP_SUFFIX=
++++ config.base[108]: DUMP_SUFFIX=
++++ config.base[109]: [[ 2021032312 -ge 2019092100 ]]
++++ config.base[109]: [[ 2021032312 -le 2019110700 ]]
++++ config.base[112]: export DATAROOT=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16
++++ config.base[112]: DATAROOT=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16
++++ config.base[113]: export RUNDIR=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16
++++ config.base[113]: RUNDIR=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16
++++ config.base[114]: export ARCDIR=/work/noaa/global/mterry/archive/C48_ATM_6d50ea16
++++ config.base[114]: ARCDIR=/work/noaa/global/mterry/archive/C48_ATM_6d50ea16
++++ config.base[115]: export ATARDIR=/work/noaa/global/mterry/archive_rotdir/C48_ATM_6d50ea16
++++ config.base[115]: ATARDIR=/work/noaa/global/mterry/archive_rotdir/C48_ATM_6d50ea16
++++ config.base[118]: export envir=prod
++++ config.base[118]: envir=prod
++++ config.base[119]: export NET=gfs
++++ config.base[119]: NET=gfs
++++ config.base[120]: export RUN=gfs
++++ config.base[120]: RUN=gfs
++++ config.base[126]: source /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16/config.com
+++++ config.com[4]: echo 'BEGIN: config.com'
+BEGIN: config.com
+++++ config.com[37]: [[ emc == \n\c\o ]]
+++++ config.com[41]: COM_OBS_TMPL='${ROTDIR}/${RUN}.${YMD}/${HH}/obs'
+++++ config.com[42]: COM_RTOFS_TMPL='${DMPDIR}'
+++++ config.com[44]: declare -rx COM_OBS_TMPL COM_RTOFS_TMPL
+++++ config.com[45]: declare -rx 'COM_OBSDMP_TMPL=${DMPDIR}/${DUMP}${DUMP_SUFFIX}.${YMD}/${HH}/atmos'
+++++ config.com[47]: COM_BASE='${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}'
+++++ config.com[49]: declare -rx 'COM_TOP_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}'
+++++ config.com[51]: declare -rx 'COM_CONF_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/conf'
+++++ config.com[52]: declare -rx 'COM_ATMOS_INPUT_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/atmos/input'
+++++ config.com[53]: declare -rx 'COM_ATMOS_RESTART_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/atmos/restart'
+++++ config.com[54]: declare -rx 'COM_ATMOS_ANALYSIS_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/analysis/atmos'
+++++ config.com[55]: declare -rx 'COM_SNOW_ANALYSIS_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/analysis/snow'
+++++ config.com[56]: declare -rx 'COM_ATMOS_HISTORY_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/atmos/history'
+++++ config.com[57]: declare -rx 'COM_ATMOS_MASTER_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/atmos/master'
+++++ config.com[58]: declare -rx 'COM_ATMOS_GRIB_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/grib2'
+++++ config.com[59]: declare -rx 'COM_ATMOS_GRIB_GRID_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/grib2/${GRID}'
+++++ config.com[60]: declare -rx 'COM_ATMOS_BUFR_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/bufr'
+++++ config.com[61]: declare -rx 'COM_ATMOS_GEMPAK_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/gempak/${GRID}'
+++++ config.com[62]: declare -rx 'COM_ATMOS_GENESIS_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/cyclone/genesis_vital'
+++++ config.com[63]: declare -rx 'COM_ATMOS_TRACK_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/cyclone/tracks'
+++++ config.com[64]: declare -rx 'COM_ATMOS_GOES_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/goes_sim'
+++++ config.com[65]: declare -rx 'COM_ATMOS_IMAGERY_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/imagery'
+++++ config.com[66]: declare -rx 'COM_ATMOS_OZNMON_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/oznmon'
+++++ config.com[67]: declare -rx 'COM_ATMOS_RADMON_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/radmon'
+++++ config.com[68]: declare -rx 'COM_ATMOS_MINMON_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/minmon'
+++++ config.com[69]: declare -rx 'COM_ATMOS_WMO_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/atmos/wmo'
+++++ config.com[71]: declare -rx 'COM_WAVE_RESTART_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/wave/restart'
+++++ config.com[72]: declare -rx 'COM_WAVE_PREP_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/wave/prep'
+++++ config.com[73]: declare -rx 'COM_WAVE_HISTORY_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/wave/history'
+++++ config.com[74]: declare -rx 'COM_WAVE_GRID_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/wave/gridded'
+++++ config.com[75]: declare -rx 'COM_WAVE_STATION_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/wave/station'
+++++ config.com[76]: declare -rx 'COM_WAVE_GEMPAK_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/wave/gempak'
+++++ config.com[77]: declare -rx 'COM_WAVE_WMO_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/wave/wmo'
+++++ config.com[79]: declare -rx 'COM_OCEAN_HISTORY_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/ocean/history'
+++++ config.com[80]: declare -rx 'COM_OCEAN_RESTART_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/ocean/restart'
+++++ config.com[81]: declare -rx 'COM_OCEAN_INPUT_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/ocean/input'
+++++ config.com[82]: declare -rx 'COM_OCEAN_ANALYSIS_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/analysis/ocean'
+++++ config.com[83]: declare -rx 'COM_OCEAN_NETCDF_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/ocean/netcdf'
+++++ config.com[84]: declare -rx 'COM_OCEAN_GRIB_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/ocean/grib2'
+++++ config.com[85]: declare -rx 'COM_OCEAN_GRIB_GRID_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/ocean/grib2/${GRID}'
+++++ config.com[87]: declare -rx 'COM_ICE_INPUT_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/ice/input'
+++++ config.com[88]: declare -rx 'COM_ICE_HISTORY_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/ice/history'
+++++ config.com[89]: declare -rx 'COM_ICE_RESTART_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/ice/restart'
+++++ config.com[90]: declare -rx 'COM_ICE_NETCDF_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/ice/netcdf'
+++++ config.com[91]: declare -rx 'COM_ICE_GRIB_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/ice/grib2'
+++++ config.com[92]: declare -rx 'COM_ICE_GRIB_GRID_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/products/ice/grib2/${GRID}'
+++++ config.com[94]: declare -rx 'COM_CHEM_HISTORY_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/chem/history'
+++++ config.com[95]: declare -rx 'COM_CHEM_ANALYSIS_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/analysis/chem'
+++++ config.com[97]: declare -rx 'COM_MED_RESTART_TMPL=${ROTDIR}/${RUN}.${YMD}/${HH}/${MEMDIR}/model_data/med/restart'
++++ config.base[129]: export 'ERRSCRIPT=eval [[ $err = 0 ]]'
++++ config.base[129]: ERRSCRIPT='eval [[ $err = 0 ]]'
++++ config.base[130]: export LOGSCRIPT=
++++ config.base[130]: LOGSCRIPT=
++++ config.base[133]: export 'REDOUT=1>'
++++ config.base[133]: REDOUT='1>'
++++ config.base[134]: export 'REDERR=2>'
++++ config.base[134]: REDERR='2>'
++++ config.base[136]: export SENDECF=NO
++++ config.base[136]: SENDECF=NO
++++ config.base[137]: export SENDSDM=NO
++++ config.base[137]: SENDSDM=NO
++++ config.base[138]: export SENDDBN_NTC=NO
++++ config.base[138]: SENDDBN_NTC=NO
++++ config.base[139]: export SENDDBN=NO
++++ config.base[139]: SENDDBN=NO
++++ config.base[140]: export DBNROOT=/work/noaa/epic/role-epic/spack-stack/orion/spack-stack-1.6.0/envs/unified-env/install/intel/2022.0.2/prod-util-2.1.1-hevcp3q/fakedbn
++++ config.base[140]: DBNROOT=/work/noaa/epic/role-epic/spack-stack/orion/spack-stack-1.6.0/envs/unified-env/install/intel/2022.0.2/prod-util-2.1.1-hevcp3q/fakedbn
++++ config.base[143]: export APP=ATM
++++ config.base[143]: APP=ATM
++++ config.base[146]: export DO_ATM=YES
++++ config.base[146]: DO_ATM=YES
++++ config.base[147]: export DO_COUPLED=NO
++++ config.base[147]: DO_COUPLED=NO
++++ config.base[148]: export DO_WAVE=NO
++++ config.base[148]: DO_WAVE=NO
++++ config.base[149]: export DO_OCN=NO
++++ config.base[149]: DO_OCN=NO
++++ config.base[150]: export DO_ICE=NO
++++ config.base[150]: DO_ICE=NO
++++ config.base[151]: export DO_AERO=NO
++++ config.base[151]: DO_AERO=NO
++++ config.base[152]: export WAVE_CDUMP=
++++ config.base[152]: WAVE_CDUMP=
++++ config.base[153]: export DOBNDPNT_WAVE=NO
++++ config.base[153]: DOBNDPNT_WAVE=NO
++++ config.base[154]: export FRAC_GRID=.true.
++++ config.base[154]: FRAC_GRID=.true.
++++ config.base[157]: export OPS_RES=C768
++++ config.base[157]: OPS_RES=C768
++++ config.base[160]: export LEVS=128
++++ config.base[160]: LEVS=128
++++ config.base[161]: export CASE=C48
++++ config.base[161]: CASE=C48
++++ config.base[162]: export CASE_ENS=@CASEENS@
++++ config.base[162]: CASE_ENS=@CASEENS@
++++ config.base[163]: export OCNRES=500
++++ config.base[163]: OCNRES=500
++++ config.base[164]: export ICERES=500
++++ config.base[164]: ICERES=500
++++ config.base[166]: case "${CASE}" in
++++ config.base[168]: export waveGRD=uglo_100km
++++ config.base[168]: waveGRD=uglo_100km
++++ config.base[185]: case "${APP}" in
++++ config.base[222]: [[ gfs =~ gdas ]]
++++ config.base[225]: [[ gfs =~ gfs ]]
++++ config.base[226]: export FHCYC=24
++++ config.base[226]: FHCYC=24
++++ config.base[230]: export FHMIN=0
++++ config.base[230]: FHMIN=0
++++ config.base[231]: export FHMAX=9
++++ config.base[231]: FHMAX=9
++++ config.base[232]: export FHOUT=3
++++ config.base[232]: FHOUT=3
++++ config.base[233]: export FHOUT_OCNICE=3
++++ config.base[233]: FHOUT_OCNICE=3
++++ config.base[236]: export EUPD_CYC=gdas
++++ config.base[236]: EUPD_CYC=gdas
++++ config.base[239]: export gfs_cyc=1
++++ config.base[239]: gfs_cyc=1
++++ config.base[242]: export FHMIN_GFS=0
++++ config.base[242]: FHMIN_GFS=0
++++ config.base[243]: export FHMAX_GFS=120
++++ config.base[243]: FHMAX_GFS=120
++++ config.base[244]: export FHOUT_GFS=3
++++ config.base[244]: FHOUT_GFS=3
++++ config.base[245]: export FHMAX_HF_GFS=0
++++ config.base[245]: FHMAX_HF_GFS=0
++++ config.base[246]: export FHOUT_HF_GFS=1
++++ config.base[246]: FHOUT_HF_GFS=1
++++ config.base[247]: export FHOUT_OCNICE_GFS=6
++++ config.base[247]: FHOUT_OCNICE_GFS=6
++++ config.base[248]: ((  gfs_cyc != 0  ))
++++ config.base[249]: export STEP_GFS=24
++++ config.base[249]: STEP_GFS=24
++++ config.base[253]: export ILPOST=1
++++ config.base[253]: ILPOST=1
++++ config.base[256]: export restart_interval_gfs=12
++++ config.base[256]: restart_interval_gfs=12
++++ config.base[261]: export QUILTING=.true.
++++ config.base[261]: QUILTING=.true.
++++ config.base[262]: export OUTPUT_GRID=gaussian_grid
++++ config.base[262]: OUTPUT_GRID=gaussian_grid
++++ config.base[263]: export WRITE_DOPOST=.true.
++++ config.base[263]: WRITE_DOPOST=.true.
++++ config.base[264]: export WRITE_NSFLIP=.true.
++++ config.base[264]: WRITE_NSFLIP=.true.
++++ config.base[267]: export DOIAU=YES
++++ config.base[267]: DOIAU=YES
++++ config.base[268]: export IAUFHRS=3,6,9
++++ config.base[268]: IAUFHRS=3,6,9
++++ config.base[269]: export IAU_FHROT=3
++++ config.base[269]: IAU_FHROT=3
++++ config.base[270]: export IAU_DELTHRS=6
++++ config.base[270]: IAU_DELTHRS=6
++++ config.base[271]: export IAU_OFFSET=6
++++ config.base[271]: IAU_OFFSET=6
++++ config.base[272]: export DOIAU_ENKF=YES
++++ config.base[272]: DOIAU_ENKF=YES
++++ config.base[273]: export IAUFHRS_ENKF=3,6,9
++++ config.base[273]: IAUFHRS_ENKF=3,6,9
++++ config.base[274]: export IAU_DELTHRS_ENKF=6
++++ config.base[274]: IAU_DELTHRS_ENKF=6
++++ config.base[277]: export lobsdiag_forenkf=.true.
++++ config.base[277]: lobsdiag_forenkf=.true.
++++ config.base[285]: export imp_physics=8
++++ config.base[285]: imp_physics=8
++++ config.base[289]: export DO_JEDIATMVAR=NO
++++ config.base[289]: DO_JEDIATMVAR=NO
++++ config.base[290]: export DO_JEDIATMENS=NO
++++ config.base[290]: DO_JEDIATMENS=NO
++++ config.base[291]: export DO_JEDIOCNVAR=NO
++++ config.base[291]: DO_JEDIOCNVAR=NO
++++ config.base[292]: export DO_JEDISNOWDA=NO
++++ config.base[292]: DO_JEDISNOWDA=NO
++++ config.base[293]: export DO_MERGENSST=NO
++++ config.base[293]: DO_MERGENSST=NO
++++ config.base[296]: export DOHYBVAR=@DOHYBVAR@
++++ config.base[296]: DOHYBVAR=@DOHYBVAR@
++++ config.base[297]: export NMEM_ENS=0
++++ config.base[297]: NMEM_ENS=0
++++ config.base[298]: export NMEM_ENS_GFS=0
++++ config.base[298]: NMEM_ENS_GFS=0
++++ config.base[299]: export SMOOTH_ENKF=NO
++++ config.base[299]: SMOOTH_ENKF=NO
++++ config.base[300]: export l4densvar=.true.
++++ config.base[300]: l4densvar=.true.
++++ config.base[301]: export lwrite4danl=.true.
++++ config.base[301]: lwrite4danl=.true.
++++ config.base[304]: [[ @DOHYBVAR@ = \Y\E\S ]]
++++ config.base[318]: [[ @DOHYBVAR@ == \N\O ]]
++++ config.base[326]: [[ forecast-only = \c\y\c\l\e\d ]]
++++ config.base[326]: [[ YES = \N\O ]]
++++ config.base[326]: [[ forecast-only = \f\o\r\e\c\a\s\t\-\o\n\l\y ]]
++++ config.base[326]: [[ .false. = \.\f\a\l\s\e\. ]]
++++ config.base[327]: export IAU_OFFSET=0
++++ config.base[327]: IAU_OFFSET=0
++++ config.base[328]: export IAU_FHROT=0
++++ config.base[328]: IAU_FHROT=0
++++ config.base[329]: export IAUFHRS=6
++++ config.base[329]: IAUFHRS=6
++++ config.base[332]: [[ YES = \N\O ]]
++++ config.base[334]: export GSI_SOILANAL=NO
++++ config.base[334]: GSI_SOILANAL=NO
++++ config.base[337]: export DONST=YES
++++ config.base[337]: DONST=YES
++++ config.base[338]: [[ YES = \Y\E\S ]]
++++ config.base[338]: export 'FNTSFA=        '
++++ config.base[338]: FNTSFA='        '
++++ config.base[341]: export nst_anl=.true.
++++ config.base[341]: nst_anl=.true.
++++ config.base[344]: export MAKE_NSSTBUFR=NO
++++ config.base[344]: MAKE_NSSTBUFR=NO
++++ config.base[347]: export MAKE_ACFTBUFR=NO
++++ config.base[347]: MAKE_ACFTBUFR=NO
++++ config.base[350]: export 'INCREMENTS_TO_ZERO='\''liq_wat_inc'\'','\''icmr_inc'\'','\''rwmr_inc'\'','\''snmr_inc'\'','\''grle_inc'\'''
++++ config.base[350]: INCREMENTS_TO_ZERO=''\''liq_wat_inc'\'','\''icmr_inc'\'','\''rwmr_inc'\'','\''snmr_inc'\'','\''grle_inc'\'''
++++ config.base[353]: export DO_CALC_INCREMENT_ENKF_GFS=YES
++++ config.base[353]: DO_CALC_INCREMENT_ENKF_GFS=YES
++++ config.base[356]: export 'INCVARS_ZERO_STRAT='\''sphum_inc'\'','\''liq_wat_inc'\'','\''icmr_inc'\'','\''rwmr_inc'\'','\''snmr_inc'\'','\''grle_inc'\'''
++++ config.base[356]: INCVARS_ZERO_STRAT=''\''sphum_inc'\'','\''liq_wat_inc'\'','\''icmr_inc'\'','\''rwmr_inc'\'','\''snmr_inc'\'','\''grle_inc'\'''
++++ config.base[357]: export INCVARS_EFOLD=5
++++ config.base[357]: INCVARS_EFOLD=5
++++ config.base[362]: export netcdf_diag=.true.
++++ config.base[362]: netcdf_diag=.true.
++++ config.base[363]: export binary_diag=.false.
++++ config.base[363]: binary_diag=.false.
++++ config.base[366]: export DO_METP=YES
++++ config.base[366]: DO_METP=YES
++++ config.base[367]: export DO_FIT2OBS=YES
++++ config.base[367]: DO_FIT2OBS=YES
++++ config.base[368]: export DO_VRFY_OCEANDA=NO
++++ config.base[368]: DO_VRFY_OCEANDA=NO
++++ config.base[371]: export HPSSARCH=NO
++++ config.base[371]: HPSSARCH=NO
++++ config.base[372]: export LOCALARCH=NO
++++ config.base[372]: LOCALARCH=NO
++++ config.base[373]: [[ NO = \Y\E\S ]]
++++ config.base[377]: export ARCH_CYC=00
++++ config.base[377]: ARCH_CYC=00
++++ config.base[378]: export ARCH_WARMICFREQ=4
++++ config.base[378]: ARCH_WARMICFREQ=4
++++ config.base[379]: export ARCH_FCSTICFREQ=1
++++ config.base[379]: ARCH_FCSTICFREQ=1
++++ config.base[382]: export FITSARC=YES
++++ config.base[382]: FITSARC=YES
++++ config.base[383]: export FHMAX_FITS=132
++++ config.base[383]: FHMAX_FITS=132
++++ config.base[384]: [[ 132 -gt 120 ]]
++++ config.base[384]: export FHMAX_FITS=120
++++ config.base[384]: FHMAX_FITS=120
++++ config.base[387]: [[ NO = \Y\E\S ]]
++++ config.base[393]: echo 'END: config.base'
+END: config.base
+++ jjob_header.sh[99]: status=0
+++ jjob_header.sh[100]: ((  status != 0  ))
+++ jjob_header.sh[97]: for config in '"${configs[@]:-'\'''\''}"'
+++ jjob_header.sh[98]: source /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16/config.atmos_products
++++ config.atmos_products[6]: echo 'BEGIN: config.atmos_products'
+BEGIN: config.atmos_products
++++ config.atmos_products[9]: . /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/EXPDIR/C48_ATM_6d50ea16/config.resources atmos_products
+++++ config.resources[7]: ((  1 != 1  ))
+++++ config.resources[31]: step=atmos_products
+++++ config.resources[33]: echo 'BEGIN: config.resources'
+BEGIN: config.resources
+++++ config.resources[35]: case ${machine} in
+++++ config.resources[38]: npe_node_max=40
+++++ config.resources[71]: export npe_node_max
+++++ config.resources[73]: case ${step} in
+++++ config.resources[716]: export wtime_atmos_products=00:15:00
+++++ config.resources[716]: wtime_atmos_products=00:15:00
+++++ config.resources[717]: export npe_atmos_products=24
+++++ config.resources[717]: npe_atmos_products=24
+++++ config.resources[718]: export nth_atmos_products=1
+++++ config.resources[718]: nth_atmos_products=1
+++++ config.resources[719]: export npe_node_atmos_products=24
+++++ config.resources[719]: npe_node_atmos_products=24
+++++ config.resources[720]: export wtime_atmos_products_gfs=00:15:00
+++++ config.resources[720]: wtime_atmos_products_gfs=00:15:00
+++++ config.resources[721]: export npe_atmos_products_gfs=24
+++++ config.resources[721]: npe_atmos_products_gfs=24
+++++ config.resources[722]: export nth_atmos_products_gfs=1
+++++ config.resources[722]: nth_atmos_products_gfs=1
+++++ config.resources[723]: export npe_node_atmos_products_gfs=24
+++++ config.resources[723]: npe_node_atmos_products_gfs=24
+++++ config.resources[724]: export is_exclusive=True
+++++ config.resources[724]: is_exclusive=True
+++++ config.resources[1195]: echo 'END: config.resources'
+END: config.resources
++++ config.atmos_products[12]: export NFHRS_PER_GROUP=3
++++ config.atmos_products[12]: NFHRS_PER_GROUP=3
++++ config.atmos_products[15]: export INTERP_ATMOS_MASTERSH=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh
++++ config.atmos_products[15]: INTERP_ATMOS_MASTERSH=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh
++++ config.atmos_products[16]: export INTERP_ATMOS_SFLUXSH=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_sflux.sh
++++ config.atmos_products[16]: INTERP_ATMOS_SFLUXSH=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_sflux.sh
++++ config.atmos_products[18]: [[ gfs == \g\d\a\s ]]
++++ config.atmos_products[24]: [[ gfs == \g\f\s ]]
++++ config.atmos_products[25]: export downset=2
++++ config.atmos_products[25]: downset=2
++++ config.atmos_products[26]: export FHOUT_PGBS=3
++++ config.atmos_products[26]: FHOUT_PGBS=3
++++ config.atmos_products[27]: export FLXGF=YES
++++ config.atmos_products[27]: FLXGF=YES
++++ config.atmos_products[28]: export WGNE=YES
++++ config.atmos_products[28]: WGNE=YES
++++ config.atmos_products[29]: export FHMAX_WGNE=180
++++ config.atmos_products[29]: FHMAX_WGNE=180
++++ config.atmos_products[32]: export APCP_MSG=597
++++ config.atmos_products[32]: APCP_MSG=597
++++ config.atmos_products[35]: export paramlista=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.fFFF.paramlist.a.txt
++++ config.atmos_products[35]: paramlista=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.fFFF.paramlist.a.txt
++++ config.atmos_products[36]: export paramlista_anl=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.anl.paramlist.a.txt
++++ config.atmos_products[36]: paramlista_anl=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.anl.paramlist.a.txt
++++ config.atmos_products[37]: export paramlista_f000=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.f000.paramlist.a.txt
++++ config.atmos_products[37]: paramlista_f000=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.f000.paramlist.a.txt
++++ config.atmos_products[38]: export paramlistb=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.fFFF.paramlist.b.txt
++++ config.atmos_products[38]: paramlistb=/work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.fFFF.paramlist.b.txt
++++ config.atmos_products[40]: echo 'END: config.atmos_products'
+END: config.atmos_products
+++ jjob_header.sh[99]: status=0
+++ jjob_header.sh[100]: ((  status != 0  ))
+++ jjob_header.sh[110]: source /work2/noaa/stmp/CI/ORION/2410/gfs/env/ORION.env atmos_products
++++ ORION.env[3]: [[ 1 -ne 1 ]]
++++ ORION.env[15]: step=atmos_products
++++ ORION.env[17]: export 'launcher=srun -l --export=ALL'
++++ ORION.env[17]: launcher='srun -l --export=ALL'
++++ ORION.env[18]: export 'mpmd_opt=--multi-prog --output=mpmd.%j.%t.out'
++++ ORION.env[18]: mpmd_opt='--multi-prog --output=mpmd.%j.%t.out'
++++ ORION.env[21]: export MPI_BUFS_PER_PROC=2048
++++ ORION.env[21]: MPI_BUFS_PER_PROC=2048
++++ ORION.env[22]: export MPI_BUFS_PER_HOST=2048
++++ ORION.env[22]: MPI_BUFS_PER_HOST=2048
++++ ORION.env[23]: export MPI_GROUP_MAX=256
++++ ORION.env[23]: MPI_GROUP_MAX=256
++++ ORION.env[24]: export MPI_MEMMAP_OFF=1
++++ ORION.env[24]: MPI_MEMMAP_OFF=1
++++ ORION.env[25]: export MP_STDOUTMODE=ORDERED
++++ ORION.env[25]: MP_STDOUTMODE=ORDERED
++++ ORION.env[26]: export KMP_AFFINITY=scatter
++++ ORION.env[26]: KMP_AFFINITY=scatter
++++ ORION.env[27]: export OMP_STACKSIZE=2048000
++++ ORION.env[27]: OMP_STACKSIZE=2048000
++++ ORION.env[28]: export NTHSTACK=1024000000
++++ ORION.env[28]: NTHSTACK=1024000000
++++ ORION.env[31]: ulimit -s unlimited
++++ ORION.env[32]: ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 767194
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 115507200
+open files                      (-n) 131072
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
++++ ORION.env[34]: [[ atmos_products = \p\r\e\p ]]
++++ ORION.env[34]: [[ atmos_products = \p\r\e\p\b\u\f\r ]]
++++ ORION.env[43]: [[ atmos_products = \p\r\e\p\s\n\o\w\o\b\s ]]
++++ ORION.env[47]: [[ atmos_products = \w\a\v\e\i\n\i\t ]]
++++ ORION.env[47]: [[ atmos_products = \w\a\v\e\p\r\e\p ]]
++++ ORION.env[47]: [[ atmos_products = \w\a\v\e\p\o\s\t\s\b\s ]]
++++ ORION.env[48]: [[ atmos_products = \w\a\v\e\p\o\s\t\b\n\d\p\n\t ]]
++++ ORION.env[48]: [[ atmos_products = \w\a\v\e\p\o\s\t\p\n\t ]]
++++ ORION.env[48]: [[ atmos_products == \w\a\v\e\p\o\s\t\b\n\d\p\n\t\b\l\l ]]
++++ ORION.env[55]: [[ atmos_products = \a\t\m\a\n\l\r\u\n ]]
++++ ORION.env[63]: [[ atmos_products = \a\t\m\e\n\s\a\n\l\r\u\n ]]
++++ ORION.env[71]: [[ atmos_products = \a\e\r\o\a\n\l\r\u\n ]]
++++ ORION.env[81]: [[ atmos_products = \s\n\o\w\a\n\l ]]
++++ ORION.env[91]: [[ atmos_products = \o\c\n\a\n\a\l\b\m\a\t ]]
++++ ORION.env[101]: [[ atmos_products = \o\c\n\a\n\a\l\r\u\n ]]
++++ ORION.env[111]: [[ atmos_products = \o\c\n\a\n\a\l\c\h\k\p\t ]]
++++ ORION.env[121]: [[ atmos_products = \o\c\n\a\n\a\l\e\c\e\n ]]
++++ ORION.env[129]: [[ atmos_products = \a\n\a\l ]]
++++ ORION.env[129]: [[ atmos_products = \a\n\a\l\c\a\l\c ]]
++++ ORION.env[157]: [[ atmos_products = \s\f\c\a\n\l ]]
++++ ORION.env[165]: [[ atmos_products = \e\o\b\s ]]
++++ ORION.env[180]: [[ atmos_products = \e\u\p\d ]]
++++ ORION.env[192]: [[ atmos_products = \f\c\s\t ]]
++++ ORION.env[192]: [[ atmos_products = \e\f\c\s ]]
++++ ORION.env[208]: [[ atmos_products = \u\p\p ]]
++++ ORION.env[216]: [[ atmos_products = \a\t\m\o\s\_\p\r\o\d\u\c\t\s ]]
++++ ORION.env[218]: export USE_CFP=YES
++++ ORION.env[218]: USE_CFP=YES
+++ jjob_header.sh[111]: status=0
+++ jjob_header.sh[112]: ((  status != 0  ))
++ JGLOBAL_ATMOS_PRODUCTS[12]: YMD=20210323
++ JGLOBAL_ATMOS_PRODUCTS[12]: HH=12
++ JGLOBAL_ATMOS_PRODUCTS[12]: generate_com -rx COM_ATMOS_ANALYSIS COM_ATMOS_HISTORY COM_ATMOS_MASTER
++ preamble.sh[143]: [[ NO == \N\O ]]
++ preamble.sh[143]: set +x
+generate_com :: COM_ATMOS_ANALYSIS=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//analysis/atmos
+generate_com :: COM_ATMOS_HISTORY=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//model_data/atmos/history
+generate_com :: COM_ATMOS_MASTER=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//model_data/atmos/master
++ JGLOBAL_ATMOS_PRODUCTS[14]: for grid in ''\''0p25'\''' ''\''0p50'\''' ''\''1p00'\'''
++ JGLOBAL_ATMOS_PRODUCTS[15]: prod_dir=COM_ATMOS_GRIB_0p25
++ JGLOBAL_ATMOS_PRODUCTS[16]: GRID=0p25
++ JGLOBAL_ATMOS_PRODUCTS[16]: YMD=20210323
++ JGLOBAL_ATMOS_PRODUCTS[16]: HH=12
++ JGLOBAL_ATMOS_PRODUCTS[16]: generate_com -rx COM_ATMOS_GRIB_0p25:COM_ATMOS_GRIB_GRID_TMPL
++ preamble.sh[143]: [[ NO == \N\O ]]
++ preamble.sh[143]: set +x
+generate_com :: COM_ATMOS_GRIB_0p25=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/0p25
++ JGLOBAL_ATMOS_PRODUCTS[17]: [[ ! -d /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/0p25 ]]
++ JGLOBAL_ATMOS_PRODUCTS[17]: mkdir -m 775 -p /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/0p25
++ JGLOBAL_ATMOS_PRODUCTS[14]: for grid in ''\''0p25'\''' ''\''0p50'\''' ''\''1p00'\'''
++ JGLOBAL_ATMOS_PRODUCTS[15]: prod_dir=COM_ATMOS_GRIB_0p50
++ JGLOBAL_ATMOS_PRODUCTS[16]: GRID=0p50
++ JGLOBAL_ATMOS_PRODUCTS[16]: YMD=20210323
++ JGLOBAL_ATMOS_PRODUCTS[16]: HH=12
++ JGLOBAL_ATMOS_PRODUCTS[16]: generate_com -rx COM_ATMOS_GRIB_0p50:COM_ATMOS_GRIB_GRID_TMPL
++ preamble.sh[143]: [[ NO == \N\O ]]
++ preamble.sh[143]: set +x
+generate_com :: COM_ATMOS_GRIB_0p50=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/0p50
++ JGLOBAL_ATMOS_PRODUCTS[17]: [[ ! -d /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/0p50 ]]
++ JGLOBAL_ATMOS_PRODUCTS[17]: mkdir -m 775 -p /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/0p50
++ JGLOBAL_ATMOS_PRODUCTS[14]: for grid in ''\''0p25'\''' ''\''0p50'\''' ''\''1p00'\'''
++ JGLOBAL_ATMOS_PRODUCTS[15]: prod_dir=COM_ATMOS_GRIB_1p00
++ JGLOBAL_ATMOS_PRODUCTS[16]: GRID=1p00
++ JGLOBAL_ATMOS_PRODUCTS[16]: YMD=20210323
++ JGLOBAL_ATMOS_PRODUCTS[16]: HH=12
++ JGLOBAL_ATMOS_PRODUCTS[16]: generate_com -rx COM_ATMOS_GRIB_1p00:COM_ATMOS_GRIB_GRID_TMPL
++ preamble.sh[143]: [[ NO == \N\O ]]
++ preamble.sh[143]: set +x
+generate_com :: COM_ATMOS_GRIB_1p00=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/1p00
++ JGLOBAL_ATMOS_PRODUCTS[17]: [[ ! -d /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/1p00 ]]
++ JGLOBAL_ATMOS_PRODUCTS[17]: mkdir -m 775 -p /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//products/atmos/grib2/1p00
++ JGLOBAL_ATMOS_PRODUCTS[21]: export PREFIX=gfs.t12z.
++ JGLOBAL_ATMOS_PRODUCTS[21]: PREFIX=gfs.t12z.
++ JGLOBAL_ATMOS_PRODUCTS[25]: /work2/noaa/stmp/CI/ORION/2410/gfs/scripts/exglobal_atmos_products.sh
+Begin exglobal_atmos_products.sh at Tue Mar 19 19:33:27 UTC 2024
++ exglobal_atmos_products.sh[6]: export WGRIB2=wgrib2
++ exglobal_atmos_products.sh[6]: WGRIB2=wgrib2
++ exglobal_atmos_products.sh[9]: INTERP_ATMOS_MASTERSH=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh
++ exglobal_atmos_products.sh[10]: INTERP_ATMOS_SFLUXSH=/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_sflux.sh
++ exglobal_atmos_products.sh[13]: downset=2
++ exglobal_atmos_products.sh[14]: npe_atmos_products=24
++ exglobal_atmos_products.sh[17]: WGNE=YES
++ exglobal_atmos_products.sh[18]: FHMAX_WGNE=180
++ exglobal_atmos_products.sh[20]: cd /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129
++ exglobal_atmos_products.sh[24]: ((  FORECAST_HOUR <= 0  ))
+++ exglobal_atmos_products.sh[35]: printf f%03d 9
++ exglobal_atmos_products.sh[35]: fhr3=f009
++ exglobal_atmos_products.sh[36]: ((  FORECAST_HOUR%FHOUT_PGBS == 0  ))
++ exglobal_atmos_products.sh[37]: PGBS=YES
++ exglobal_atmos_products.sh[45]: MASTER_FILE=/work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//model_data/atmos/master/gfs.t12z.master.grb2f009
++ exglobal_atmos_products.sh[50]: grep -F -f /work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.fFFF.paramlist.a.txt
++ exglobal_atmos_products.sh[50]: wgrib2 /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//model_data/atmos/master/gfs.t12z.master.grb2f009
++ exglobal_atmos_products.sh[50]: wgrib2 -i -grib tmpfile_f009 /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//model_data/atmos/master/gfs.t12z.master.grb2f009
+1:0:d=2021032312:PRMSL:mean sea level:9 hour fcst:
+2:26041:d=2021032312:CLMR:1 hybrid level:9 hour fcst:
+3:32738:d=2021032312:ICMR:1 hybrid level:9 hour fcst:
+4:40363:d=2021032312:RWMR:1 hybrid level:9 hour fcst:
+5:52796:d=2021032312:SNMR:1 hybrid level:9 hour fcst:
+6:63782:d=2021032312:GRLE:1 hybrid level:9 hour fcst:
+7:65683:d=2021032312:REFD:1 hybrid level:9 hour fcst:
+8:90226:d=2021032312:REFD:2 hybrid level:9 hour fcst:
+9:114780:d=2021032312:REFC:entire atmosphere (considered as a single layer):9 hour fcst:
+10:140610:d=2021032312:VIS:surface:9 hour fcst:
+11:173941:d=2021032312:UGRD:planetary boundary layer:9 hour fcst:
+12:187812:d=2021032312:VGRD:planetary boundary layer:9 hour fcst:
+13:202032:d=2021032312:VRATE:planetary boundary layer:9 hour fcst:
+14:216693:d=2021032312:GUST:surface:9 hour fcst:
+15:231259:d=2021032312:HGT:0.01 mb:9 hour fcst:
+16:256889:d=2021032312:TMP:0.01 mb:9 hour fcst:
+17:268843:d=2021032312:RH:0.01 mb:9 hour fcst:
+18:275826:d=2021032312:SPFH:0.01 mb:9 hour fcst:
+19:305129:d=2021032312:VVEL:0.01 mb:9 hour fcst:
+20:333434:d=2021032312:DZDT:0.01 mb:9 hour fcst:
+21:364252:d=2021032312:UGRD:0.01 mb:9 hour fcst:
+22:383687:d=2021032312:VGRD:0.01 mb:9 hour fcst:
+23:394737:d=2021032312:ABSV:0.01 mb:9 hour fcst:
+24:411200:d=2021032312:O3MR:0.01 mb:9 hour fcst:
+25:426982:d=2021032312:HGT:0.02 mb:9 hour fcst:
+26:452457:d=2021032312:TMP:0.02 mb:9 hour fcst:
+27:467515:d=2021032312:RH:0.02 mb:9 hour fcst:
+28:474978:d=2021032312:SPFH:0.02 mb:9 hour fcst:
+29:501952:d=2021032312:VVEL:0.02 mb:9 hour fcst:
+30:532264:d=2021032312:DZDT:0.02 mb:9 hour fcst:
+31:558210:d=2021032312:UGRD:0.02 mb:9 hour fcst:
+32:571405:d=2021032312:VGRD:0.02 mb:9 hour fcst:
+33:583628:d=2021032312:ABSV:0.02 mb:9 hour fcst:
+34:600942:d=2021032312:O3MR:0.02 mb:9 hour fcst:
+35:618362:d=2021032312:HGT:0.04 mb:9 hour fcst:
+36:642913:d=2021032312:TMP:0.04 mb:9 hour fcst:
+37:661202:d=2021032312:RH:0.04 mb:9 hour fcst:
+38:667780:d=2021032312:SPFH:0.04 mb:9 hour fcst:
+39:690343:d=2021032312:VVEL:0.04 mb:9 hour fcst:
+40:721052:d=2021032312:DZDT:0.04 mb:9 hour fcst:
+41:750508:d=2021032312:UGRD:0.04 mb:9 hour fcst:
+42:771908:d=2021032312:VGRD:0.04 mb:9 hour fcst:
+43:792689:d=2021032312:ABSV:0.04 mb:9 hour fcst:
+44:811812:d=2021032312:O3MR:0.04 mb:9 hour fcst:
+45:836793:d=2021032312:HGT:0.07 mb:9 hour fcst:
+46:860153:d=2021032312:TMP:0.07 mb:9 hour fcst:
+47:878465:d=2021032312:RH:0.07 mb:9 hour fcst:
+48:888836:d=2021032312:SPFH:0.07 mb:9 hour fcst:
+49:903560:d=2021032312:VVEL:0.07 mb:9 hour fcst:
+50:932124:d=2021032312:DZDT:0.07 mb:9 hour fcst:
+51:962782:d=2021032312:UGRD:0.07 mb:9 hour fcst:
+52:983801:d=2021032312:VGRD:0.07 mb:9 hour fcst:
+53:1004559:d=2021032312:ABSV:0.07 mb:9 hour fcst:
+54:1023669:d=2021032312:O3MR:0.07 mb:9 hour fcst:
+55:1044791:d=2021032312:HGT:0.1 mb:9 hour fcst:
+56:1067559:d=2021032312:TMP:0.1 mb:9 hour fcst:
+57:1085062:d=2021032312:RH:0.1 mb:9 hour fcst:
+58:1093486:d=2021032312:SPFH:0.1 mb:9 hour fcst:
+59:1108465:d=2021032312:VVEL:0.1 mb:9 hour fcst:
+60:1140731:d=2021032312:DZDT:0.1 mb:9 hour fcst:
+61:1171267:d=2021032312:UGRD:0.1 mb:9 hour fcst:
+62:1191921:d=2021032312:VGRD:0.1 mb:9 hour fcst:
+63:1211987:d=2021032312:ABSV:0.1 mb:9 hour fcst:
+64:1230699:d=2021032312:O3MR:0.1 mb:9 hour fcst:
+65:1255591:d=2021032312:HGT:0.2 mb:9 hour fcst:
+66:1277873:d=2021032312:TMP:0.2 mb:9 hour fcst:
+67:1294721:d=2021032312:RH:0.2 mb:9 hour fcst:
+68:1305077:d=2021032312:SPFH:0.2 mb:9 hour fcst:
+69:1318940:d=2021032312:VVEL:0.2 mb:9 hour fcst:
+70:1344956:d=2021032312:DZDT:0.2 mb:9 hour fcst:
+71:1375455:d=2021032312:UGRD:0.2 mb:9 hour fcst:
+72:1395542:d=2021032312:VGRD:0.2 mb:9 hour fcst:
+73:1414709:d=2021032312:ABSV:0.2 mb:9 hour fcst:
+74:1432378:d=2021032312:O3MR:0.2 mb:9 hour fcst:
+75:1459014:d=2021032312:HGT:0.4 mb:9 hour fcst:
+76:1478647:d=2021032312:TMP:0.4 mb:9 hour fcst:
+77:1495304:d=2021032312:RH:0.4 mb:9 hour fcst:
+78:1503754:d=2021032312:SPFH:0.4 mb:9 hour fcst:
+79:1520203:d=2021032312:VVEL:0.4 mb:9 hour fcst:
+80:1547692:d=2021032312:DZDT:0.4 mb:9 hour fcst:
+81:1577403:d=2021032312:UGRD:0.4 mb:9 hour fcst:
+82:1596948:d=2021032312:VGRD:0.4 mb:9 hour fcst:
+83:1615584:d=2021032312:ABSV:0.4 mb:9 hour fcst:
+84:1632393:d=2021032312:O3MR:0.4 mb:9 hour fcst:
+85:1660230:d=2021032312:HGT:0.7 mb:9 hour fcst:
+86:1679350:d=2021032312:TMP:0.7 mb:9 hour fcst:
+87:1695893:d=2021032312:RH:0.7 mb:9 hour fcst:
+88:1705260:d=2021032312:SPFH:0.7 mb:9 hour fcst:
+89:1721791:d=2021032312:VVEL:0.7 mb:9 hour fcst:
+90:1750446:d=2021032312:DZDT:0.7 mb:9 hour fcst:
+91:1779513:d=2021032312:UGRD:0.7 mb:9 hour fcst:
+92:1798522:d=2021032312:VGRD:0.7 mb:9 hour fcst:
+93:1816923:d=2021032312:ABSV:0.7 mb:9 hour fcst:
+94:1833503:d=2021032312:O3MR:0.7 mb:9 hour fcst:
+95:1860116:d=2021032312:HGT:1 mb:9 hour fcst:
+96:1878998:d=2021032312:TMP:1 mb:9 hour fcst:
+97:1895526:d=2021032312:RH:1 mb:9 hour fcst:
+98:1901264:d=2021032312:SPFH:1 mb:9 hour fcst:
+99:1918062:d=2021032312:VVEL:1 mb:9 hour fcst:
+100:1947483:d=2021032312:DZDT:1 mb:9 hour fcst:
+101:1975862:d=2021032312:UGRD:1 mb:9 hour fcst:
+102:1987282:d=2021032312:VGRD:1 mb:9 hour fcst:
+103:2005230:d=2021032312:ABSV:1 mb:9 hour fcst:
+104:2021589:d=2021032312:O3MR:1 mb:9 hour fcst:
+105:2043667:d=2021032312:HGT:2 mb:9 hour fcst:
+106:2062311:d=2021032312:TMP:2 mb:9 hour fcst:
+107:2079649:d=2021032312:RH:2 mb:9 hour fcst:
+108:2089147:d=2021032312:SPFH:2 mb:9 hour fcst:
+109:2112576:d=2021032312:VVEL:2 mb:9 hour fcst:
+110:2143602:d=2021032312:DZDT:2 mb:9 hour fcst:
+111:2171199:d=2021032312:UGRD:2 mb:9 hour fcst:
+112:2183017:d=2021032312:VGRD:2 mb:9 hour fcst:
+113:2201614:d=2021032312:ABSV:2 mb:9 hour fcst:
+114:2218999:d=2021032312:O3MR:2 mb:9 hour fcst:
+115:2242439:d=2021032312:HGT:3 mb:9 hour fcst:
+116:2260949:d=2021032312:TMP:3 mb:9 hour fcst:
+117:2278133:d=2021032312:RH:3 mb:9 hour fcst:
+118:2284540:d=2021032312:SPFH:3 mb:9 hour fcst:
+119:2308905:d=2021032312:VVEL:3 mb:9 hour fcst:
+120:2338719:d=2021032312:DZDT:3 mb:9 hour fcst:
+121:2366005:d=2021032312:UGRD:3 mb:9 hour fcst:
+122:2377662:d=2021032312:VGRD:3 mb:9 hour fcst:
+123:2396008:d=2021032312:ABSV:3 mb:9 hour fcst:
+124:2413266:d=2021032312:O3MR:3 mb:9 hour fcst:
+125:2437345:d=2021032312:HGT:5 mb:9 hour fcst:
+126:2455530:d=2021032312:TMP:5 mb:9 hour fcst:
+127:2472688:d=2021032312:RH:5 mb:9 hour fcst:
+128:2482810:d=2021032312:SPFH:5 mb:9 hour fcst:
+129:2506070:d=2021032312:VVEL:5 mb:9 hour fcst:
+130:2537662:d=2021032312:DZDT:5 mb:9 hour fcst:
+131:2564572:d=2021032312:UGRD:5 mb:9 hour fcst:
+132:2576346:d=2021032312:VGRD:5 mb:9 hour fcst:
+133:2595653:d=2021032312:ABSV:5 mb:9 hour fcst:
+134:2613578:d=2021032312:O3MR:5 mb:9 hour fcst:
+135:2637124:d=2021032312:HGT:7 mb:9 hour fcst:
+136:2655457:d=2021032312:TMP:7 mb:9 hour fcst:
+137:2672302:d=2021032312:RH:7 mb:9 hour fcst:
+138:2678749:d=2021032312:SPFH:7 mb:9 hour fcst:
+139:2700710:d=2021032312:VVEL:7 mb:9 hour fcst:
+140:2727129:d=2021032312:DZDT:7 mb:9 hour fcst:
+141:2753470:d=2021032312:UGRD:7 mb:9 hour fcst:
+142:2765021:d=2021032312:VGRD:7 mb:9 hour fcst:
+143:2784280:d=2021032312:ABSV:7 mb:9 hour fcst:
+144:2802569:d=2021032312:O3MR:7 mb:9 hour fcst:
+145:2821757:d=2021032312:HGT:10 mb:9 hour fcst:
+146:2839887:d=2021032312:TMP:10 mb:9 hour fcst:
+147:2856699:d=2021032312:RH:10 mb:9 hour fcst:
+148:2865131:d=2021032312:SPFH:10 mb:9 hour fcst:
+149:2887317:d=2021032312:VVEL:10 mb:9 hour fcst:
+150:2914681:d=2021032312:DZDT:10 mb:9 hour fcst:
+151:2940675:d=2021032312:UGRD:10 mb:9 hour fcst:
+152:2952326:d=2021032312:VGRD:10 mb:9 hour fcst:
+153:2971526:d=2021032312:ABSV:10 mb:9 hour fcst:
+154:2989870:d=2021032312:O3MR:10 mb:9 hour fcst:
+155:3009458:d=2021032312:HGT:15 mb:9 hour fcst:
+156:3029476:d=2021032312:TMP:15 mb:9 hour fcst:
+157:3046240:d=2021032312:RH:15 mb:9 hour fcst:
+158:3052062:d=2021032312:SPFH:15 mb:9 hour fcst:
+159:3074409:d=2021032312:VVEL:15 mb:9 hour fcst:
+160:3102795:d=2021032312:DZDT:15 mb:9 hour fcst:
+161:3128325:d=2021032312:UGRD:15 mb:9 hour fcst:
+162:3139909:d=2021032312:VGRD:15 mb:9 hour fcst:
+163:3158876:d=2021032312:ABSV:15 mb:9 hour fcst:
+164:3177016:d=2021032312:O3MR:15 mb:9 hour fcst:
+165:3197234:d=2021032312:HGT:20 mb:9 hour fcst:
+166:3217114:d=2021032312:TMP:20 mb:9 hour fcst:
+167:3233927:d=2021032312:RH:20 mb:9 hour fcst:
+168:3240550:d=2021032312:SPFH:20 mb:9 hour fcst:
+169:3258791:d=2021032312:VVEL:20 mb:9 hour fcst:
+170:3288036:d=2021032312:DZDT:20 mb:9 hour fcst:
+171:3318711:d=2021032312:UGRD:20 mb:9 hour fcst:
+172:3330176:d=2021032312:VGRD:20 mb:9 hour fcst:
+173:3349163:d=2021032312:ABSV:20 mb:9 hour fcst:
+174:3367273:d=2021032312:O3MR:20 mb:9 hour fcst:
+175:3393122:d=2021032312:HGT:30 mb:9 hour fcst:
+176:3412722:d=2021032312:TMP:30 mb:9 hour fcst:
+177:3429630:d=2021032312:RH:30 mb:9 hour fcst:
+178:3438023:d=2021032312:SPFH:30 mb:9 hour fcst:
+179:3462278:d=2021032312:VVEL:30 mb:9 hour fcst:
+180:3492380:d=2021032312:DZDT:30 mb:9 hour fcst:
+181:3522605:d=2021032312:UGRD:30 mb:9 hour fcst:
+182:3541549:d=2021032312:VGRD:30 mb:9 hour fcst:
+183:3560431:d=2021032312:ABSV:30 mb:9 hour fcst:
+184:3578655:d=2021032312:O3MR:30 mb:9 hour fcst:
+185:3606559:d=2021032312:HGT:40 mb:9 hour fcst:
+186:3626032:d=2021032312:TMP:40 mb:9 hour fcst:
+187:3643202:d=2021032312:RH:40 mb:9 hour fcst:
+188:3653271:d=2021032312:SPFH:40 mb:9 hour fcst:
+189:3671952:d=2021032312:VVEL:40 mb:9 hour fcst:
+190:3703029:d=2021032312:DZDT:40 mb:9 hour fcst:
+191:3733226:d=2021032312:UGRD:40 mb:9 hour fcst:
+192:3752234:d=2021032312:VGRD:40 mb:9 hour fcst:
+193:3771381:d=2021032312:ABSV:40 mb:9 hour fcst:
+194:3789676:d=2021032312:O3MR:40 mb:9 hour fcst:
+195:3818109:d=2021032312:HGT:50 mb:9 hour fcst:
+196:3837452:d=2021032312:TMP:50 mb:9 hour fcst:
+197:3854406:d=2021032312:RH:50 mb:9 hour fcst:
+198:3865695:d=2021032312:TCDC:50 mb:9 hour fcst:
+199:3865874:d=2021032312:SPFH:50 mb:9 hour fcst:
+200:3885720:d=2021032312:VVEL:50 mb:9 hour fcst:
+201:3917562:d=2021032312:DZDT:50 mb:9 hour fcst:
+202:3947511:d=2021032312:UGRD:50 mb:9 hour fcst:
+203:3966274:d=2021032312:VGRD:50 mb:9 hour fcst:
+204:3985207:d=2021032312:ABSV:50 mb:9 hour fcst:
+205:4003207:d=2021032312:CLMR:50 mb:9 hour fcst:
+206:4003386:d=2021032312:ICMR:50 mb:9 hour fcst:
+207:4003565:d=2021032312:RWMR:50 mb:9 hour fcst:
+208:4003744:d=2021032312:SNMR:50 mb:9 hour fcst:
+209:4003923:d=2021032312:GRLE:50 mb:9 hour fcst:
+210:4004102:d=2021032312:O3MR:50 mb:9 hour fcst:
+211:4031589:d=2021032312:HGT:70 mb:9 hour fcst:
+212:4051104:d=2021032312:TMP:70 mb:9 hour fcst:
+213:4068526:d=2021032312:RH:70 mb:9 hour fcst:
+215:4077295:d=2021032312:SPFH:70 mb:9 hour fcst:
+216:4099716:d=2021032312:VVEL:70 mb:9 hour fcst:
+217:4130171:d=2021032312:DZDT:70 mb:9 hour fcst:
+218:4162607:d=2021032312:UGRD:70 mb:9 hour fcst:
+219:4181478:d=2021032312:VGRD:70 mb:9 hour fcst:
+220:4200483:d=2021032312:ABSV:70 mb:9 hour fcst:
+226:4219425:d=2021032312:O3MR:70 mb:9 hour fcst:
+227:4246164:d=2021032312:HGT:100 mb:9 hour fcst:
+228:4266100:d=2021032312:TMP:100 mb:9 hour fcst:
+229:4283635:d=2021032312:RH:100 mb:9 hour fcst:
+230:4294058:d=2021032312:TCDC:100 mb:9 hour fcst:
+231:4294350:d=2021032312:SPFH:100 mb:9 hour fcst:
+232:4321448:d=2021032312:VVEL:100 mb:9 hour fcst:
+233:4347743:d=2021032312:DZDT:100 mb:9 hour fcst:
+234:4378198:d=2021032312:UGRD:100 mb:9 hour fcst:
+235:4397566:d=2021032312:VGRD:100 mb:9 hour fcst:
+236:4417196:d=2021032312:ABSV:100 mb:9 hour fcst:
+237:4435734:d=2021032312:CLMR:100 mb:9 hour fcst:
+238:4435913:d=2021032312:ICMR:100 mb:9 hour fcst:
+239:4436377:d=2021032312:RWMR:100 mb:9 hour fcst:
+240:4436556:d=2021032312:SNMR:100 mb:9 hour fcst:
+241:4437552:d=2021032312:GRLE:100 mb:9 hour fcst:
+242:4437731:d=2021032312:O3MR:100 mb:9 hour fcst:
+259:4688479:d=2021032312:HGT:150 mb:9 hour fcst:
+260:4709024:d=2021032312:TMP:150 mb:9 hour fcst:
+261:4726324:d=2021032312:RH:150 mb:9 hour fcst:
+262:4737845:d=2021032312:TCDC:150 mb:9 hour fcst:
+263:4741447:d=2021032312:SPFH:150 mb:9 hour fcst:
+264:4766698:d=2021032312:VVEL:150 mb:9 hour fcst:
+265:4795495:d=2021032312:DZDT:150 mb:9 hour fcst:
+266:4821124:d=2021032312:UGRD:150 mb:9 hour fcst:
+267:4840917:d=2021032312:VGRD:150 mb:9 hour fcst:
+268:4861063:d=2021032312:ABSV:150 mb:9 hour fcst:
+269:4879922:d=2021032312:CLMR:150 mb:9 hour fcst:
+270:4880101:d=2021032312:ICMR:150 mb:9 hour fcst:
+271:4886216:d=2021032312:RWMR:150 mb:9 hour fcst:
+272:4886395:d=2021032312:SNMR:150 mb:9 hour fcst:
+273:4893206:d=2021032312:GRLE:150 mb:9 hour fcst:
+274:4893963:d=2021032312:O3MR:150 mb:9 hour fcst:
+291:5145372:d=2021032312:HGT:200 mb:9 hour fcst:
+292:5166560:d=2021032312:TMP:200 mb:9 hour fcst:
+293:5184780:d=2021032312:RH:200 mb:9 hour fcst:
+294:5199799:d=2021032312:TCDC:200 mb:9 hour fcst:
+295:5206344:d=2021032312:SPFH:200 mb:9 hour fcst:
+296:5232220:d=2021032312:VVEL:200 mb:9 hour fcst:
+297:5262396:d=2021032312:DZDT:200 mb:9 hour fcst:
+298:5288526:d=2021032312:UGRD:200 mb:9 hour fcst:
+299:5301627:d=2021032312:VGRD:200 mb:9 hour fcst:
+300:5315343:d=2021032312:ABSV:200 mb:9 hour fcst:
+301:5335351:d=2021032312:CLMR:200 mb:9 hour fcst:
+302:5335530:d=2021032312:ICMR:200 mb:9 hour fcst:
+303:5343974:d=2021032312:RWMR:200 mb:9 hour fcst:
+304:5344153:d=2021032312:SNMR:200 mb:9 hour fcst:
+305:5350240:d=2021032312:GRLE:200 mb:9 hour fcst:
+306:5351382:d=2021032312:O3MR:200 mb:9 hour fcst:
+323:5611927:d=2021032312:HGT:250 mb:9 hour fcst:
+324:5633983:d=2021032312:TMP:250 mb:9 hour fcst:
+325:5652766:d=2021032312:RH:250 mb:9 hour fcst:
+326:5670475:d=2021032312:TCDC:250 mb:9 hour fcst:
+327:5680312:d=2021032312:SPFH:250 mb:9 hour fcst:
+328:5708319:d=2021032312:VVEL:250 mb:9 hour fcst:
+329:5737282:d=2021032312:DZDT:250 mb:9 hour fcst:
+330:5763999:d=2021032312:UGRD:250 mb:9 hour fcst:
+331:5777784:d=2021032312:VGRD:250 mb:9 hour fcst:
+332:5792460:d=2021032312:ABSV:250 mb:9 hour fcst:
+333:5813767:d=2021032312:CLMR:250 mb:9 hour fcst:
+334:5813946:d=2021032312:ICMR:250 mb:9 hour fcst:
+335:5826230:d=2021032312:RWMR:250 mb:9 hour fcst:
+336:5826409:d=2021032312:SNMR:250 mb:9 hour fcst:
+337:5834676:d=2021032312:GRLE:250 mb:9 hour fcst:
+338:5836479:d=2021032312:O3MR:250 mb:9 hour fcst:
+355:6118653:d=2021032312:HGT:300 mb:9 hour fcst:
+356:6140923:d=2021032312:TMP:300 mb:9 hour fcst:
+357:6159616:d=2021032312:RH:300 mb:9 hour fcst:
+358:6178420:d=2021032312:TCDC:300 mb:9 hour fcst:
+359:6190277:d=2021032312:SPFH:300 mb:9 hour fcst:
+360:6216749:d=2021032312:VVEL:300 mb:9 hour fcst:
+361:6241280:d=2021032312:DZDT:300 mb:9 hour fcst:
+362:6268708:d=2021032312:UGRD:300 mb:9 hour fcst:
+363:6283060:d=2021032312:VGRD:300 mb:9 hour fcst:
+364:6298221:d=2021032312:ABSV:300 mb:9 hour fcst:
+365:6320206:d=2021032312:CLMR:300 mb:9 hour fcst:
+366:6320385:d=2021032312:ICMR:300 mb:9 hour fcst:
+367:6334264:d=2021032312:RWMR:300 mb:9 hour fcst:
+368:6334443:d=2021032312:SNMR:300 mb:9 hour fcst:
+369:6345795:d=2021032312:GRLE:300 mb:9 hour fcst:
+370:6347914:d=2021032312:O3MR:300 mb:9 hour fcst:
+387:6633714:d=2021032312:HGT:350 mb:9 hour fcst:
+388:6655947:d=2021032312:TMP:350 mb:9 hour fcst:
+389:6674171:d=2021032312:RH:350 mb:9 hour fcst:
+390:6693323:d=2021032312:TCDC:350 mb:9 hour fcst:
+391:6705702:d=2021032312:SPFH:350 mb:9 hour fcst:
+392:6733996:d=2021032312:VVEL:350 mb:9 hour fcst:
+393:6759245:d=2021032312:DZDT:350 mb:9 hour fcst:
+394:6786849:d=2021032312:UGRD:350 mb:9 hour fcst:
+395:6801191:d=2021032312:VGRD:350 mb:9 hour fcst:
+396:6816375:d=2021032312:ABSV:350 mb:9 hour fcst:
+397:6838583:d=2021032312:CLMR:350 mb:9 hour fcst:
+398:6838762:d=2021032312:ICMR:350 mb:9 hour fcst:
+399:6853532:d=2021032312:RWMR:350 mb:9 hour fcst:
+400:6853711:d=2021032312:SNMR:350 mb:9 hour fcst:
+401:6865117:d=2021032312:GRLE:350 mb:9 hour fcst:
+402:6867661:d=2021032312:O3MR:350 mb:9 hour fcst:
+419:7152400:d=2021032312:HGT:400 mb:9 hour fcst:
+420:7174476:d=2021032312:TMP:400 mb:9 hour fcst:
+421:7192739:d=2021032312:RH:400 mb:9 hour fcst:
+422:7211980:d=2021032312:TCDC:400 mb:9 hour fcst:
+423:7224273:d=2021032312:SPFH:400 mb:9 hour fcst:
+424:7252311:d=2021032312:VVEL:400 mb:9 hour fcst:
+425:7277941:d=2021032312:DZDT:400 mb:9 hour fcst:
+426:7305619:d=2021032312:UGRD:400 mb:9 hour fcst:
+427:7327462:d=2021032312:VGRD:400 mb:9 hour fcst:
+428:7342408:d=2021032312:ABSV:400 mb:9 hour fcst:
+429:7364455:d=2021032312:CLMR:400 mb:9 hour fcst:
+430:7364808:d=2021032312:ICMR:400 mb:9 hour fcst:
+431:7379671:d=2021032312:RWMR:400 mb:9 hour fcst:
+432:7379850:d=2021032312:SNMR:400 mb:9 hour fcst:
+433:7393657:d=2021032312:GRLE:400 mb:9 hour fcst:
+434:7396198:d=2021032312:O3MR:400 mb:9 hour fcst:
+451:7691938:d=2021032312:HGT:450 mb:9 hour fcst:
+452:7716278:d=2021032312:TMP:450 mb:9 hour fcst:
+453:7734796:d=2021032312:RH:450 mb:9 hour fcst:
+454:7754431:d=2021032312:TCDC:450 mb:9 hour fcst:
+455:7766680:d=2021032312:SPFH:450 mb:9 hour fcst:
+456:7796337:d=2021032312:VVEL:450 mb:9 hour fcst:
+457:7822226:d=2021032312:DZDT:450 mb:9 hour fcst:
+458:7849798:d=2021032312:UGRD:450 mb:9 hour fcst:
+459:7871296:d=2021032312:VGRD:450 mb:9 hour fcst:
+460:7893805:d=2021032312:ABSV:450 mb:9 hour fcst:
+461:7915469:d=2021032312:CLMR:450 mb:9 hour fcst:
+462:7916576:d=2021032312:ICMR:450 mb:9 hour fcst:
+463:7930137:d=2021032312:RWMR:450 mb:9 hour fcst:
+464:7930507:d=2021032312:SNMR:450 mb:9 hour fcst:
+465:7944755:d=2021032312:GRLE:450 mb:9 hour fcst:
+466:7946530:d=2021032312:O3MR:450 mb:9 hour fcst:
+483:8249459:d=2021032312:HGT:500 mb:9 hour fcst:
+484:8273665:d=2021032312:TMP:500 mb:9 hour fcst:
+485:8292478:d=2021032312:RH:500 mb:9 hour fcst:
+486:8312371:d=2021032312:TCDC:500 mb:9 hour fcst:
+487:8324856:d=2021032312:SPFH:500 mb:9 hour fcst:
+488:8353420:d=2021032312:VVEL:500 mb:9 hour fcst:
+489:8379488:d=2021032312:DZDT:500 mb:9 hour fcst:
+490:8407006:d=2021032312:UGRD:500 mb:9 hour fcst:
+491:8428339:d=2021032312:VGRD:500 mb:9 hour fcst:
+492:8450316:d=2021032312:ABSV:500 mb:9 hour fcst:
+493:8471422:d=2021032312:CLMR:500 mb:9 hour fcst:
+494:8473613:d=2021032312:ICMR:500 mb:9 hour fcst:
+495:8488517:d=2021032312:RWMR:500 mb:9 hour fcst:
+496:8489405:d=2021032312:SNMR:500 mb:9 hour fcst:
+497:8503885:d=2021032312:GRLE:500 mb:9 hour fcst:
+498:8505862:d=2021032312:O3MR:500 mb:9 hour fcst:
+515:8809949:d=2021032312:HGT:550 mb:9 hour fcst:
+516:8833809:d=2021032312:TMP:550 mb:9 hour fcst:
+517:8852795:d=2021032312:RH:550 mb:9 hour fcst:
+518:8872957:d=2021032312:TCDC:550 mb:9 hour fcst:
+519:8885873:d=2021032312:SPFH:550 mb:9 hour fcst:
+520:8915526:d=2021032312:VVEL:550 mb:9 hour fcst:
+521:8942061:d=2021032312:DZDT:550 mb:9 hour fcst:
+522:8969493:d=2021032312:UGRD:550 mb:9 hour fcst:
+523:8990299:d=2021032312:VGRD:550 mb:9 hour fcst:
+524:9012013:d=2021032312:ABSV:550 mb:9 hour fcst:
+525:9032868:d=2021032312:CLMR:550 mb:9 hour fcst:
+526:9036564:d=2021032312:ICMR:550 mb:9 hour fcst:
+527:9049981:d=2021032312:RWMR:550 mb:9 hour fcst:
+528:9051253:d=2021032312:SNMR:550 mb:9 hour fcst:
+529:9065726:d=2021032312:GRLE:550 mb:9 hour fcst:
+530:9067465:d=2021032312:O3MR:550 mb:9 hour fcst:
+547:9370741:d=2021032312:HGT:600 mb:9 hour fcst:
+548:9394543:d=2021032312:TMP:600 mb:9 hour fcst:
+549:9413670:d=2021032312:RH:600 mb:9 hour fcst:
+550:9433976:d=2021032312:TCDC:600 mb:9 hour fcst:
+551:9447154:d=2021032312:SPFH:600 mb:9 hour fcst:
+552:9477954:d=2021032312:VVEL:600 mb:9 hour fcst:
+553:9504635:d=2021032312:DZDT:600 mb:9 hour fcst:
+554:9532103:d=2021032312:UGRD:600 mb:9 hour fcst:
+555:9552951:d=2021032312:VGRD:600 mb:9 hour fcst:
+556:9574536:d=2021032312:ABSV:600 mb:9 hour fcst:
+557:9595237:d=2021032312:CLMR:600 mb:9 hour fcst:
+558:9600728:d=2021032312:ICMR:600 mb:9 hour fcst:
+559:9613300:d=2021032312:RWMR:600 mb:9 hour fcst:
+560:9615469:d=2021032312:SNMR:600 mb:9 hour fcst:
+561:9628807:d=2021032312:GRLE:600 mb:9 hour fcst:
+562:9630337:d=2021032312:O3MR:600 mb:9 hour fcst:
+579:9935682:d=2021032312:HGT:650 mb:9 hour fcst:
+580:9960325:d=2021032312:TMP:650 mb:9 hour fcst:
+581:9979921:d=2021032312:RH:650 mb:9 hour fcst:
+582:10000377:d=2021032312:TCDC:650 mb:9 hour fcst:
+583:10013979:d=2021032312:SPFH:650 mb:9 hour fcst:
+584:10043046:d=2021032312:VVEL:650 mb:9 hour fcst:
+585:10069801:d=2021032312:DZDT:650 mb:9 hour fcst:
+586:10097346:d=2021032312:UGRD:650 mb:9 hour fcst:
+587:10118224:d=2021032312:VGRD:650 mb:9 hour fcst:
+588:10139926:d=2021032312:ABSV:650 mb:9 hour fcst:
+589:10160932:d=2021032312:CLMR:650 mb:9 hour fcst:
+590:10166893:d=2021032312:ICMR:650 mb:9 hour fcst:
+591:10178673:d=2021032312:RWMR:650 mb:9 hour fcst:
+592:10181495:d=2021032312:SNMR:650 mb:9 hour fcst:
+593:10194757:d=2021032312:GRLE:650 mb:9 hour fcst:
+594:10196447:d=2021032312:O3MR:650 mb:9 hour fcst:
+611:10511808:d=2021032312:HGT:700 mb:9 hour fcst:
+612:10536404:d=2021032312:TMP:700 mb:9 hour fcst:
+613:10556294:d=2021032312:RH:700 mb:9 hour fcst:
+614:10576880:d=2021032312:TCDC:700 mb:9 hour fcst:
+615:10590807:d=2021032312:SPFH:700 mb:9 hour fcst:
+616:10619701:d=2021032312:VVEL:700 mb:9 hour fcst:
+617:10646760:d=2021032312:DZDT:700 mb:9 hour fcst:
+618:10674220:d=2021032312:UGRD:700 mb:9 hour fcst:
+619:10694956:d=2021032312:VGRD:700 mb:9 hour fcst:
+620:10716633:d=2021032312:ABSV:700 mb:9 hour fcst:
+621:10737709:d=2021032312:CLMR:700 mb:9 hour fcst:
+622:10745921:d=2021032312:ICMR:700 mb:9 hour fcst:
+623:10756898:d=2021032312:RWMR:700 mb:9 hour fcst:
+624:10760464:d=2021032312:SNMR:700 mb:9 hour fcst:
+625:10773187:d=2021032312:GRLE:700 mb:9 hour fcst:
+626:10774960:d=2021032312:O3MR:700 mb:9 hour fcst:
+643:11090625:d=2021032312:HGT:750 mb:9 hour fcst:
+644:11115285:d=2021032312:TMP:750 mb:9 hour fcst:
+645:11135479:d=2021032312:RH:750 mb:9 hour fcst:
+646:11156188:d=2021032312:TCDC:750 mb:9 hour fcst:
+647:11170762:d=2021032312:SPFH:750 mb:9 hour fcst:
+648:11200062:d=2021032312:VVEL:750 mb:9 hour fcst:
+649:11227041:d=2021032312:DZDT:750 mb:9 hour fcst:
+650:11254373:d=2021032312:UGRD:750 mb:9 hour fcst:
+651:11275249:d=2021032312:VGRD:750 mb:9 hour fcst:
+652:11296961:d=2021032312:ABSV:750 mb:9 hour fcst:
+653:11318216:d=2021032312:CLMR:750 mb:9 hour fcst:
+654:11327703:d=2021032312:ICMR:750 mb:9 hour fcst:
+655:11338748:d=2021032312:RWMR:750 mb:9 hour fcst:
+656:11343058:d=2021032312:SNMR:750 mb:9 hour fcst:
+657:11355739:d=2021032312:GRLE:750 mb:9 hour fcst:
+658:11357817:d=2021032312:O3MR:750 mb:9 hour fcst:
+675:11683581:d=2021032312:HGT:800 mb:9 hour fcst:
+676:11708453:d=2021032312:TMP:800 mb:9 hour fcst:
+677:11729049:d=2021032312:RH:800 mb:9 hour fcst:
+678:11749848:d=2021032312:TCDC:800 mb:9 hour fcst:
+679:11766106:d=2021032312:SPFH:800 mb:9 hour fcst:
+680:11795928:d=2021032312:VVEL:800 mb:9 hour fcst:
+681:11823087:d=2021032312:DZDT:800 mb:9 hour fcst:
+682:11850244:d=2021032312:UGRD:800 mb:9 hour fcst:
+683:11871272:d=2021032312:VGRD:800 mb:9 hour fcst:
+684:11893011:d=2021032312:ABSV:800 mb:9 hour fcst:
+685:11914353:d=2021032312:CLMR:800 mb:9 hour fcst:
+686:11926300:d=2021032312:ICMR:800 mb:9 hour fcst:
+687:11936990:d=2021032312:RWMR:800 mb:9 hour fcst:
+688:11942860:d=2021032312:SNMR:800 mb:9 hour fcst:
+689:11955261:d=2021032312:GRLE:800 mb:9 hour fcst:
+690:11957284:d=2021032312:O3MR:800 mb:9 hour fcst:
+707:12288028:d=2021032312:HGT:850 mb:9 hour fcst:
+708:12313100:d=2021032312:TMP:850 mb:9 hour fcst:
+709:12334143:d=2021032312:RH:850 mb:9 hour fcst:
+710:12355037:d=2021032312:TCDC:850 mb:9 hour fcst:
+711:12373758:d=2021032312:SPFH:850 mb:9 hour fcst:
+712:12403578:d=2021032312:VVEL:850 mb:9 hour fcst:
+713:12430397:d=2021032312:DZDT:850 mb:9 hour fcst:
+714:12457280:d=2021032312:UGRD:850 mb:9 hour fcst:
+715:12478498:d=2021032312:VGRD:850 mb:9 hour fcst:
+716:12500258:d=2021032312:ABSV:850 mb:9 hour fcst:
+717:12521593:d=2021032312:CLMR:850 mb:9 hour fcst:
+718:12537105:d=2021032312:ICMR:850 mb:9 hour fcst:
+719:12547197:d=2021032312:RWMR:850 mb:9 hour fcst:
+720:12555211:d=2021032312:SNMR:850 mb:9 hour fcst:
+721:12567034:d=2021032312:GRLE:850 mb:9 hour fcst:
+722:12569155:d=2021032312:O3MR:850 mb:9 hour fcst:
+739:12903066:d=2021032312:HGT:900 mb:9 hour fcst:
+740:12928347:d=2021032312:TMP:900 mb:9 hour fcst:
+741:12949597:d=2021032312:RH:900 mb:9 hour fcst:
+742:12969907:d=2021032312:TCDC:900 mb:9 hour fcst:
+743:12988613:d=2021032312:SPFH:900 mb:9 hour fcst:
+744:13018590:d=2021032312:VVEL:900 mb:9 hour fcst:
+745:13044940:d=2021032312:DZDT:900 mb:9 hour fcst:
+746:13071198:d=2021032312:UGRD:900 mb:9 hour fcst:
+747:13092528:d=2021032312:VGRD:900 mb:9 hour fcst:
+748:13114296:d=2021032312:ABSV:900 mb:9 hour fcst:
+749:13135441:d=2021032312:CLMR:900 mb:9 hour fcst:
+750:13147683:d=2021032312:ICMR:900 mb:9 hour fcst:
+751:13156984:d=2021032312:RWMR:900 mb:9 hour fcst:
+752:13163985:d=2021032312:SNMR:900 mb:9 hour fcst:
+753:13175005:d=2021032312:GRLE:900 mb:9 hour fcst:
+754:13176886:d=2021032312:O3MR:900 mb:9 hour fcst:
+755:13203404:d=2021032312:HGT:925 mb:9 hour fcst:
+756:13228817:d=2021032312:TMP:925 mb:9 hour fcst:
+757:13250122:d=2021032312:RH:925 mb:9 hour fcst:
+758:13270280:d=2021032312:TCDC:925 mb:9 hour fcst:
+759:13287179:d=2021032312:SPFH:925 mb:9 hour fcst:
+760:13314676:d=2021032312:VVEL:925 mb:9 hour fcst:
+761:13340616:d=2021032312:DZDT:925 mb:9 hour fcst:
+762:13366229:d=2021032312:UGRD:925 mb:9 hour fcst:
+763:13387615:d=2021032312:VGRD:925 mb:9 hour fcst:
+764:13409433:d=2021032312:ABSV:925 mb:9 hour fcst:
+765:13430427:d=2021032312:CLMR:925 mb:9 hour fcst:
+766:13439249:d=2021032312:ICMR:925 mb:9 hour fcst:
+767:13447685:d=2021032312:RWMR:925 mb:9 hour fcst:
+768:13454111:d=2021032312:SNMR:925 mb:9 hour fcst:
+769:13465539:d=2021032312:GRLE:925 mb:9 hour fcst:
+770:13467524:d=2021032312:O3MR:925 mb:9 hour fcst:
+771:13494036:d=2021032312:HGT:950 mb:9 hour fcst:
+772:13519641:d=2021032312:TMP:950 mb:9 hour fcst:
+773:13540943:d=2021032312:RH:950 mb:9 hour fcst:
+774:13560822:d=2021032312:TCDC:950 mb:9 hour fcst:
+775:13573074:d=2021032312:SPFH:950 mb:9 hour fcst:
+776:13600512:d=2021032312:VVEL:950 mb:9 hour fcst:
+777:13625830:d=2021032312:DZDT:950 mb:9 hour fcst:
+778:13650734:d=2021032312:UGRD:950 mb:9 hour fcst:
+779:13672074:d=2021032312:VGRD:950 mb:9 hour fcst:
+780:13693899:d=2021032312:ABSV:950 mb:9 hour fcst:
+781:13714947:d=2021032312:CLMR:950 mb:9 hour fcst:
+782:13721903:d=2021032312:ICMR:950 mb:9 hour fcst:
+783:13729165:d=2021032312:RWMR:950 mb:9 hour fcst:
+784:13737808:d=2021032312:SNMR:950 mb:9 hour fcst:
+785:13748471:d=2021032312:GRLE:950 mb:9 hour fcst:
+786:13750422:d=2021032312:O3MR:950 mb:9 hour fcst:
+787:13776901:d=2021032312:HINDEX:surface:9 hour fcst:
+788:13781974:d=2021032312:HGT:975 mb:9 hour fcst:
+789:13807701:d=2021032312:TMP:975 mb:9 hour fcst:
+790:13828905:d=2021032312:RH:975 mb:9 hour fcst:
+791:13848408:d=2021032312:TCDC:975 mb:9 hour fcst:
+792:13855598:d=2021032312:SPFH:975 mb:9 hour fcst:
+793:13882898:d=2021032312:VVEL:975 mb:9 hour fcst:
+794:13907062:d=2021032312:DZDT:975 mb:9 hour fcst:
+795:13930693:d=2021032312:UGRD:975 mb:9 hour fcst:
+796:13951922:d=2021032312:VGRD:975 mb:9 hour fcst:
+797:13973610:d=2021032312:ABSV:975 mb:9 hour fcst:
+798:13994488:d=2021032312:CLMR:975 mb:9 hour fcst:
+799:13999920:d=2021032312:ICMR:975 mb:9 hour fcst:
+800:14005260:d=2021032312:RWMR:975 mb:9 hour fcst:
+801:14014081:d=2021032312:SNMR:975 mb:9 hour fcst:
+802:14022142:d=2021032312:GRLE:975 mb:9 hour fcst:
+803:14023885:d=2021032312:O3MR:975 mb:9 hour fcst:
+804:14050338:d=2021032312:TMP:1000 mb:9 hour fcst:
+805:14071444:d=2021032312:RH:1000 mb:9 hour fcst:
+806:14090560:d=2021032312:TCDC:1000 mb:9 hour fcst:
+807:14093582:d=2021032312:SPFH:1000 mb:9 hour fcst:
+808:14120860:d=2021032312:VVEL:1000 mb:9 hour fcst:
+809:14142919:d=2021032312:DZDT:1000 mb:9 hour fcst:
+810:14164465:d=2021032312:UGRD:1000 mb:9 hour fcst:
+811:14185242:d=2021032312:VGRD:1000 mb:9 hour fcst:
+812:14206282:d=2021032312:ABSV:1000 mb:9 hour fcst:
+813:14226657:d=2021032312:CLMR:1000 mb:9 hour fcst:
+814:14229426:d=2021032312:ICMR:1000 mb:9 hour fcst:
+815:14231195:d=2021032312:RWMR:1000 mb:9 hour fcst:
+816:14240557:d=2021032312:SNMR:1000 mb:9 hour fcst:
+817:14244577:d=2021032312:GRLE:1000 mb:9 hour fcst:
+818:14245829:d=2021032312:O3MR:1000 mb:9 hour fcst:
+819:14272317:d=2021032312:MSLET:mean sea level:9 hour fcst:
+820:14298965:d=2021032312:HGT:1000 mb:9 hour fcst:
+821:14324922:d=2021032312:SDEN:surface:9 hour fcst:
+822:14353489:d=2021032312:REFD:4000 m above ground:9 hour fcst:
+823:14364139:d=2021032312:REFD:1000 m above ground:9 hour fcst:
+824:14386907:d=2021032312:PRES:surface:9 hour fcst:
+825:14412715:d=2021032312:HGT:surface:9 hour fcst:
+826:14428785:d=2021032312:TMP:surface:9 hour fcst:
+827:14446057:d=2021032312:TSOIL:0-0.1 m below ground:9 hour fcst:
+828:14457506:d=2021032312:SOILW:0-0.1 m below ground:9 hour fcst:
+829:14466419:d=2021032312:SOILL:0-0.1 m below ground:9 hour fcst:
+830:14475223:d=2021032312:TSOIL:0.1-0.4 m below ground:9 hour fcst:
+831:14489920:d=2021032312:SOILW:0.1-0.4 m below ground:9 hour fcst:
+832:14498948:d=2021032312:SOILL:0.1-0.4 m below ground:9 hour fcst:
+833:14507838:d=2021032312:TSOIL:0.4-1 m below ground:9 hour fcst:
+834:14521451:d=2021032312:SOILW:0.4-1 m below ground:9 hour fcst:
+835:14530562:d=2021032312:SOILL:0.4-1 m below ground:9 hour fcst:
+836:14539434:d=2021032312:TSOIL:1-2 m below ground:9 hour fcst:
+837:14553008:d=2021032312:SOILW:1-2 m below ground:9 hour fcst:
+838:14561960:d=2021032312:SOILL:1-2 m below ground:9 hour fcst:
+839:14570846:d=2021032312:CNWAT:surface:9 hour fcst:
+840:14576874:d=2021032312:WEASD:surface:9 hour fcst:
+841:14589779:d=2021032312:SNOD:surface:9 hour fcst:
+842:14603995:d=2021032312:PEVPR:surface:9 hour fcst:
+843:14617646:d=2021032312:ICETK:surface:9 hour fcst:
+845:14629134:d=2021032312:TMP:2 m above ground:9 hour fcst:
+846:14650184:d=2021032312:SPFH:2 m above ground:9 hour fcst:
+847:14679222:d=2021032312:DPT:2 m above ground:9 hour fcst:
+848:14700898:d=2021032312:RH:2 m above ground:9 hour fcst:
+849:14719575:d=2021032312:APTMP:2 m above ground:9 hour fcst:
+850:14734296:d=2021032312:TMAX:2 m above ground:6-9 hour max fcst:
+851:14755248:d=2021032312:TMIN:2 m above ground:6-9 hour min fcst:
+852:14776310:d=2021032312:UGRD:10 m above ground:9 hour fcst:
+853:14796798:d=2021032312:VGRD:10 m above ground:9 hour fcst:
+854:14817515:d=2021032312:ICEG:10 m above mean sea level:9 hour fcst:
+855:14818255:d=2021032312:CPOFP:surface:9 hour fcst:
+856:14838762:d=2021032312:CPRAT:surface:9 hour fcst:
+857:14860406:d=2021032312:PRATE:surface:9 hour fcst:
+858:14885053:d=2021032312:CPRAT:surface:6-9 hour ave fcst:
+859:14908999:d=2021032312:PRATE:surface:6-9 hour ave fcst:
+860:14934254:d=2021032312:APCP:surface:6-9 hour acc fcst:
+861:14942607:d=2021032312:APCP:surface:0-9 hour acc fcst:
+862:14953331:d=2021032312:ACPCP:surface:6-9 hour acc fcst:
+863:14960353:d=2021032312:ACPCP:surface:0-9 hour acc fcst:
+866:14981310:d=2021032312:FROZR:surface:0-9 hour acc fcst:
+867:14989317:d=2021032312:FRZR:surface:0-9 hour acc fcst:
+868:14991512:d=2021032312:TSNOWP:surface:0-9 hour acc fcst:
+869:14998107:d=2021032312:WATR:surface:6-9 hour acc fcst:
+870:15009593:d=2021032312:FROZR:surface:6-9 hour acc fcst:
+871:15013262:d=2021032312:FRZR:surface:6-9 hour acc fcst:
+872:15014862:d=2021032312:TSNOWP:surface:6-9 hour acc fcst:
+873:15021889:d=2021032312:CSNOW:surface:9 hour fcst:
+874:15023593:d=2021032312:CICEP:surface:9 hour fcst:
+875:15023772:d=2021032312:CFRZR:surface:9 hour fcst:
+876:15023992:d=2021032312:CRAIN:surface:9 hour fcst:
+877:15027595:d=2021032312:CSNOW:surface:6-9 hour ave fcst:
+878:15029256:d=2021032312:CICEP:surface:6-9 hour ave fcst:
+879:15029459:d=2021032312:CFRZR:surface:6-9 hour ave fcst:
+880:15029717:d=2021032312:CRAIN:surface:6-9 hour ave fcst:
+881:15032300:d=2021032312:LHTFL:surface:6-9 hour ave fcst:
+882:15047268:d=2021032312:SHTFL:surface:6-9 hour ave fcst:
+883:15068252:d=2021032312:GFLUX:surface:6-9 hour ave fcst:
+884:15081698:d=2021032312:UFLX:surface:6-9 hour ave fcst:
+885:15097940:d=2021032312:VFLX:surface:6-9 hour ave fcst:
+886:15114124:d=2021032312:SFCR:surface:9 hour fcst:
+887:15134844:d=2021032312:FRICV:surface:9 hour fcst:
+888:15156802:d=2021032312:U-GWD:surface:6-9 hour ave fcst:
+889:15175684:d=2021032312:V-GWD:surface:6-9 hour ave fcst:
+890:15194325:d=2021032312:VEG:surface:9 hour fcst:
+891:15202349:d=2021032312:SOTYP:surface:9 hour fcst:
+892:15213398:d=2021032312:WILT:surface:9 hour fcst:
+893:15223308:d=2021032312:FLDCP:surface:9 hour fcst:
+894:15233514:d=2021032312:SUNSD:surface:9 hour fcst:
+895:15248651:d=2021032312:LFTX:surface:9 hour fcst:
+896:15262907:d=2021032312:CAPE:surface:9 hour fcst:
+897:15277836:d=2021032312:CIN:surface:9 hour fcst:
+898:15291356:d=2021032312:PWAT:entire atmosphere (considered as a single layer):9 hour fcst:
+899:15318550:d=2021032312:CWAT:entire atmosphere (considered as a single layer):9 hour fcst:
+900:15345587:d=2021032312:RH:entire atmosphere (considered as a single layer):9 hour fcst:
+901:15360994:d=2021032312:TOZNE:entire atmosphere (considered as a single layer):9 hour fcst:
+902:15376233:d=2021032312:LCDC:low cloud layer:9 hour fcst:
+903:15397572:d=2021032312:LCDC:low cloud layer:6-9 hour ave fcst:
+904:15419746:d=2021032312:MCDC:middle cloud layer:9 hour fcst:
+905:15436455:d=2021032312:MCDC:middle cloud layer:6-9 hour ave fcst:
+906:15454085:d=2021032312:HCDC:high cloud layer:9 hour fcst:
+907:15468232:d=2021032312:HCDC:high cloud layer:6-9 hour ave fcst:
+908:15484860:d=2021032312:TCDC:entire atmosphere (considered as a single layer):9 hour fcst:
+909:15504753:d=2021032312:TCDC:entire atmosphere (considered as a single layer):6-9 hour ave fcst:
+910:15526194:d=2021032312:HGT:cloud ceiling:9 hour fcst:
+911:15559914:d=2021032312:PRES:convective cloud bottom level:9 hour fcst:
+912:15573807:d=2021032312:PRES:low cloud bottom level:6-9 hour ave fcst:
+913:15600831:d=2021032312:PRES:middle cloud bottom level:6-9 hour ave fcst:
+914:15616861:d=2021032312:PRES:high cloud bottom level:6-9 hour ave fcst:
+916:15660645:d=2021032312:PRES:convective cloud top level:9 hour fcst:
+917:15675240:d=2021032312:PRES:low cloud top level:6-9 hour ave fcst:
+918:15703024:d=2021032312:PRES:middle cloud top level:6-9 hour ave fcst:
+919:15719226:d=2021032312:PRES:high cloud top level:6-9 hour ave fcst:
+920:15735273:d=2021032312:TMP:low cloud top level:6-9 hour ave fcst:
+921:15755928:d=2021032312:TMP:middle cloud top level:6-9 hour ave fcst:
+922:15768941:d=2021032312:TMP:high cloud top level:6-9 hour ave fcst:
+923:15782378:d=2021032312:TCDC:convective cloud layer:9 hour fcst:
+924:15803276:d=2021032312:TCDC:boundary layer cloud layer:6-9 hour ave fcst:
+925:15825682:d=2021032312:CWORK:entire atmosphere (considered as a single layer):6-9 hour ave fcst:
+926:15838631:d=2021032312:DSWRF:surface:6-9 hour ave fcst:
+929:15891440:d=2021032312:DLWRF:surface:6-9 hour ave fcst:
+930:15913703:d=2021032312:USWRF:surface:6-9 hour ave fcst:
+931:15931063:d=2021032312:ULWRF:surface:6-9 hour ave fcst:
+932:15950398:d=2021032312:USWRF:top of atmosphere:6-9 hour ave fcst:
+933:15970692:d=2021032312:ULWRF:top of atmosphere:6-9 hour ave fcst:
+934:15991670:d=2021032312:HLCY:3000-0 m above ground:9 hour fcst:
+935:16007427:d=2021032312:HLCY:1000-0 m above ground:9 hour fcst:
+936:16029581:d=2021032312:USTM:6000-0 m above ground:9 hour fcst:
+937:16052585:d=2021032312:VSTM:6000-0 m above ground:9 hour fcst:
+938:16075171:d=2021032312:PRES:tropopause:9 hour fcst:
+939:16105234:d=2021032312:ICAHT:tropopause:9 hour fcst:
+940:16136307:d=2021032312:HGT:tropopause:9 hour fcst:
+941:16164760:d=2021032312:TMP:tropopause:9 hour fcst:
+942:16186626:d=2021032312:UGRD:tropopause:9 hour fcst:
+943:16202549:d=2021032312:VGRD:tropopause:9 hour fcst:
+944:16218342:d=2021032312:VWSH:tropopause:9 hour fcst:
+945:16237012:d=2021032312:PRES:max wind:9 hour fcst:
+946:16271441:d=2021032312:ICAHT:max wind:9 hour fcst:
+947:16306720:d=2021032312:HGT:max wind:9 hour fcst:
+948:16342190:d=2021032312:UGRD:max wind:9 hour fcst:
+949:16358546:d=2021032312:VGRD:max wind:9 hour fcst:
+950:16375965:d=2021032312:TMP:max wind:9 hour fcst:
+951:16402671:d=2021032312:UGRD:20 m above ground:9 hour fcst:
+952:16423063:d=2021032312:VGRD:20 m above ground:9 hour fcst:
+953:16443825:d=2021032312:UGRD:30 m above ground:9 hour fcst:
+954:16464598:d=2021032312:VGRD:30 m above ground:9 hour fcst:
+955:16485562:d=2021032312:UGRD:40 m above ground:9 hour fcst:
+956:16506444:d=2021032312:VGRD:40 m above ground:9 hour fcst:
+957:16527525:d=2021032312:UGRD:50 m above ground:9 hour fcst:
+958:16548447:d=2021032312:VGRD:50 m above ground:9 hour fcst:
+959:16569640:d=2021032312:TMP:80 m above ground:9 hour fcst:
+960:16590610:d=2021032312:SPFH:80 m above ground:9 hour fcst:
+961:16619467:d=2021032312:PRES:80 m above ground:9 hour fcst:
+962:16645203:d=2021032312:UGRD:80 m above ground:9 hour fcst:
+963:16666107:d=2021032312:VGRD:80 m above ground:9 hour fcst:
+964:16687470:d=2021032312:TMP:100 m above ground:9 hour fcst:
+965:16708435:d=2021032312:UGRD:100 m above ground:9 hour fcst:
+966:16729420:d=2021032312:VGRD:100 m above ground:9 hour fcst:
+979:16994980:d=2021032312:TMP:1829 m above mean sea level:9 hour fcst:
+980:17016622:d=2021032312:UGRD:1829 m above mean sea level:9 hour fcst:
+981:17038771:d=2021032312:VGRD:1829 m above mean sea level:9 hour fcst:
+982:17061575:d=2021032312:TMP:2743 m above mean sea level:9 hour fcst:
+983:17083068:d=2021032312:UGRD:2743 m above mean sea level:9 hour fcst:
+984:17105599:d=2021032312:VGRD:2743 m above mean sea level:9 hour fcst:
+985:17128965:d=2021032312:TMP:3658 m above mean sea level:9 hour fcst:
+986:17150464:d=2021032312:UGRD:3658 m above mean sea level:9 hour fcst:
+987:17173321:d=2021032312:VGRD:3658 m above mean sea level:9 hour fcst:
+991:17265096:d=2021032312:HGT:0C isotherm:9 hour fcst:
+992:17286692:d=2021032312:RH:0C isotherm:9 hour fcst:
+993:17306517:d=2021032312:HGT:highest tropospheric freezing level:9 hour fcst:
+994:17327848:d=2021032312:RH:highest tropospheric freezing level:9 hour fcst:
+995:17347612:d=2021032312:TMP:30-0 mb above ground:9 hour fcst:
+996:17368677:d=2021032312:RH:30-0 mb above ground:9 hour fcst:
+998:17408516:d=2021032312:SPFH:30-0 mb above ground:9 hour fcst:
+999:17437554:d=2021032312:UGRD:30-0 mb above ground:9 hour fcst:
+1000:17458542:d=2021032312:VGRD:30-0 mb above ground:9 hour fcst:
+1028:18086042:d=2021032312:4LFTX:surface:9 hour fcst:
+1029:18099769:d=2021032312:CAPE:180-0 mb above ground:9 hour fcst:
+1030:18113556:d=2021032312:CIN:180-0 mb above ground:9 hour fcst:
+1031:18127695:d=2021032312:HPBL:surface:9 hour fcst:
+1032:18159053:d=2021032312:RH:0.33-1 sigma layer:9 hour fcst:
+1033:18177732:d=2021032312:RH:0.44-1 sigma layer:9 hour fcst:
+1034:18196138:d=2021032312:RH:0.72-0.94 sigma layer:9 hour fcst:
+1035:18215264:d=2021032312:RH:0.44-0.72 sigma layer:9 hour fcst:
+1036:18234713:d=2021032312:TMP:0.995 sigma level:9 hour fcst:
+1037:18255798:d=2021032312:POT:0.995 sigma level:9 hour fcst:
+1038:18277051:d=2021032312:RH:0.995 sigma level:9 hour fcst:
+1039:18294904:d=2021032312:UGRD:0.995 sigma level:9 hour fcst:
+1040:18315819:d=2021032312:VGRD:0.995 sigma level:9 hour fcst:
+1041:18337065:d=2021032312:VVEL:0.995 sigma level:9 hour fcst:
+1042:18358578:d=2021032312:CAPE:90-0 mb above ground:9 hour fcst:
+1043:18371349:d=2021032312:CIN:90-0 mb above ground:9 hour fcst:
+1044:18385901:d=2021032312:CAPE:255-0 mb above ground:9 hour fcst:
+1045:18399309:d=2021032312:CIN:255-0 mb above ground:9 hour fcst:
+1046:18411085:d=2021032312:PLPL:255-0 mb above ground:9 hour fcst:
+1047:18434828:d=2021032312:LAND:surface:9 hour fcst:
+1048:18436769:d=2021032312:ICEC:surface:9 hour fcst:
+1049:18439462:d=2021032312:ALBDO:surface:6-9 hour ave fcst:
+1050:18455793:d=2021032312:ICETMP:surface:9 hour fcst:
+1092:19079391:d=2021032312:UGRD:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1093:19090299:d=2021032312:VGRD:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1094:19101221:d=2021032312:TMP:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1095:19115897:d=2021032312:HGT:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1096:19133690:d=2021032312:PRES:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1097:19151146:d=2021032312:VWSH:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1098:19163424:d=2021032312:UGRD:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1099:19178347:d=2021032312:VGRD:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1100:19193262:d=2021032312:TMP:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1101:19207913:d=2021032312:HGT:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1102:19225561:d=2021032312:PRES:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+1103:19242681:d=2021032312:VWSH:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
++ exglobal_atmos_products.sh[51]: export err=0
++ exglobal_atmos_products.sh[51]: err=0
++ exglobal_atmos_products.sh[51]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[53]: ((  downset == 2  ))
++ exglobal_atmos_products.sh[55]: wgrib2 /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//model_data/atmos/master/gfs.t12z.master.grb2f009
++ exglobal_atmos_products.sh[55]: wgrib2 -i -grib tmpfileb_f009 /work2/noaa/stmp/CI/ORION/2410/RUNTESTS/COMROOT/C48_ATM_6d50ea16/gfs.20210323/12//model_data/atmos/master/gfs.t12z.master.grb2f009
++ exglobal_atmos_products.sh[55]: grep -F -f /work2/noaa/stmp/CI/ORION/2410/gfs/parm/product/gfs.fFFF.paramlist.b.txt
+95:1860116:d=2021032312:HGT:1 mb:9 hour fcst:
+96:1878998:d=2021032312:TMP:1 mb:9 hour fcst:
+97:1895526:d=2021032312:RH:1 mb:9 hour fcst:
+101:1975862:d=2021032312:UGRD:1 mb:9 hour fcst:
+102:1987282:d=2021032312:VGRD:1 mb:9 hour fcst:
+103:2005230:d=2021032312:ABSV:1 mb:9 hour fcst:
+104:2021589:d=2021032312:O3MR:1 mb:9 hour fcst:
+105:2043667:d=2021032312:HGT:2 mb:9 hour fcst:
+106:2062311:d=2021032312:TMP:2 mb:9 hour fcst:
+107:2079649:d=2021032312:RH:2 mb:9 hour fcst:
+111:2171199:d=2021032312:UGRD:2 mb:9 hour fcst:
+112:2183017:d=2021032312:VGRD:2 mb:9 hour fcst:
+113:2201614:d=2021032312:ABSV:2 mb:9 hour fcst:
+114:2218999:d=2021032312:O3MR:2 mb:9 hour fcst:
+115:2242439:d=2021032312:HGT:3 mb:9 hour fcst:
+116:2260949:d=2021032312:TMP:3 mb:9 hour fcst:
+117:2278133:d=2021032312:RH:3 mb:9 hour fcst:
+121:2366005:d=2021032312:UGRD:3 mb:9 hour fcst:
+122:2377662:d=2021032312:VGRD:3 mb:9 hour fcst:
+123:2396008:d=2021032312:ABSV:3 mb:9 hour fcst:
+124:2413266:d=2021032312:O3MR:3 mb:9 hour fcst:
+125:2437345:d=2021032312:HGT:5 mb:9 hour fcst:
+126:2455530:d=2021032312:TMP:5 mb:9 hour fcst:
+127:2472688:d=2021032312:RH:5 mb:9 hour fcst:
+131:2564572:d=2021032312:UGRD:5 mb:9 hour fcst:
+132:2576346:d=2021032312:VGRD:5 mb:9 hour fcst:
+133:2595653:d=2021032312:ABSV:5 mb:9 hour fcst:
+134:2613578:d=2021032312:O3MR:5 mb:9 hour fcst:
+135:2637124:d=2021032312:HGT:7 mb:9 hour fcst:
+136:2655457:d=2021032312:TMP:7 mb:9 hour fcst:
+137:2672302:d=2021032312:RH:7 mb:9 hour fcst:
+141:2753470:d=2021032312:UGRD:7 mb:9 hour fcst:
+142:2765021:d=2021032312:VGRD:7 mb:9 hour fcst:
+143:2784280:d=2021032312:ABSV:7 mb:9 hour fcst:
+144:2802569:d=2021032312:O3MR:7 mb:9 hour fcst:
+214:4077116:d=2021032312:TCDC:70 mb:9 hour fcst:
+221:4218530:d=2021032312:CLMR:70 mb:9 hour fcst:
+222:4218709:d=2021032312:ICMR:70 mb:9 hour fcst:
+223:4218888:d=2021032312:RWMR:70 mb:9 hour fcst:
+224:4219067:d=2021032312:SNMR:70 mb:9 hour fcst:
+225:4219246:d=2021032312:GRLE:70 mb:9 hour fcst:
+243:4462469:d=2021032312:HGT:125 mb:9 hour fcst:
+244:4482740:d=2021032312:TMP:125 mb:9 hour fcst:
+245:4500057:d=2021032312:RH:125 mb:9 hour fcst:
+246:4510760:d=2021032312:TCDC:125 mb:9 hour fcst:
+248:4537752:d=2021032312:VVEL:125 mb:9 hour fcst:
+249:4565402:d=2021032312:DZDT:125 mb:9 hour fcst:
+250:4596325:d=2021032312:UGRD:125 mb:9 hour fcst:
+251:4615879:d=2021032312:VGRD:125 mb:9 hour fcst:
+252:4635748:d=2021032312:ABSV:125 mb:9 hour fcst:
+253:4654375:d=2021032312:CLMR:125 mb:9 hour fcst:
+254:4654554:d=2021032312:ICMR:125 mb:9 hour fcst:
+255:4658920:d=2021032312:RWMR:125 mb:9 hour fcst:
+256:4659099:d=2021032312:SNMR:125 mb:9 hour fcst:
+257:4664372:d=2021032312:GRLE:125 mb:9 hour fcst:
+275:4916594:d=2021032312:HGT:175 mb:9 hour fcst:
+276:4937456:d=2021032312:TMP:175 mb:9 hour fcst:
+277:4955269:d=2021032312:RH:175 mb:9 hour fcst:
+278:4968550:d=2021032312:TCDC:175 mb:9 hour fcst:
+280:5000423:d=2021032312:VVEL:175 mb:9 hour fcst:
+281:5029972:d=2021032312:DZDT:175 mb:9 hour fcst:
+282:5055717:d=2021032312:UGRD:175 mb:9 hour fcst:
+283:5068510:d=2021032312:VGRD:175 mb:9 hour fcst:
+284:5089269:d=2021032312:ABSV:175 mb:9 hour fcst:
+285:5108636:d=2021032312:CLMR:175 mb:9 hour fcst:
+286:5108815:d=2021032312:ICMR:175 mb:9 hour fcst:
+287:5115720:d=2021032312:RWMR:175 mb:9 hour fcst:
+288:5115899:d=2021032312:SNMR:175 mb:9 hour fcst:
+289:5122604:d=2021032312:GRLE:175 mb:9 hour fcst:
+307:5372619:d=2021032312:HGT:225 mb:9 hour fcst:
+308:5394369:d=2021032312:TMP:225 mb:9 hour fcst:
+309:5412905:d=2021032312:RH:225 mb:9 hour fcst:
+310:5429596:d=2021032312:TCDC:225 mb:9 hour fcst:
+312:5465903:d=2021032312:VVEL:225 mb:9 hour fcst:
+313:5496750:d=2021032312:DZDT:225 mb:9 hour fcst:
+314:5523067:d=2021032312:UGRD:225 mb:9 hour fcst:
+315:5536460:d=2021032312:VGRD:225 mb:9 hour fcst:
+316:5550667:d=2021032312:ABSV:225 mb:9 hour fcst:
+317:5571266:d=2021032312:CLMR:225 mb:9 hour fcst:
+318:5571445:d=2021032312:ICMR:225 mb:9 hour fcst:
+319:5582184:d=2021032312:RWMR:225 mb:9 hour fcst:
+320:5582363:d=2021032312:SNMR:225 mb:9 hour fcst:
+321:5589899:d=2021032312:GRLE:225 mb:9 hour fcst:
+339:5862457:d=2021032312:HGT:275 mb:9 hour fcst:
+340:5884638:d=2021032312:TMP:275 mb:9 hour fcst:
+341:5903321:d=2021032312:RH:275 mb:9 hour fcst:
+342:5921804:d=2021032312:TCDC:275 mb:9 hour fcst:
+344:5960516:d=2021032312:VVEL:275 mb:9 hour fcst:
+345:5990289:d=2021032312:DZDT:275 mb:9 hour fcst:
+346:6017307:d=2021032312:UGRD:275 mb:9 hour fcst:
+347:6031561:d=2021032312:VGRD:275 mb:9 hour fcst:
+348:6046559:d=2021032312:ABSV:275 mb:9 hour fcst:
+349:6068321:d=2021032312:CLMR:275 mb:9 hour fcst:
+350:6068500:d=2021032312:ICMR:275 mb:9 hour fcst:
+351:6081443:d=2021032312:RWMR:275 mb:9 hour fcst:
+352:6081622:d=2021032312:SNMR:275 mb:9 hour fcst:
+353:6091228:d=2021032312:GRLE:275 mb:9 hour fcst:
+371:6375565:d=2021032312:HGT:325 mb:9 hour fcst:
+372:6397635:d=2021032312:TMP:325 mb:9 hour fcst:
+373:6416016:d=2021032312:RH:325 mb:9 hour fcst:
+374:6435010:d=2021032312:TCDC:325 mb:9 hour fcst:
+376:6474396:d=2021032312:VVEL:325 mb:9 hour fcst:
+377:6499458:d=2021032312:DZDT:325 mb:9 hour fcst:
+378:6527053:d=2021032312:UGRD:325 mb:9 hour fcst:
+379:6541273:d=2021032312:VGRD:325 mb:9 hour fcst:
+380:6556478:d=2021032312:ABSV:325 mb:9 hour fcst:
+381:6578666:d=2021032312:CLMR:325 mb:9 hour fcst:
+382:6578845:d=2021032312:ICMR:325 mb:9 hour fcst:
+383:6593460:d=2021032312:RWMR:325 mb:9 hour fcst:
+384:6593639:d=2021032312:SNMR:325 mb:9 hour fcst:
+385:6604560:d=2021032312:GRLE:325 mb:9 hour fcst:
+403:6893766:d=2021032312:HGT:375 mb:9 hour fcst:
+404:6915952:d=2021032312:TMP:375 mb:9 hour fcst:
+405:6934257:d=2021032312:RH:375 mb:9 hour fcst:
+406:6953607:d=2021032312:TCDC:375 mb:9 hour fcst:
+408:6993035:d=2021032312:VVEL:375 mb:9 hour fcst:
+409:7018554:d=2021032312:DZDT:375 mb:9 hour fcst:
+410:7046168:d=2021032312:UGRD:375 mb:9 hour fcst:
+411:7058231:d=2021032312:VGRD:375 mb:9 hour fcst:
+412:7073337:d=2021032312:ABSV:375 mb:9 hour fcst:
+413:7095580:d=2021032312:CLMR:375 mb:9 hour fcst:
+414:7095884:d=2021032312:ICMR:375 mb:9 hour fcst:
+415:7110715:d=2021032312:RWMR:375 mb:9 hour fcst:
+416:7110974:d=2021032312:SNMR:375 mb:9 hour fcst:
+417:7124000:d=2021032312:GRLE:375 mb:9 hour fcst:
+435:7421442:d=2021032312:HGT:425 mb:9 hour fcst:
+436:7445878:d=2021032312:TMP:425 mb:9 hour fcst:
+437:7464278:d=2021032312:RH:425 mb:9 hour fcst:
+438:7483795:d=2021032312:TCDC:425 mb:9 hour fcst:
+440:7524861:d=2021032312:VVEL:425 mb:9 hour fcst:
+441:7550709:d=2021032312:DZDT:425 mb:9 hour fcst:
+442:7578411:d=2021032312:UGRD:425 mb:9 hour fcst:
+443:7600127:d=2021032312:VGRD:425 mb:9 hour fcst:
+444:7614935:d=2021032312:ABSV:425 mb:9 hour fcst:
+445:7636798:d=2021032312:CLMR:425 mb:9 hour fcst:
+446:7637371:d=2021032312:ICMR:425 mb:9 hour fcst:
+447:7650893:d=2021032312:RWMR:425 mb:9 hour fcst:
+448:7651197:d=2021032312:SNMR:425 mb:9 hour fcst:
+449:7664507:d=2021032312:GRLE:425 mb:9 hour fcst:
+467:7971341:d=2021032312:HGT:475 mb:9 hour fcst:
+468:7995605:d=2021032312:TMP:475 mb:9 hour fcst:
+469:8014191:d=2021032312:RH:475 mb:9 hour fcst:
+470:8034038:d=2021032312:TCDC:475 mb:9 hour fcst:
+472:8074500:d=2021032312:VVEL:475 mb:9 hour fcst:
+473:8100517:d=2021032312:DZDT:475 mb:9 hour fcst:
+474:8128154:d=2021032312:UGRD:475 mb:9 hour fcst:
+475:8149312:d=2021032312:VGRD:475 mb:9 hour fcst:
+476:8171499:d=2021032312:ABSV:475 mb:9 hour fcst:
+477:8192839:d=2021032312:CLMR:475 mb:9 hour fcst:
+478:8194341:d=2021032312:ICMR:475 mb:9 hour fcst:
+479:8207996:d=2021032312:RWMR:475 mb:9 hour fcst:
+480:8208441:d=2021032312:SNMR:475 mb:9 hour fcst:
+481:8222985:d=2021032312:GRLE:475 mb:9 hour fcst:
+499:8529922:d=2021032312:HGT:525 mb:9 hour fcst:
+500:8553826:d=2021032312:TMP:525 mb:9 hour fcst:
+501:8572814:d=2021032312:RH:525 mb:9 hour fcst:
+502:8592883:d=2021032312:TCDC:525 mb:9 hour fcst:
+504:8634607:d=2021032312:VVEL:525 mb:9 hour fcst:
+505:8660755:d=2021032312:DZDT:525 mb:9 hour fcst:
+506:8688240:d=2021032312:UGRD:525 mb:9 hour fcst:
+507:8709164:d=2021032312:VGRD:525 mb:9 hour fcst:
+508:8730977:d=2021032312:ABSV:525 mb:9 hour fcst:
+509:8751951:d=2021032312:CLMR:525 mb:9 hour fcst:
+510:8754970:d=2021032312:ICMR:525 mb:9 hour fcst:
+511:8768692:d=2021032312:RWMR:525 mb:9 hour fcst:
+512:8769770:d=2021032312:SNMR:525 mb:9 hour fcst:
+513:8784362:d=2021032312:GRLE:525 mb:9 hour fcst:
+531:9090926:d=2021032312:HGT:575 mb:9 hour fcst:
+532:9114783:d=2021032312:TMP:575 mb:9 hour fcst:
+533:9133791:d=2021032312:RH:575 mb:9 hour fcst:
+534:9154038:d=2021032312:TCDC:575 mb:9 hour fcst:
+536:9197182:d=2021032312:VVEL:575 mb:9 hour fcst:
+537:9223496:d=2021032312:DZDT:575 mb:9 hour fcst:
+538:9250901:d=2021032312:UGRD:575 mb:9 hour fcst:
+539:9271611:d=2021032312:VGRD:575 mb:9 hour fcst:
+540:9293247:d=2021032312:ABSV:575 mb:9 hour fcst:
+541:9313998:d=2021032312:CLMR:575 mb:9 hour fcst:
+542:9318267:d=2021032312:ICMR:575 mb:9 hour fcst:
+543:9331304:d=2021032312:RWMR:575 mb:9 hour fcst:
+544:9332958:d=2021032312:SNMR:575 mb:9 hour fcst:
+545:9346060:d=2021032312:GRLE:575 mb:9 hour fcst:
+563:9653543:d=2021032312:HGT:625 mb:9 hour fcst:
+564:9677952:d=2021032312:TMP:625 mb:9 hour fcst:
+565:9697407:d=2021032312:RH:625 mb:9 hour fcst:
+566:9717979:d=2021032312:TCDC:625 mb:9 hour fcst:
+568:9760098:d=2021032312:VVEL:625 mb:9 hour fcst:
+569:9786756:d=2021032312:DZDT:625 mb:9 hour fcst:
+570:9814343:d=2021032312:UGRD:625 mb:9 hour fcst:
+571:9835035:d=2021032312:VGRD:625 mb:9 hour fcst:
+572:9856638:d=2021032312:ABSV:625 mb:9 hour fcst:
+573:9877621:d=2021032312:CLMR:625 mb:9 hour fcst:
+574:9882980:d=2021032312:ICMR:625 mb:9 hour fcst:
+575:9895079:d=2021032312:RWMR:625 mb:9 hour fcst:
+576:9897706:d=2021032312:SNMR:625 mb:9 hour fcst:
+577:9911024:d=2021032312:GRLE:625 mb:9 hour fcst:
+595:10219131:d=2021032312:HGT:675 mb:9 hour fcst:
+596:10243749:d=2021032312:TMP:675 mb:9 hour fcst:
+597:10263521:d=2021032312:RH:675 mb:9 hour fcst:
+598:10284149:d=2021032312:TCDC:675 mb:9 hour fcst:
+600:10328944:d=2021032312:VVEL:675 mb:9 hour fcst:
+601:10355833:d=2021032312:DZDT:675 mb:9 hour fcst:
+602:10383373:d=2021032312:UGRD:675 mb:9 hour fcst:
+603:10404135:d=2021032312:VGRD:675 mb:9 hour fcst:
+604:10425716:d=2021032312:ABSV:675 mb:9 hour fcst:
+605:10446986:d=2021032312:CLMR:675 mb:9 hour fcst:
+606:10453992:d=2021032312:ICMR:675 mb:9 hour fcst:
+607:10465477:d=2021032312:RWMR:675 mb:9 hour fcst:
+608:10468925:d=2021032312:SNMR:675 mb:9 hour fcst:
+609:10482018:d=2021032312:GRLE:675 mb:9 hour fcst:
+627:10803177:d=2021032312:HGT:725 mb:9 hour fcst:
+628:10827796:d=2021032312:TMP:725 mb:9 hour fcst:
+629:10847757:d=2021032312:RH:725 mb:9 hour fcst:
+630:10868396:d=2021032312:TCDC:725 mb:9 hour fcst:
+632:10911643:d=2021032312:VVEL:725 mb:9 hour fcst:
+633:10938732:d=2021032312:DZDT:725 mb:9 hour fcst:
+634:10966124:d=2021032312:UGRD:725 mb:9 hour fcst:
+635:10986817:d=2021032312:VGRD:725 mb:9 hour fcst:
+636:11008484:d=2021032312:ABSV:725 mb:9 hour fcst:
+637:11029693:d=2021032312:CLMR:725 mb:9 hour fcst:
+638:11038743:d=2021032312:ICMR:725 mb:9 hour fcst:
+639:11049353:d=2021032312:RWMR:725 mb:9 hour fcst:
+640:11053554:d=2021032312:SNMR:725 mb:9 hour fcst:
+641:11066161:d=2021032312:GRLE:725 mb:9 hour fcst:
+659:11385880:d=2021032312:HGT:775 mb:9 hour fcst:
+660:11410633:d=2021032312:TMP:775 mb:9 hour fcst:
+661:11430935:d=2021032312:RH:775 mb:9 hour fcst:
+662:11451710:d=2021032312:TCDC:775 mb:9 hour fcst:
+664:11496796:d=2021032312:VVEL:775 mb:9 hour fcst:
+665:11523956:d=2021032312:DZDT:775 mb:9 hour fcst:
+666:11551213:d=2021032312:UGRD:775 mb:9 hour fcst:
+667:11572091:d=2021032312:VGRD:775 mb:9 hour fcst:
+668:11593806:d=2021032312:ABSV:775 mb:9 hour fcst:
+669:11615022:d=2021032312:CLMR:775 mb:9 hour fcst:
+670:11625511:d=2021032312:ICMR:775 mb:9 hour fcst:
+671:11636452:d=2021032312:RWMR:775 mb:9 hour fcst:
+672:11641366:d=2021032312:SNMR:775 mb:9 hour fcst:
+673:11653897:d=2021032312:GRLE:775 mb:9 hour fcst:
+691:11984770:d=2021032312:HGT:825 mb:9 hour fcst:
+692:12009655:d=2021032312:TMP:825 mb:9 hour fcst:
+693:12030449:d=2021032312:RH:825 mb:9 hour fcst:
+694:12051230:d=2021032312:TCDC:825 mb:9 hour fcst:
+696:12098276:d=2021032312:VVEL:825 mb:9 hour fcst:
+697:12125217:d=2021032312:DZDT:825 mb:9 hour fcst:
+698:12152267:d=2021032312:UGRD:825 mb:9 hour fcst:
+699:12173371:d=2021032312:VGRD:825 mb:9 hour fcst:
+700:12195140:d=2021032312:ABSV:825 mb:9 hour fcst:
+701:12216426:d=2021032312:CLMR:825 mb:9 hour fcst:
+702:12229592:d=2021032312:ICMR:825 mb:9 hour fcst:
+703:12239914:d=2021032312:RWMR:825 mb:9 hour fcst:
+704:12246690:d=2021032312:SNMR:825 mb:9 hour fcst:
+705:12258769:d=2021032312:GRLE:825 mb:9 hour fcst:
+723:12596098:d=2021032312:HGT:875 mb:9 hour fcst:
+724:12621270:d=2021032312:TMP:875 mb:9 hour fcst:
+725:12642451:d=2021032312:RH:875 mb:9 hour fcst:
+726:12663019:d=2021032312:TCDC:875 mb:9 hour fcst:
+728:12712186:d=2021032312:VVEL:875 mb:9 hour fcst:
+729:12738892:d=2021032312:DZDT:875 mb:9 hour fcst:
+730:12765369:d=2021032312:UGRD:875 mb:9 hour fcst:
+731:12786638:d=2021032312:VGRD:875 mb:9 hour fcst:
+732:12808394:d=2021032312:ABSV:875 mb:9 hour fcst:
+733:12829590:d=2021032312:CLMR:875 mb:9 hour fcst:
+734:12844938:d=2021032312:ICMR:875 mb:9 hour fcst:
+735:12853847:d=2021032312:RWMR:875 mb:9 hour fcst:
+736:12862684:d=2021032312:SNMR:875 mb:9 hour fcst:
+737:12874199:d=2021032312:GRLE:875 mb:9 hour fcst:
+829:14466419:d=2021032312:SOILL:0-0.1 m below ground:9 hour fcst:
+832:14498948:d=2021032312:SOILL:0.1-0.4 m below ground:9 hour fcst:
+835:14530562:d=2021032312:SOILL:0.4-1 m below ground:9 hour fcst:
+838:14561960:d=2021032312:SOILL:1-2 m below ground:9 hour fcst:
+839:14570846:d=2021032312:CNWAT:surface:9 hour fcst:
+843:14617646:d=2021032312:ICETK:surface:9 hour fcst:
+927:15858852:d=2021032312:DUVB:surface:6-9 hour ave fcst:
+928:15877935:d=2021032312:CDUVB:surface:6-9 hour ave fcst:
+967:16751039:d=2021032312:TMP:305 m above mean sea level:9 hour fcst:
+968:16769484:d=2021032312:UGRD:305 m above mean sea level:9 hour fcst:
+969:16788663:d=2021032312:VGRD:305 m above mean sea level:9 hour fcst:
+970:16808110:d=2021032312:TMP:457 m above mean sea level:9 hour fcst:
+971:16827737:d=2021032312:UGRD:457 m above mean sea level:9 hour fcst:
+972:16847971:d=2021032312:VGRD:457 m above mean sea level:9 hour fcst:
+973:16868477:d=2021032312:TMP:610 m above mean sea level:9 hour fcst:
+974:16888802:d=2021032312:UGRD:610 m above mean sea level:9 hour fcst:
+975:16909590:d=2021032312:VGRD:610 m above mean sea level:9 hour fcst:
+976:16930720:d=2021032312:TMP:914 m above mean sea level:9 hour fcst:
+977:16951797:d=2021032312:UGRD:914 m above mean sea level:9 hour fcst:
+978:16973176:d=2021032312:VGRD:914 m above mean sea level:9 hour fcst:
+988:17196927:d=2021032312:TMP:4572 m above mean sea level:9 hour fcst:
+989:17218151:d=2021032312:UGRD:4572 m above mean sea level:9 hour fcst:
+990:17241167:d=2021032312:VGRD:4572 m above mean sea level:9 hour fcst:
+1003:17521699:d=2021032312:TMP:60-30 mb above ground:9 hour fcst:
+1004:17542668:d=2021032312:RH:60-30 mb above ground:9 hour fcst:
+1005:17561862:d=2021032312:SPFH:60-30 mb above ground:9 hour fcst:
+1006:17590922:d=2021032312:UGRD:60-30 mb above ground:9 hour fcst:
+1007:17612283:d=2021032312:VGRD:60-30 mb above ground:9 hour fcst:
+1008:17634100:d=2021032312:TMP:90-60 mb above ground:9 hour fcst:
+1009:17655129:d=2021032312:RH:90-60 mb above ground:9 hour fcst:
+1010:17674738:d=2021032312:SPFH:90-60 mb above ground:9 hour fcst:
+1011:17704014:d=2021032312:UGRD:90-60 mb above ground:9 hour fcst:
+1012:17725239:d=2021032312:VGRD:90-60 mb above ground:9 hour fcst:
+1013:17746953:d=2021032312:TMP:120-90 mb above ground:9 hour fcst:
+1014:17768057:d=2021032312:RH:120-90 mb above ground:9 hour fcst:
+1015:17787940:d=2021032312:SPFH:120-90 mb above ground:9 hour fcst:
+1016:17817248:d=2021032312:UGRD:120-90 mb above ground:9 hour fcst:
+1017:17838296:d=2021032312:VGRD:120-90 mb above ground:9 hour fcst:
+1018:17859704:d=2021032312:TMP:150-120 mb above ground:9 hour fcst:
+1019:17880886:d=2021032312:RH:150-120 mb above ground:9 hour fcst:
+1020:17901112:d=2021032312:SPFH:150-120 mb above ground:9 hour fcst:
+1021:17930518:d=2021032312:UGRD:150-120 mb above ground:9 hour fcst:
+1022:17951258:d=2021032312:VGRD:150-120 mb above ground:9 hour fcst:
+1023:17972562:d=2021032312:TMP:180-150 mb above ground:9 hour fcst:
+1024:17993985:d=2021032312:RH:180-150 mb above ground:9 hour fcst:
+1025:18014468:d=2021032312:SPFH:180-150 mb above ground:9 hour fcst:
+1026:18044088:d=2021032312:UGRD:180-150 mb above ground:9 hour fcst:
+1027:18064782:d=2021032312:VGRD:180-150 mb above ground:9 hour fcst:
+1056:18550325:d=2021032312:UGRD:PV=5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1057:18561015:d=2021032312:VGRD:PV=5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1058:18571733:d=2021032312:TMP:PV=5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1059:18586381:d=2021032312:HGT:PV=5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1060:18603211:d=2021032312:PRES:PV=5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1061:18620142:d=2021032312:VWSH:PV=5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1062:18627876:d=2021032312:UGRD:PV=-5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1063:18642223:d=2021032312:VGRD:PV=-5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1064:18656422:d=2021032312:TMP:PV=-5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1065:18671607:d=2021032312:HGT:PV=-5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1066:18688986:d=2021032312:PRES:PV=-5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1067:18706360:d=2021032312:VWSH:PV=-5e-07 (Km^2/kg/s) surface:9 hour fcst:
+1068:18717532:d=2021032312:UGRD:PV=1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1069:18729115:d=2021032312:VGRD:PV=1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1070:18740557:d=2021032312:TMP:PV=1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1071:18756660:d=2021032312:HGT:PV=1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1072:18775553:d=2021032312:PRES:PV=1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1073:18794451:d=2021032312:VWSH:PV=1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1074:18806829:d=2021032312:UGRD:PV=-1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1075:18818168:d=2021032312:VGRD:PV=-1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1076:18833552:d=2021032312:TMP:PV=-1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1077:18849549:d=2021032312:HGT:PV=-1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1078:18868270:d=2021032312:PRES:PV=-1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1079:18886898:d=2021032312:VWSH:PV=-1e-06 (Km^2/kg/s) surface:9 hour fcst:
+1080:18899262:d=2021032312:UGRD:PV=1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1081:18910390:d=2021032312:VGRD:PV=1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1082:18921537:d=2021032312:TMP:PV=1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1083:18936824:d=2021032312:HGT:PV=1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1084:18955015:d=2021032312:PRES:PV=1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1085:18973110:d=2021032312:VWSH:PV=1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1086:18985486:d=2021032312:UGRD:PV=-1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1087:19000666:d=2021032312:VGRD:PV=-1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1088:19015801:d=2021032312:TMP:PV=-1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1089:19031051:d=2021032312:HGT:PV=-1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1090:19049068:d=2021032312:PRES:PV=-1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
+1091:19067037:d=2021032312:VWSH:PV=-1.5e-06 (Km^2/kg/s) surface:9 hour fcst:
++ exglobal_atmos_products.sh[56]: export err=0
++ exglobal_atmos_products.sh[56]: err=0
++ exglobal_atmos_products.sh[56]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[60]: grid_string=0p25
++ exglobal_atmos_products.sh[61]: [[ YES == \Y\E\S ]]
++ exglobal_atmos_products.sh[62]: grid_string=0p25:0p50:1p00
++ exglobal_atmos_products.sh[68]: IFS=:
++ exglobal_atmos_products.sh[68]: read -ra grids
++ exglobal_atmos_products.sh[152]: (( nset=1  ))
++ exglobal_atmos_products.sh[152]: (( nset <= downset  ))
++ exglobal_atmos_products.sh[72]: echo 'Begin processing nset = 1'
+Begin processing nset = 1
++ exglobal_atmos_products.sh[75]: nproc=24
++ exglobal_atmos_products.sh[78]: ((  nset == 1  ))
++ exglobal_atmos_products.sh[79]: grp=
++ exglobal_atmos_products.sh[85]: tmpfile=tmpfile_f009
+++ exglobal_atmos_products.sh[88]: wgrib2 tmpfile_f009
+++ exglobal_atmos_products.sh[88]: wc -l
++ exglobal_atmos_products.sh[88]: ncount=751
++ exglobal_atmos_products.sh[89]: ((  nproc > ncount  ))
++ exglobal_atmos_products.sh[93]: inv=31
++ exglobal_atmos_products.sh[94]: rm -f /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript
++ exglobal_atmos_products.sh[96]: last=0
++ exglobal_atmos_products.sh[127]: (( iproc = 1  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=1
++ exglobal_atmos_products.sh[99]: last=31
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 31 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
+31:558210:d=2021032312:UGRD:0.02 mb:9 hour fcst:
++ exglobal_atmos_products.sh[108]: rc=0
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[111]: last=32
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 1:32 -grib tmpfile_f009_1
+1:0:d=2021032312:PRMSL:mean sea level:9 hour fcst:
+2:26041:d=2021032312:CLMR:1 hybrid level:9 hour fcst:
+3:32738:d=2021032312:ICMR:1 hybrid level:9 hour fcst:
+4:40363:d=2021032312:RWMR:1 hybrid level:9 hour fcst:
+5:52796:d=2021032312:SNMR:1 hybrid level:9 hour fcst:
+6:63782:d=2021032312:GRLE:1 hybrid level:9 hour fcst:
+7:65683:d=2021032312:REFD:1 hybrid level:9 hour fcst:
+8:90226:d=2021032312:REFD:2 hybrid level:9 hour fcst:
+9:114780:d=2021032312:REFC:entire atmosphere (considered as a single layer):9 hour fcst:
+10:140610:d=2021032312:VIS:surface:9 hour fcst:
+11:173941:d=2021032312:UGRD:planetary boundary layer:9 hour fcst:
+12:187812:d=2021032312:VGRD:planetary boundary layer:9 hour fcst:
+13:202032:d=2021032312:VRATE:planetary boundary layer:9 hour fcst:
+14:216693:d=2021032312:GUST:surface:9 hour fcst:
+15:231259:d=2021032312:HGT:0.01 mb:9 hour fcst:
+16:256889:d=2021032312:TMP:0.01 mb:9 hour fcst:
+17:268843:d=2021032312:RH:0.01 mb:9 hour fcst:
+18:275826:d=2021032312:SPFH:0.01 mb:9 hour fcst:
+19:305129:d=2021032312:VVEL:0.01 mb:9 hour fcst:
+20:333434:d=2021032312:DZDT:0.01 mb:9 hour fcst:
+21:364252:d=2021032312:UGRD:0.01 mb:9 hour fcst:
+22:383687:d=2021032312:VGRD:0.01 mb:9 hour fcst:
+23:394737:d=2021032312:ABSV:0.01 mb:9 hour fcst:
+24:411200:d=2021032312:O3MR:0.01 mb:9 hour fcst:
+25:426982:d=2021032312:HGT:0.02 mb:9 hour fcst:
+26:452457:d=2021032312:TMP:0.02 mb:9 hour fcst:
+27:467515:d=2021032312:RH:0.02 mb:9 hour fcst:
+28:474978:d=2021032312:SPFH:0.02 mb:9 hour fcst:
+29:501952:d=2021032312:VVEL:0.02 mb:9 hour fcst:
+30:532264:d=2021032312:DZDT:0.02 mb:9 hour fcst:
+31:558210:d=2021032312:UGRD:0.02 mb:9 hour fcst:
+32:571405:d=2021032312:VGRD:0.02 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_1
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_1
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_1 pgb2file_f009_1 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=33
++ exglobal_atmos_products.sh[99]: last=63
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 63 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 33:63 -grib tmpfile_f009_2
+33:583628:d=2021032312:ABSV:0.02 mb:9 hour fcst:
+34:600942:d=2021032312:O3MR:0.02 mb:9 hour fcst:
+35:618362:d=2021032312:HGT:0.04 mb:9 hour fcst:
+36:642913:d=2021032312:TMP:0.04 mb:9 hour fcst:
+37:661202:d=2021032312:RH:0.04 mb:9 hour fcst:
+38:667780:d=2021032312:SPFH:0.04 mb:9 hour fcst:
+39:690343:d=2021032312:VVEL:0.04 mb:9 hour fcst:
+40:721052:d=2021032312:DZDT:0.04 mb:9 hour fcst:
+41:750508:d=2021032312:UGRD:0.04 mb:9 hour fcst:
+42:771908:d=2021032312:VGRD:0.04 mb:9 hour fcst:
+43:792689:d=2021032312:ABSV:0.04 mb:9 hour fcst:
+44:811812:d=2021032312:O3MR:0.04 mb:9 hour fcst:
+45:836793:d=2021032312:HGT:0.07 mb:9 hour fcst:
+46:860153:d=2021032312:TMP:0.07 mb:9 hour fcst:
+47:878465:d=2021032312:RH:0.07 mb:9 hour fcst:
+48:888836:d=2021032312:SPFH:0.07 mb:9 hour fcst:
+49:903560:d=2021032312:VVEL:0.07 mb:9 hour fcst:
+50:932124:d=2021032312:DZDT:0.07 mb:9 hour fcst:
+51:962782:d=2021032312:UGRD:0.07 mb:9 hour fcst:
+52:983801:d=2021032312:VGRD:0.07 mb:9 hour fcst:
+53:1004559:d=2021032312:ABSV:0.07 mb:9 hour fcst:
+54:1023669:d=2021032312:O3MR:0.07 mb:9 hour fcst:
+55:1044791:d=2021032312:HGT:0.1 mb:9 hour fcst:
+56:1067559:d=2021032312:TMP:0.1 mb:9 hour fcst:
+57:1085062:d=2021032312:RH:0.1 mb:9 hour fcst:
+58:1093486:d=2021032312:SPFH:0.1 mb:9 hour fcst:
+59:1108465:d=2021032312:VVEL:0.1 mb:9 hour fcst:
+60:1140731:d=2021032312:DZDT:0.1 mb:9 hour fcst:
+61:1171267:d=2021032312:UGRD:0.1 mb:9 hour fcst:
+62:1191921:d=2021032312:VGRD:0.1 mb:9 hour fcst:
+63:1211987:d=2021032312:ABSV:0.1 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_2
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_2
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_2 pgb2file_f009_2 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=64
++ exglobal_atmos_products.sh[99]: last=94
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 94 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 64:94 -grib tmpfile_f009_3
+64:1230699:d=2021032312:O3MR:0.1 mb:9 hour fcst:
+65:1255591:d=2021032312:HGT:0.2 mb:9 hour fcst:
+66:1277873:d=2021032312:TMP:0.2 mb:9 hour fcst:
+67:1294721:d=2021032312:RH:0.2 mb:9 hour fcst:
+68:1305077:d=2021032312:SPFH:0.2 mb:9 hour fcst:
+69:1318940:d=2021032312:VVEL:0.2 mb:9 hour fcst:
+70:1344956:d=2021032312:DZDT:0.2 mb:9 hour fcst:
+71:1375455:d=2021032312:UGRD:0.2 mb:9 hour fcst:
+72:1395542:d=2021032312:VGRD:0.2 mb:9 hour fcst:
+73:1414709:d=2021032312:ABSV:0.2 mb:9 hour fcst:
+74:1432378:d=2021032312:O3MR:0.2 mb:9 hour fcst:
+75:1459014:d=2021032312:HGT:0.4 mb:9 hour fcst:
+76:1478647:d=2021032312:TMP:0.4 mb:9 hour fcst:
+77:1495304:d=2021032312:RH:0.4 mb:9 hour fcst:
+78:1503754:d=2021032312:SPFH:0.4 mb:9 hour fcst:
+79:1520203:d=2021032312:VVEL:0.4 mb:9 hour fcst:
+80:1547692:d=2021032312:DZDT:0.4 mb:9 hour fcst:
+81:1577403:d=2021032312:UGRD:0.4 mb:9 hour fcst:
+82:1596948:d=2021032312:VGRD:0.4 mb:9 hour fcst:
+83:1615584:d=2021032312:ABSV:0.4 mb:9 hour fcst:
+84:1632393:d=2021032312:O3MR:0.4 mb:9 hour fcst:
+85:1660230:d=2021032312:HGT:0.7 mb:9 hour fcst:
+86:1679350:d=2021032312:TMP:0.7 mb:9 hour fcst:
+87:1695893:d=2021032312:RH:0.7 mb:9 hour fcst:
+88:1705260:d=2021032312:SPFH:0.7 mb:9 hour fcst:
+89:1721791:d=2021032312:VVEL:0.7 mb:9 hour fcst:
+90:1750446:d=2021032312:DZDT:0.7 mb:9 hour fcst:
+91:1779513:d=2021032312:UGRD:0.7 mb:9 hour fcst:
+92:1798522:d=2021032312:VGRD:0.7 mb:9 hour fcst:
+93:1816923:d=2021032312:ABSV:0.7 mb:9 hour fcst:
+94:1833503:d=2021032312:O3MR:0.7 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_3
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_3
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_3 pgb2file_f009_3 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=95
++ exglobal_atmos_products.sh[99]: last=125
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 125 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 95:125 -grib tmpfile_f009_4
+95:1860116:d=2021032312:HGT:1 mb:9 hour fcst:
+96:1878998:d=2021032312:TMP:1 mb:9 hour fcst:
+97:1895526:d=2021032312:RH:1 mb:9 hour fcst:
+98:1901264:d=2021032312:SPFH:1 mb:9 hour fcst:
+99:1918062:d=2021032312:VVEL:1 mb:9 hour fcst:
+100:1947483:d=2021032312:DZDT:1 mb:9 hour fcst:
+101:1975862:d=2021032312:UGRD:1 mb:9 hour fcst:
+102:1987282:d=2021032312:VGRD:1 mb:9 hour fcst:
+103:2005230:d=2021032312:ABSV:1 mb:9 hour fcst:
+104:2021589:d=2021032312:O3MR:1 mb:9 hour fcst:
+105:2043667:d=2021032312:HGT:2 mb:9 hour fcst:
+106:2062311:d=2021032312:TMP:2 mb:9 hour fcst:
+107:2079649:d=2021032312:RH:2 mb:9 hour fcst:
+108:2089147:d=2021032312:SPFH:2 mb:9 hour fcst:
+109:2112576:d=2021032312:VVEL:2 mb:9 hour fcst:
+110:2143602:d=2021032312:DZDT:2 mb:9 hour fcst:
+111:2171199:d=2021032312:UGRD:2 mb:9 hour fcst:
+112:2183017:d=2021032312:VGRD:2 mb:9 hour fcst:
+113:2201614:d=2021032312:ABSV:2 mb:9 hour fcst:
+114:2218999:d=2021032312:O3MR:2 mb:9 hour fcst:
+115:2242439:d=2021032312:HGT:3 mb:9 hour fcst:
+116:2260949:d=2021032312:TMP:3 mb:9 hour fcst:
+117:2278133:d=2021032312:RH:3 mb:9 hour fcst:
+118:2284540:d=2021032312:SPFH:3 mb:9 hour fcst:
+119:2308905:d=2021032312:VVEL:3 mb:9 hour fcst:
+120:2338719:d=2021032312:DZDT:3 mb:9 hour fcst:
+121:2366005:d=2021032312:UGRD:3 mb:9 hour fcst:
+122:2377662:d=2021032312:VGRD:3 mb:9 hour fcst:
+123:2396008:d=2021032312:ABSV:3 mb:9 hour fcst:
+124:2413266:d=2021032312:O3MR:3 mb:9 hour fcst:
+125:2437345:d=2021032312:HGT:5 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_4
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_4
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_4 pgb2file_f009_4 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=126
++ exglobal_atmos_products.sh[99]: last=156
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 156 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 126:156 -grib tmpfile_f009_5
+126:2455530:d=2021032312:TMP:5 mb:9 hour fcst:
+127:2472688:d=2021032312:RH:5 mb:9 hour fcst:
+128:2482810:d=2021032312:SPFH:5 mb:9 hour fcst:
+129:2506070:d=2021032312:VVEL:5 mb:9 hour fcst:
+130:2537662:d=2021032312:DZDT:5 mb:9 hour fcst:
+131:2564572:d=2021032312:UGRD:5 mb:9 hour fcst:
+132:2576346:d=2021032312:VGRD:5 mb:9 hour fcst:
+133:2595653:d=2021032312:ABSV:5 mb:9 hour fcst:
+134:2613578:d=2021032312:O3MR:5 mb:9 hour fcst:
+135:2637124:d=2021032312:HGT:7 mb:9 hour fcst:
+136:2655457:d=2021032312:TMP:7 mb:9 hour fcst:
+137:2672302:d=2021032312:RH:7 mb:9 hour fcst:
+138:2678749:d=2021032312:SPFH:7 mb:9 hour fcst:
+139:2700710:d=2021032312:VVEL:7 mb:9 hour fcst:
+140:2727129:d=2021032312:DZDT:7 mb:9 hour fcst:
+141:2753470:d=2021032312:UGRD:7 mb:9 hour fcst:
+142:2765021:d=2021032312:VGRD:7 mb:9 hour fcst:
+143:2784280:d=2021032312:ABSV:7 mb:9 hour fcst:
+144:2802569:d=2021032312:O3MR:7 mb:9 hour fcst:
+145:2821757:d=2021032312:HGT:10 mb:9 hour fcst:
+146:2839887:d=2021032312:TMP:10 mb:9 hour fcst:
+147:2856699:d=2021032312:RH:10 mb:9 hour fcst:
+148:2865131:d=2021032312:SPFH:10 mb:9 hour fcst:
+149:2887317:d=2021032312:VVEL:10 mb:9 hour fcst:
+150:2914681:d=2021032312:DZDT:10 mb:9 hour fcst:
+151:2940675:d=2021032312:UGRD:10 mb:9 hour fcst:
+152:2952326:d=2021032312:VGRD:10 mb:9 hour fcst:
+153:2971526:d=2021032312:ABSV:10 mb:9 hour fcst:
+154:2989870:d=2021032312:O3MR:10 mb:9 hour fcst:
+155:3009458:d=2021032312:HGT:15 mb:9 hour fcst:
+156:3029476:d=2021032312:TMP:15 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_5
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_5
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_5 pgb2file_f009_5 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=157
++ exglobal_atmos_products.sh[99]: last=187
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 187 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 157:187 -grib tmpfile_f009_6
+157:3046240:d=2021032312:RH:15 mb:9 hour fcst:
+158:3052062:d=2021032312:SPFH:15 mb:9 hour fcst:
+159:3074409:d=2021032312:VVEL:15 mb:9 hour fcst:
+160:3102795:d=2021032312:DZDT:15 mb:9 hour fcst:
+161:3128325:d=2021032312:UGRD:15 mb:9 hour fcst:
+162:3139909:d=2021032312:VGRD:15 mb:9 hour fcst:
+163:3158876:d=2021032312:ABSV:15 mb:9 hour fcst:
+164:3177016:d=2021032312:O3MR:15 mb:9 hour fcst:
+165:3197234:d=2021032312:HGT:20 mb:9 hour fcst:
+166:3217114:d=2021032312:TMP:20 mb:9 hour fcst:
+167:3233927:d=2021032312:RH:20 mb:9 hour fcst:
+168:3240550:d=2021032312:SPFH:20 mb:9 hour fcst:
+169:3258791:d=2021032312:VVEL:20 mb:9 hour fcst:
+170:3288036:d=2021032312:DZDT:20 mb:9 hour fcst:
+171:3318711:d=2021032312:UGRD:20 mb:9 hour fcst:
+172:3330176:d=2021032312:VGRD:20 mb:9 hour fcst:
+173:3349163:d=2021032312:ABSV:20 mb:9 hour fcst:
+174:3367273:d=2021032312:O3MR:20 mb:9 hour fcst:
+175:3393122:d=2021032312:HGT:30 mb:9 hour fcst:
+176:3412722:d=2021032312:TMP:30 mb:9 hour fcst:
+177:3429630:d=2021032312:RH:30 mb:9 hour fcst:
+178:3438023:d=2021032312:SPFH:30 mb:9 hour fcst:
+179:3462278:d=2021032312:VVEL:30 mb:9 hour fcst:
+180:3492380:d=2021032312:DZDT:30 mb:9 hour fcst:
+181:3522605:d=2021032312:UGRD:30 mb:9 hour fcst:
+182:3541549:d=2021032312:VGRD:30 mb:9 hour fcst:
+183:3560431:d=2021032312:ABSV:30 mb:9 hour fcst:
+184:3578655:d=2021032312:O3MR:30 mb:9 hour fcst:
+185:3606559:d=2021032312:HGT:40 mb:9 hour fcst:
+186:3626032:d=2021032312:TMP:40 mb:9 hour fcst:
+187:3643202:d=2021032312:RH:40 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_6
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_6
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_6 pgb2file_f009_6 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=188
++ exglobal_atmos_products.sh[99]: last=218
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 218 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 188:218 -grib tmpfile_f009_7
+188:3653271:d=2021032312:SPFH:40 mb:9 hour fcst:
+189:3671952:d=2021032312:VVEL:40 mb:9 hour fcst:
+190:3703029:d=2021032312:DZDT:40 mb:9 hour fcst:
+191:3733226:d=2021032312:UGRD:40 mb:9 hour fcst:
+192:3752234:d=2021032312:VGRD:40 mb:9 hour fcst:
+193:3771381:d=2021032312:ABSV:40 mb:9 hour fcst:
+194:3789676:d=2021032312:O3MR:40 mb:9 hour fcst:
+195:3818109:d=2021032312:HGT:50 mb:9 hour fcst:
+196:3837452:d=2021032312:TMP:50 mb:9 hour fcst:
+197:3854406:d=2021032312:RH:50 mb:9 hour fcst:
+198:3865695:d=2021032312:TCDC:50 mb:9 hour fcst:
+199:3865874:d=2021032312:SPFH:50 mb:9 hour fcst:
+200:3885720:d=2021032312:VVEL:50 mb:9 hour fcst:
+201:3917562:d=2021032312:DZDT:50 mb:9 hour fcst:
+202:3947511:d=2021032312:UGRD:50 mb:9 hour fcst:
+203:3966274:d=2021032312:VGRD:50 mb:9 hour fcst:
+204:3985207:d=2021032312:ABSV:50 mb:9 hour fcst:
+205:4003207:d=2021032312:CLMR:50 mb:9 hour fcst:
+206:4003386:d=2021032312:ICMR:50 mb:9 hour fcst:
+207:4003565:d=2021032312:RWMR:50 mb:9 hour fcst:
+208:4003744:d=2021032312:SNMR:50 mb:9 hour fcst:
+209:4003923:d=2021032312:GRLE:50 mb:9 hour fcst:
+210:4004102:d=2021032312:O3MR:50 mb:9 hour fcst:
+211:4031589:d=2021032312:HGT:70 mb:9 hour fcst:
+212:4051104:d=2021032312:TMP:70 mb:9 hour fcst:
+213:4068526:d=2021032312:RH:70 mb:9 hour fcst:
+214:4077116:d=2021032312:SPFH:70 mb:9 hour fcst:
+215:4099537:d=2021032312:VVEL:70 mb:9 hour fcst:
+216:4129992:d=2021032312:DZDT:70 mb:9 hour fcst:
+217:4162428:d=2021032312:UGRD:70 mb:9 hour fcst:
+218:4181299:d=2021032312:VGRD:70 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_7
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_7
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_7 pgb2file_f009_7 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=219
++ exglobal_atmos_products.sh[99]: last=249
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 249 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 219:249 -grib tmpfile_f009_8
+219:4200304:d=2021032312:ABSV:70 mb:9 hour fcst:
+220:4218351:d=2021032312:O3MR:70 mb:9 hour fcst:
+221:4245090:d=2021032312:HGT:100 mb:9 hour fcst:
+222:4265026:d=2021032312:TMP:100 mb:9 hour fcst:
+223:4282561:d=2021032312:RH:100 mb:9 hour fcst:
+224:4292984:d=2021032312:TCDC:100 mb:9 hour fcst:
+225:4293276:d=2021032312:SPFH:100 mb:9 hour fcst:
+226:4320374:d=2021032312:VVEL:100 mb:9 hour fcst:
+227:4346669:d=2021032312:DZDT:100 mb:9 hour fcst:
+228:4377124:d=2021032312:UGRD:100 mb:9 hour fcst:
+229:4396492:d=2021032312:VGRD:100 mb:9 hour fcst:
+230:4416122:d=2021032312:ABSV:100 mb:9 hour fcst:
+231:4434660:d=2021032312:CLMR:100 mb:9 hour fcst:
+232:4434839:d=2021032312:ICMR:100 mb:9 hour fcst:
+233:4435303:d=2021032312:RWMR:100 mb:9 hour fcst:
+234:4435482:d=2021032312:SNMR:100 mb:9 hour fcst:
+235:4436478:d=2021032312:GRLE:100 mb:9 hour fcst:
+236:4436657:d=2021032312:O3MR:100 mb:9 hour fcst:
+237:4461395:d=2021032312:HGT:150 mb:9 hour fcst:
+238:4481940:d=2021032312:TMP:150 mb:9 hour fcst:
+239:4499240:d=2021032312:RH:150 mb:9 hour fcst:
+240:4510761:d=2021032312:TCDC:150 mb:9 hour fcst:
+241:4514363:d=2021032312:SPFH:150 mb:9 hour fcst:
+242:4539614:d=2021032312:VVEL:150 mb:9 hour fcst:
+243:4568411:d=2021032312:DZDT:150 mb:9 hour fcst:
+244:4594040:d=2021032312:UGRD:150 mb:9 hour fcst:
+245:4613833:d=2021032312:VGRD:150 mb:9 hour fcst:
+246:4633979:d=2021032312:ABSV:150 mb:9 hour fcst:
+247:4652838:d=2021032312:CLMR:150 mb:9 hour fcst:
+248:4653017:d=2021032312:ICMR:150 mb:9 hour fcst:
+249:4659132:d=2021032312:RWMR:150 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_8
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_8
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_8 pgb2file_f009_8 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=250
++ exglobal_atmos_products.sh[99]: last=280
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 280 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 250:280 -grib tmpfile_f009_9
+250:4659311:d=2021032312:SNMR:150 mb:9 hour fcst:
+251:4666122:d=2021032312:GRLE:150 mb:9 hour fcst:
+252:4666879:d=2021032312:O3MR:150 mb:9 hour fcst:
+253:4689510:d=2021032312:HGT:200 mb:9 hour fcst:
+254:4710698:d=2021032312:TMP:200 mb:9 hour fcst:
+255:4728918:d=2021032312:RH:200 mb:9 hour fcst:
+256:4743937:d=2021032312:TCDC:200 mb:9 hour fcst:
+257:4750482:d=2021032312:SPFH:200 mb:9 hour fcst:
+258:4776358:d=2021032312:VVEL:200 mb:9 hour fcst:
+259:4806534:d=2021032312:DZDT:200 mb:9 hour fcst:
+260:4832664:d=2021032312:UGRD:200 mb:9 hour fcst:
+261:4845765:d=2021032312:VGRD:200 mb:9 hour fcst:
+262:4859481:d=2021032312:ABSV:200 mb:9 hour fcst:
+263:4879489:d=2021032312:CLMR:200 mb:9 hour fcst:
+264:4879668:d=2021032312:ICMR:200 mb:9 hour fcst:
+265:4888112:d=2021032312:RWMR:200 mb:9 hour fcst:
+266:4888291:d=2021032312:SNMR:200 mb:9 hour fcst:
+267:4894378:d=2021032312:GRLE:200 mb:9 hour fcst:
+268:4895520:d=2021032312:O3MR:200 mb:9 hour fcst:
+269:4916757:d=2021032312:HGT:250 mb:9 hour fcst:
+270:4938813:d=2021032312:TMP:250 mb:9 hour fcst:
+271:4957596:d=2021032312:RH:250 mb:9 hour fcst:
+272:4975305:d=2021032312:TCDC:250 mb:9 hour fcst:
+273:4985142:d=2021032312:SPFH:250 mb:9 hour fcst:
+274:5013149:d=2021032312:VVEL:250 mb:9 hour fcst:
+275:5042112:d=2021032312:DZDT:250 mb:9 hour fcst:
+276:5068829:d=2021032312:UGRD:250 mb:9 hour fcst:
+277:5082614:d=2021032312:VGRD:250 mb:9 hour fcst:
+278:5097290:d=2021032312:ABSV:250 mb:9 hour fcst:
+279:5118597:d=2021032312:CLMR:250 mb:9 hour fcst:
+280:5118776:d=2021032312:ICMR:250 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_9
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_9
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_9 pgb2file_f009_9 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=281
++ exglobal_atmos_products.sh[99]: last=311
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 311 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 281:311 -grib tmpfile_f009_10
+281:5131060:d=2021032312:RWMR:250 mb:9 hour fcst:
+282:5131239:d=2021032312:SNMR:250 mb:9 hour fcst:
+283:5139506:d=2021032312:GRLE:250 mb:9 hour fcst:
+284:5141309:d=2021032312:O3MR:250 mb:9 hour fcst:
+285:5167287:d=2021032312:HGT:300 mb:9 hour fcst:
+286:5189557:d=2021032312:TMP:300 mb:9 hour fcst:
+287:5208250:d=2021032312:RH:300 mb:9 hour fcst:
+288:5227054:d=2021032312:TCDC:300 mb:9 hour fcst:
+289:5238911:d=2021032312:SPFH:300 mb:9 hour fcst:
+290:5265383:d=2021032312:VVEL:300 mb:9 hour fcst:
+291:5289914:d=2021032312:DZDT:300 mb:9 hour fcst:
+292:5317342:d=2021032312:UGRD:300 mb:9 hour fcst:
+293:5331694:d=2021032312:VGRD:300 mb:9 hour fcst:
+294:5346855:d=2021032312:ABSV:300 mb:9 hour fcst:
+295:5368840:d=2021032312:CLMR:300 mb:9 hour fcst:
+296:5369019:d=2021032312:ICMR:300 mb:9 hour fcst:
+297:5382898:d=2021032312:RWMR:300 mb:9 hour fcst:
+298:5383077:d=2021032312:SNMR:300 mb:9 hour fcst:
+299:5394429:d=2021032312:GRLE:300 mb:9 hour fcst:
+300:5396548:d=2021032312:O3MR:300 mb:9 hour fcst:
+301:5424199:d=2021032312:HGT:350 mb:9 hour fcst:
+302:5446432:d=2021032312:TMP:350 mb:9 hour fcst:
+303:5464656:d=2021032312:RH:350 mb:9 hour fcst:
+304:5483808:d=2021032312:TCDC:350 mb:9 hour fcst:
+305:5496187:d=2021032312:SPFH:350 mb:9 hour fcst:
+306:5524481:d=2021032312:VVEL:350 mb:9 hour fcst:
+307:5549730:d=2021032312:DZDT:350 mb:9 hour fcst:
+308:5577334:d=2021032312:UGRD:350 mb:9 hour fcst:
+309:5591676:d=2021032312:VGRD:350 mb:9 hour fcst:
+310:5606860:d=2021032312:ABSV:350 mb:9 hour fcst:
+311:5629068:d=2021032312:CLMR:350 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_10
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_10
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_10 pgb2file_f009_10 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=312
++ exglobal_atmos_products.sh[99]: last=342
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 342 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 312:342 -grib tmpfile_f009_11
+312:5629247:d=2021032312:ICMR:350 mb:9 hour fcst:
+313:5644017:d=2021032312:RWMR:350 mb:9 hour fcst:
+314:5644196:d=2021032312:SNMR:350 mb:9 hour fcst:
+315:5655602:d=2021032312:GRLE:350 mb:9 hour fcst:
+316:5658146:d=2021032312:O3MR:350 mb:9 hour fcst:
+317:5684251:d=2021032312:HGT:400 mb:9 hour fcst:
+318:5706327:d=2021032312:TMP:400 mb:9 hour fcst:
+319:5724590:d=2021032312:RH:400 mb:9 hour fcst:
+320:5743831:d=2021032312:TCDC:400 mb:9 hour fcst:
+321:5756124:d=2021032312:SPFH:400 mb:9 hour fcst:
+322:5784162:d=2021032312:VVEL:400 mb:9 hour fcst:
+323:5809792:d=2021032312:DZDT:400 mb:9 hour fcst:
+324:5837470:d=2021032312:UGRD:400 mb:9 hour fcst:
+325:5859313:d=2021032312:VGRD:400 mb:9 hour fcst:
+326:5874259:d=2021032312:ABSV:400 mb:9 hour fcst:
+327:5896306:d=2021032312:CLMR:400 mb:9 hour fcst:
+328:5896659:d=2021032312:ICMR:400 mb:9 hour fcst:
+329:5911522:d=2021032312:RWMR:400 mb:9 hour fcst:
+330:5911701:d=2021032312:SNMR:400 mb:9 hour fcst:
+331:5925508:d=2021032312:GRLE:400 mb:9 hour fcst:
+332:5928049:d=2021032312:O3MR:400 mb:9 hour fcst:
+333:5953293:d=2021032312:HGT:450 mb:9 hour fcst:
+334:5977633:d=2021032312:TMP:450 mb:9 hour fcst:
+335:5996151:d=2021032312:RH:450 mb:9 hour fcst:
+336:6015786:d=2021032312:TCDC:450 mb:9 hour fcst:
+337:6028035:d=2021032312:SPFH:450 mb:9 hour fcst:
+338:6057692:d=2021032312:VVEL:450 mb:9 hour fcst:
+339:6083581:d=2021032312:DZDT:450 mb:9 hour fcst:
+340:6111153:d=2021032312:UGRD:450 mb:9 hour fcst:
+341:6132651:d=2021032312:VGRD:450 mb:9 hour fcst:
+342:6155160:d=2021032312:ABSV:450 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_11
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_11
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_11 pgb2file_f009_11 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=343
++ exglobal_atmos_products.sh[99]: last=373
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 373 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 343:373 -grib tmpfile_f009_12
+343:6176824:d=2021032312:CLMR:450 mb:9 hour fcst:
+344:6177931:d=2021032312:ICMR:450 mb:9 hour fcst:
+345:6191492:d=2021032312:RWMR:450 mb:9 hour fcst:
+346:6191862:d=2021032312:SNMR:450 mb:9 hour fcst:
+347:6206110:d=2021032312:GRLE:450 mb:9 hour fcst:
+348:6207885:d=2021032312:O3MR:450 mb:9 hour fcst:
+349:6232696:d=2021032312:HGT:500 mb:9 hour fcst:
+350:6256902:d=2021032312:TMP:500 mb:9 hour fcst:
+351:6275715:d=2021032312:RH:500 mb:9 hour fcst:
+352:6295608:d=2021032312:TCDC:500 mb:9 hour fcst:
+353:6308093:d=2021032312:SPFH:500 mb:9 hour fcst:
+354:6336657:d=2021032312:VVEL:500 mb:9 hour fcst:
+355:6362725:d=2021032312:DZDT:500 mb:9 hour fcst:
+356:6390243:d=2021032312:UGRD:500 mb:9 hour fcst:
+357:6411576:d=2021032312:VGRD:500 mb:9 hour fcst:
+358:6433553:d=2021032312:ABSV:500 mb:9 hour fcst:
+359:6454659:d=2021032312:CLMR:500 mb:9 hour fcst:
+360:6456850:d=2021032312:ICMR:500 mb:9 hour fcst:
+361:6471754:d=2021032312:RWMR:500 mb:9 hour fcst:
+362:6472642:d=2021032312:SNMR:500 mb:9 hour fcst:
+363:6487122:d=2021032312:GRLE:500 mb:9 hour fcst:
+364:6489099:d=2021032312:O3MR:500 mb:9 hour fcst:
+365:6513159:d=2021032312:HGT:550 mb:9 hour fcst:
+366:6537019:d=2021032312:TMP:550 mb:9 hour fcst:
+367:6556005:d=2021032312:RH:550 mb:9 hour fcst:
+368:6576167:d=2021032312:TCDC:550 mb:9 hour fcst:
+369:6589083:d=2021032312:SPFH:550 mb:9 hour fcst:
+370:6618736:d=2021032312:VVEL:550 mb:9 hour fcst:
+371:6645271:d=2021032312:DZDT:550 mb:9 hour fcst:
+372:6672703:d=2021032312:UGRD:550 mb:9 hour fcst:
+373:6693509:d=2021032312:VGRD:550 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_12
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_12
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_12 pgb2file_f009_12 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=374
++ exglobal_atmos_products.sh[99]: last=404
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 404 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
+404:7238602:d=2021032312:UGRD:650 mb:9 hour fcst:
++ exglobal_atmos_products.sh[108]: rc=0
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[111]: last=405
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 374:405 -grib tmpfile_f009_13
+374:6715223:d=2021032312:ABSV:550 mb:9 hour fcst:
+375:6736078:d=2021032312:CLMR:550 mb:9 hour fcst:
+376:6739774:d=2021032312:ICMR:550 mb:9 hour fcst:
+377:6753191:d=2021032312:RWMR:550 mb:9 hour fcst:
+378:6754463:d=2021032312:SNMR:550 mb:9 hour fcst:
+379:6768936:d=2021032312:GRLE:550 mb:9 hour fcst:
+380:6770675:d=2021032312:O3MR:550 mb:9 hour fcst:
+381:6794136:d=2021032312:HGT:600 mb:9 hour fcst:
+382:6817938:d=2021032312:TMP:600 mb:9 hour fcst:
+383:6837065:d=2021032312:RH:600 mb:9 hour fcst:
+384:6857371:d=2021032312:TCDC:600 mb:9 hour fcst:
+385:6870549:d=2021032312:SPFH:600 mb:9 hour fcst:
+386:6901349:d=2021032312:VVEL:600 mb:9 hour fcst:
+387:6928030:d=2021032312:DZDT:600 mb:9 hour fcst:
+388:6955498:d=2021032312:UGRD:600 mb:9 hour fcst:
+389:6976346:d=2021032312:VGRD:600 mb:9 hour fcst:
+390:6997931:d=2021032312:ABSV:600 mb:9 hour fcst:
+391:7018632:d=2021032312:CLMR:600 mb:9 hour fcst:
+392:7024123:d=2021032312:ICMR:600 mb:9 hour fcst:
+393:7036695:d=2021032312:RWMR:600 mb:9 hour fcst:
+394:7038864:d=2021032312:SNMR:600 mb:9 hour fcst:
+395:7052202:d=2021032312:GRLE:600 mb:9 hour fcst:
+396:7053732:d=2021032312:O3MR:600 mb:9 hour fcst:
+397:7076938:d=2021032312:HGT:650 mb:9 hour fcst:
+398:7101581:d=2021032312:TMP:650 mb:9 hour fcst:
+399:7121177:d=2021032312:RH:650 mb:9 hour fcst:
+400:7141633:d=2021032312:TCDC:650 mb:9 hour fcst:
+401:7155235:d=2021032312:SPFH:650 mb:9 hour fcst:
+402:7184302:d=2021032312:VVEL:650 mb:9 hour fcst:
+403:7211057:d=2021032312:DZDT:650 mb:9 hour fcst:
+404:7238602:d=2021032312:UGRD:650 mb:9 hour fcst:
+405:7259480:d=2021032312:VGRD:650 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_13
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_13
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_13 pgb2file_f009_13 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=406
++ exglobal_atmos_products.sh[99]: last=436
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 436 tmpfile_f009
+436:7815504:d=2021032312:UGRD:750 mb:9 hour fcst:
++ exglobal_atmos_products.sh[108]: rc=0
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[111]: last=437
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 406:437 -grib tmpfile_f009_14
+406:7281182:d=2021032312:ABSV:650 mb:9 hour fcst:
+407:7302188:d=2021032312:CLMR:650 mb:9 hour fcst:
+408:7308149:d=2021032312:ICMR:650 mb:9 hour fcst:
+409:7319929:d=2021032312:RWMR:650 mb:9 hour fcst:
+410:7322751:d=2021032312:SNMR:650 mb:9 hour fcst:
+411:7336013:d=2021032312:GRLE:650 mb:9 hour fcst:
+412:7337703:d=2021032312:O3MR:650 mb:9 hour fcst:
+413:7360387:d=2021032312:HGT:700 mb:9 hour fcst:
+414:7384983:d=2021032312:TMP:700 mb:9 hour fcst:
+415:7404873:d=2021032312:RH:700 mb:9 hour fcst:
+416:7425459:d=2021032312:TCDC:700 mb:9 hour fcst:
+417:7439386:d=2021032312:SPFH:700 mb:9 hour fcst:
+418:7468280:d=2021032312:VVEL:700 mb:9 hour fcst:
+419:7495339:d=2021032312:DZDT:700 mb:9 hour fcst:
+420:7522799:d=2021032312:UGRD:700 mb:9 hour fcst:
+421:7543535:d=2021032312:VGRD:700 mb:9 hour fcst:
+422:7565212:d=2021032312:ABSV:700 mb:9 hour fcst:
+423:7586288:d=2021032312:CLMR:700 mb:9 hour fcst:
+424:7594500:d=2021032312:ICMR:700 mb:9 hour fcst:
+425:7605477:d=2021032312:RWMR:700 mb:9 hour fcst:
+426:7609043:d=2021032312:SNMR:700 mb:9 hour fcst:
+427:7621766:d=2021032312:GRLE:700 mb:9 hour fcst:
+428:7623539:d=2021032312:O3MR:700 mb:9 hour fcst:
+429:7651756:d=2021032312:HGT:750 mb:9 hour fcst:
+430:7676416:d=2021032312:TMP:750 mb:9 hour fcst:
+431:7696610:d=2021032312:RH:750 mb:9 hour fcst:
+432:7717319:d=2021032312:TCDC:750 mb:9 hour fcst:
+433:7731893:d=2021032312:SPFH:750 mb:9 hour fcst:
+434:7761193:d=2021032312:VVEL:750 mb:9 hour fcst:
+435:7788172:d=2021032312:DZDT:750 mb:9 hour fcst:
+436:7815504:d=2021032312:UGRD:750 mb:9 hour fcst:
+437:7836380:d=2021032312:VGRD:750 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_14
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_14
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_14 pgb2file_f009_14 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=438
++ exglobal_atmos_products.sh[99]: last=468
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 468 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
+468:8417452:d=2021032312:UGRD:850 mb:9 hour fcst:
++ exglobal_atmos_products.sh[108]: rc=0
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[111]: last=469
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 438:469 -grib tmpfile_f009_15
+438:7858092:d=2021032312:ABSV:750 mb:9 hour fcst:
+439:7879347:d=2021032312:CLMR:750 mb:9 hour fcst:
+440:7888834:d=2021032312:ICMR:750 mb:9 hour fcst:
+441:7899879:d=2021032312:RWMR:750 mb:9 hour fcst:
+442:7904189:d=2021032312:SNMR:750 mb:9 hour fcst:
+443:7916870:d=2021032312:GRLE:750 mb:9 hour fcst:
+444:7918948:d=2021032312:O3MR:750 mb:9 hour fcst:
+445:7947011:d=2021032312:HGT:800 mb:9 hour fcst:
+446:7971883:d=2021032312:TMP:800 mb:9 hour fcst:
+447:7992479:d=2021032312:RH:800 mb:9 hour fcst:
+448:8013278:d=2021032312:TCDC:800 mb:9 hour fcst:
+449:8029536:d=2021032312:SPFH:800 mb:9 hour fcst:
+450:8059358:d=2021032312:VVEL:800 mb:9 hour fcst:
+451:8086517:d=2021032312:DZDT:800 mb:9 hour fcst:
+452:8113674:d=2021032312:UGRD:800 mb:9 hour fcst:
+453:8134702:d=2021032312:VGRD:800 mb:9 hour fcst:
+454:8156441:d=2021032312:ABSV:800 mb:9 hour fcst:
+455:8177783:d=2021032312:CLMR:800 mb:9 hour fcst:
+456:8189730:d=2021032312:ICMR:800 mb:9 hour fcst:
+457:8200420:d=2021032312:RWMR:800 mb:9 hour fcst:
+458:8206290:d=2021032312:SNMR:800 mb:9 hour fcst:
+459:8218691:d=2021032312:GRLE:800 mb:9 hour fcst:
+460:8220714:d=2021032312:O3MR:800 mb:9 hour fcst:
+461:8248200:d=2021032312:HGT:850 mb:9 hour fcst:
+462:8273272:d=2021032312:TMP:850 mb:9 hour fcst:
+463:8294315:d=2021032312:RH:850 mb:9 hour fcst:
+464:8315209:d=2021032312:TCDC:850 mb:9 hour fcst:
+465:8333930:d=2021032312:SPFH:850 mb:9 hour fcst:
+466:8363750:d=2021032312:VVEL:850 mb:9 hour fcst:
+467:8390569:d=2021032312:DZDT:850 mb:9 hour fcst:
+468:8417452:d=2021032312:UGRD:850 mb:9 hour fcst:
+469:8438670:d=2021032312:VGRD:850 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_15
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_15
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_15 pgb2file_f009_15 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=470
++ exglobal_atmos_products.sh[99]: last=500
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 500 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
+500:9019433:d=2021032312:UGRD:925 mb:9 hour fcst:
++ exglobal_atmos_products.sh[108]: rc=0
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[111]: last=501
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 470:501 -grib tmpfile_f009_16
+470:8460430:d=2021032312:ABSV:850 mb:9 hour fcst:
+471:8481765:d=2021032312:CLMR:850 mb:9 hour fcst:
+472:8497277:d=2021032312:ICMR:850 mb:9 hour fcst:
+473:8507369:d=2021032312:RWMR:850 mb:9 hour fcst:
+474:8515383:d=2021032312:SNMR:850 mb:9 hour fcst:
+475:8527206:d=2021032312:GRLE:850 mb:9 hour fcst:
+476:8529327:d=2021032312:O3MR:850 mb:9 hour fcst:
+477:8556270:d=2021032312:HGT:900 mb:9 hour fcst:
+478:8581551:d=2021032312:TMP:900 mb:9 hour fcst:
+479:8602801:d=2021032312:RH:900 mb:9 hour fcst:
+480:8623111:d=2021032312:TCDC:900 mb:9 hour fcst:
+481:8641817:d=2021032312:SPFH:900 mb:9 hour fcst:
+482:8671794:d=2021032312:VVEL:900 mb:9 hour fcst:
+483:8698144:d=2021032312:DZDT:900 mb:9 hour fcst:
+484:8724402:d=2021032312:UGRD:900 mb:9 hour fcst:
+485:8745732:d=2021032312:VGRD:900 mb:9 hour fcst:
+486:8767500:d=2021032312:ABSV:900 mb:9 hour fcst:
+487:8788645:d=2021032312:CLMR:900 mb:9 hour fcst:
+488:8800887:d=2021032312:ICMR:900 mb:9 hour fcst:
+489:8810188:d=2021032312:RWMR:900 mb:9 hour fcst:
+490:8817189:d=2021032312:SNMR:900 mb:9 hour fcst:
+491:8828209:d=2021032312:GRLE:900 mb:9 hour fcst:
+492:8830090:d=2021032312:O3MR:900 mb:9 hour fcst:
+493:8856608:d=2021032312:HGT:925 mb:9 hour fcst:
+494:8882021:d=2021032312:TMP:925 mb:9 hour fcst:
+495:8903326:d=2021032312:RH:925 mb:9 hour fcst:
+496:8923484:d=2021032312:TCDC:925 mb:9 hour fcst:
+497:8940383:d=2021032312:SPFH:925 mb:9 hour fcst:
+498:8967880:d=2021032312:VVEL:925 mb:9 hour fcst:
+499:8993820:d=2021032312:DZDT:925 mb:9 hour fcst:
+500:9019433:d=2021032312:UGRD:925 mb:9 hour fcst:
+501:9040819:d=2021032312:VGRD:925 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_16
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_16
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_16 pgb2file_f009_16 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=502
++ exglobal_atmos_products.sh[99]: last=532
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 532 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 502:532 -grib tmpfile_f009_17
+502:9062637:d=2021032312:ABSV:925 mb:9 hour fcst:
+503:9083631:d=2021032312:CLMR:925 mb:9 hour fcst:
+504:9092453:d=2021032312:ICMR:925 mb:9 hour fcst:
+505:9100889:d=2021032312:RWMR:925 mb:9 hour fcst:
+506:9107315:d=2021032312:SNMR:925 mb:9 hour fcst:
+507:9118743:d=2021032312:GRLE:925 mb:9 hour fcst:
+508:9120728:d=2021032312:O3MR:925 mb:9 hour fcst:
+509:9147240:d=2021032312:HGT:950 mb:9 hour fcst:
+510:9172845:d=2021032312:TMP:950 mb:9 hour fcst:
+511:9194147:d=2021032312:RH:950 mb:9 hour fcst:
+512:9214026:d=2021032312:TCDC:950 mb:9 hour fcst:
+513:9226278:d=2021032312:SPFH:950 mb:9 hour fcst:
+514:9253716:d=2021032312:VVEL:950 mb:9 hour fcst:
+515:9279034:d=2021032312:DZDT:950 mb:9 hour fcst:
+516:9303938:d=2021032312:UGRD:950 mb:9 hour fcst:
+517:9325278:d=2021032312:VGRD:950 mb:9 hour fcst:
+518:9347103:d=2021032312:ABSV:950 mb:9 hour fcst:
+519:9368151:d=2021032312:CLMR:950 mb:9 hour fcst:
+520:9375107:d=2021032312:ICMR:950 mb:9 hour fcst:
+521:9382369:d=2021032312:RWMR:950 mb:9 hour fcst:
+522:9391012:d=2021032312:SNMR:950 mb:9 hour fcst:
+523:9401675:d=2021032312:GRLE:950 mb:9 hour fcst:
+524:9403626:d=2021032312:O3MR:950 mb:9 hour fcst:
+525:9430105:d=2021032312:HINDEX:surface:9 hour fcst:
+526:9435178:d=2021032312:HGT:975 mb:9 hour fcst:
+527:9460905:d=2021032312:TMP:975 mb:9 hour fcst:
+528:9482109:d=2021032312:RH:975 mb:9 hour fcst:
+529:9501612:d=2021032312:TCDC:975 mb:9 hour fcst:
+530:9508802:d=2021032312:SPFH:975 mb:9 hour fcst:
+531:9536102:d=2021032312:VVEL:975 mb:9 hour fcst:
+532:9560266:d=2021032312:DZDT:975 mb:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_17
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_17
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_17 pgb2file_f009_17 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=533
++ exglobal_atmos_products.sh[99]: last=563
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 563 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 533:563 -grib tmpfile_f009_18
+533:9583897:d=2021032312:UGRD:975 mb:9 hour fcst:
+534:9605126:d=2021032312:VGRD:975 mb:9 hour fcst:
+535:9626814:d=2021032312:ABSV:975 mb:9 hour fcst:
+536:9647692:d=2021032312:CLMR:975 mb:9 hour fcst:
+537:9653124:d=2021032312:ICMR:975 mb:9 hour fcst:
+538:9658464:d=2021032312:RWMR:975 mb:9 hour fcst:
+539:9667285:d=2021032312:SNMR:975 mb:9 hour fcst:
+540:9675346:d=2021032312:GRLE:975 mb:9 hour fcst:
+541:9677089:d=2021032312:O3MR:975 mb:9 hour fcst:
+542:9703542:d=2021032312:TMP:1000 mb:9 hour fcst:
+543:9724648:d=2021032312:RH:1000 mb:9 hour fcst:
+544:9743764:d=2021032312:TCDC:1000 mb:9 hour fcst:
+545:9746786:d=2021032312:SPFH:1000 mb:9 hour fcst:
+546:9774064:d=2021032312:VVEL:1000 mb:9 hour fcst:
+547:9796123:d=2021032312:DZDT:1000 mb:9 hour fcst:
+548:9817669:d=2021032312:UGRD:1000 mb:9 hour fcst:
+549:9838446:d=2021032312:VGRD:1000 mb:9 hour fcst:
+550:9859486:d=2021032312:ABSV:1000 mb:9 hour fcst:
+551:9879861:d=2021032312:CLMR:1000 mb:9 hour fcst:
+552:9882630:d=2021032312:ICMR:1000 mb:9 hour fcst:
+553:9884399:d=2021032312:RWMR:1000 mb:9 hour fcst:
+554:9893761:d=2021032312:SNMR:1000 mb:9 hour fcst:
+555:9897781:d=2021032312:GRLE:1000 mb:9 hour fcst:
+556:9899033:d=2021032312:O3MR:1000 mb:9 hour fcst:
+557:9925521:d=2021032312:MSLET:mean sea level:9 hour fcst:
+558:9952169:d=2021032312:HGT:1000 mb:9 hour fcst:
+559:9978126:d=2021032312:SDEN:surface:9 hour fcst:
+560:10006693:d=2021032312:REFD:4000 m above ground:9 hour fcst:
+561:10017343:d=2021032312:REFD:1000 m above ground:9 hour fcst:
+562:10040111:d=2021032312:PRES:surface:9 hour fcst:
+563:10065919:d=2021032312:HGT:surface:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_18
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_18
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_18 pgb2file_f009_18 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=564
++ exglobal_atmos_products.sh[99]: last=594
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 594 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 564:594 -grib tmpfile_f009_19
+564:10081989:d=2021032312:TMP:surface:9 hour fcst:
+565:10099261:d=2021032312:TSOIL:0-0.1 m below ground:9 hour fcst:
+566:10110710:d=2021032312:SOILW:0-0.1 m below ground:9 hour fcst:
+567:10119623:d=2021032312:SOILL:0-0.1 m below ground:9 hour fcst:
+568:10128427:d=2021032312:TSOIL:0.1-0.4 m below ground:9 hour fcst:
+569:10143124:d=2021032312:SOILW:0.1-0.4 m below ground:9 hour fcst:
+570:10152152:d=2021032312:SOILL:0.1-0.4 m below ground:9 hour fcst:
+571:10161042:d=2021032312:TSOIL:0.4-1 m below ground:9 hour fcst:
+572:10174655:d=2021032312:SOILW:0.4-1 m below ground:9 hour fcst:
+573:10183766:d=2021032312:SOILL:0.4-1 m below ground:9 hour fcst:
+574:10192638:d=2021032312:TSOIL:1-2 m below ground:9 hour fcst:
+575:10206212:d=2021032312:SOILW:1-2 m below ground:9 hour fcst:
+576:10215164:d=2021032312:SOILL:1-2 m below ground:9 hour fcst:
+577:10224050:d=2021032312:CNWAT:surface:9 hour fcst:
+578:10230078:d=2021032312:WEASD:surface:9 hour fcst:
+579:10242983:d=2021032312:SNOD:surface:9 hour fcst:
+580:10257199:d=2021032312:PEVPR:surface:9 hour fcst:
+581:10270850:d=2021032312:ICETK:surface:9 hour fcst:
+582:10274317:d=2021032312:TMP:2 m above ground:9 hour fcst:
+583:10295367:d=2021032312:SPFH:2 m above ground:9 hour fcst:
+584:10324405:d=2021032312:DPT:2 m above ground:9 hour fcst:
+585:10346081:d=2021032312:RH:2 m above ground:9 hour fcst:
+586:10364758:d=2021032312:APTMP:2 m above ground:9 hour fcst:
+587:10379479:d=2021032312:TMAX:2 m above ground:6-9 hour max fcst:
+588:10400431:d=2021032312:TMIN:2 m above ground:6-9 hour min fcst:
+589:10421493:d=2021032312:UGRD:10 m above ground:9 hour fcst:
+590:10441981:d=2021032312:VGRD:10 m above ground:9 hour fcst:
+591:10462698:d=2021032312:ICEG:10 m above mean sea level:9 hour fcst:
+592:10463438:d=2021032312:CPOFP:surface:9 hour fcst:
+593:10483945:d=2021032312:CPRAT:surface:9 hour fcst:
+594:10505589:d=2021032312:PRATE:surface:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_19
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_19
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_19 pgb2file_f009_19 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=595
++ exglobal_atmos_products.sh[99]: last=625
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 625 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 595:625 -grib tmpfile_f009_20
+595:10530236:d=2021032312:CPRAT:surface:6-9 hour ave fcst:
+596:10554182:d=2021032312:PRATE:surface:6-9 hour ave fcst:
+597:10579437:d=2021032312:APCP:surface:6-9 hour acc fcst:
+598:10587790:d=2021032312:APCP:surface:0-9 hour acc fcst:
+599:10598514:d=2021032312:ACPCP:surface:6-9 hour acc fcst:
+600:10605536:d=2021032312:ACPCP:surface:0-9 hour acc fcst:
+601:10614427:d=2021032312:FROZR:surface:0-9 hour acc fcst:
+602:10622434:d=2021032312:FRZR:surface:0-9 hour acc fcst:
+603:10624629:d=2021032312:TSNOWP:surface:0-9 hour acc fcst:
+604:10631224:d=2021032312:WATR:surface:6-9 hour acc fcst:
+605:10642710:d=2021032312:FROZR:surface:6-9 hour acc fcst:
+606:10646379:d=2021032312:FRZR:surface:6-9 hour acc fcst:
+607:10647979:d=2021032312:TSNOWP:surface:6-9 hour acc fcst:
+608:10655006:d=2021032312:CSNOW:surface:9 hour fcst:
+609:10656710:d=2021032312:CICEP:surface:9 hour fcst:
+610:10656889:d=2021032312:CFRZR:surface:9 hour fcst:
+611:10657109:d=2021032312:CRAIN:surface:9 hour fcst:
+612:10660712:d=2021032312:CSNOW:surface:6-9 hour ave fcst:
+613:10662373:d=2021032312:CICEP:surface:6-9 hour ave fcst:
+614:10662576:d=2021032312:CFRZR:surface:6-9 hour ave fcst:
+615:10662834:d=2021032312:CRAIN:surface:6-9 hour ave fcst:
+616:10665417:d=2021032312:LHTFL:surface:6-9 hour ave fcst:
+617:10680385:d=2021032312:SHTFL:surface:6-9 hour ave fcst:
+618:10701369:d=2021032312:GFLUX:surface:6-9 hour ave fcst:
+619:10714815:d=2021032312:UFLX:surface:6-9 hour ave fcst:
+620:10731057:d=2021032312:VFLX:surface:6-9 hour ave fcst:
+621:10747241:d=2021032312:SFCR:surface:9 hour fcst:
+622:10767961:d=2021032312:FRICV:surface:9 hour fcst:
+623:10789919:d=2021032312:U-GWD:surface:6-9 hour ave fcst:
+624:10808801:d=2021032312:V-GWD:surface:6-9 hour ave fcst:
+625:10827442:d=2021032312:VEG:surface:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_20
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_20
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_20 pgb2file_f009_20 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=626
++ exglobal_atmos_products.sh[99]: last=656
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 656 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 626:656 -grib tmpfile_f009_21
+626:10835466:d=2021032312:SOTYP:surface:9 hour fcst:
+627:10846515:d=2021032312:WILT:surface:9 hour fcst:
+628:10856425:d=2021032312:FLDCP:surface:9 hour fcst:
+629:10866631:d=2021032312:SUNSD:surface:9 hour fcst:
+630:10881768:d=2021032312:LFTX:surface:9 hour fcst:
+631:10896024:d=2021032312:CAPE:surface:9 hour fcst:
+632:10910953:d=2021032312:CIN:surface:9 hour fcst:
+633:10924473:d=2021032312:PWAT:entire atmosphere (considered as a single layer):9 hour fcst:
+634:10951667:d=2021032312:CWAT:entire atmosphere (considered as a single layer):9 hour fcst:
+635:10978704:d=2021032312:RH:entire atmosphere (considered as a single layer):9 hour fcst:
+636:10994111:d=2021032312:TOZNE:entire atmosphere (considered as a single layer):9 hour fcst:
+637:11009350:d=2021032312:LCDC:low cloud layer:9 hour fcst:
+638:11030689:d=2021032312:LCDC:low cloud layer:6-9 hour ave fcst:
+639:11052863:d=2021032312:MCDC:middle cloud layer:9 hour fcst:
+640:11069572:d=2021032312:MCDC:middle cloud layer:6-9 hour ave fcst:
+641:11087202:d=2021032312:HCDC:high cloud layer:9 hour fcst:
+642:11101349:d=2021032312:HCDC:high cloud layer:6-9 hour ave fcst:
+643:11117977:d=2021032312:TCDC:entire atmosphere (considered as a single layer):9 hour fcst:
+644:11137870:d=2021032312:TCDC:entire atmosphere (considered as a single layer):6-9 hour ave fcst:
+645:11159311:d=2021032312:HGT:cloud ceiling:9 hour fcst:
+646:11193031:d=2021032312:PRES:convective cloud bottom level:9 hour fcst:
+647:11206924:d=2021032312:PRES:low cloud bottom level:6-9 hour ave fcst:
+648:11233948:d=2021032312:PRES:middle cloud bottom level:6-9 hour ave fcst:
+649:11249978:d=2021032312:PRES:high cloud bottom level:6-9 hour ave fcst:
+650:11265804:d=2021032312:PRES:convective cloud top level:9 hour fcst:
+651:11280399:d=2021032312:PRES:low cloud top level:6-9 hour ave fcst:
+652:11308183:d=2021032312:PRES:middle cloud top level:6-9 hour ave fcst:
+653:11324385:d=2021032312:PRES:high cloud top level:6-9 hour ave fcst:
+654:11340432:d=2021032312:TMP:low cloud top level:6-9 hour ave fcst:
+655:11361087:d=2021032312:TMP:middle cloud top level:6-9 hour ave fcst:
+656:11374100:d=2021032312:TMP:high cloud top level:6-9 hour ave fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_21
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_21
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_21 pgb2file_f009_21 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=657
++ exglobal_atmos_products.sh[99]: last=687
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 687 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
+687:12058133:d=2021032312:UGRD:40 m above ground:9 hour fcst:
++ exglobal_atmos_products.sh[108]: rc=0
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[111]: last=688
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 657:688 -grib tmpfile_f009_22
+657:11387537:d=2021032312:TCDC:convective cloud layer:9 hour fcst:
+658:11408435:d=2021032312:TCDC:boundary layer cloud layer:6-9 hour ave fcst:
+659:11430841:d=2021032312:CWORK:entire atmosphere (considered as a single layer):6-9 hour ave fcst:
+660:11443790:d=2021032312:DSWRF:surface:6-9 hour ave fcst:
+661:11464011:d=2021032312:DLWRF:surface:6-9 hour ave fcst:
+662:11486274:d=2021032312:USWRF:surface:6-9 hour ave fcst:
+663:11503634:d=2021032312:ULWRF:surface:6-9 hour ave fcst:
+664:11522969:d=2021032312:USWRF:top of atmosphere:6-9 hour ave fcst:
+665:11543263:d=2021032312:ULWRF:top of atmosphere:6-9 hour ave fcst:
+666:11564241:d=2021032312:HLCY:3000-0 m above ground:9 hour fcst:
+667:11579998:d=2021032312:HLCY:1000-0 m above ground:9 hour fcst:
+668:11602152:d=2021032312:USTM:6000-0 m above ground:9 hour fcst:
+669:11625156:d=2021032312:VSTM:6000-0 m above ground:9 hour fcst:
+670:11647742:d=2021032312:PRES:tropopause:9 hour fcst:
+671:11677805:d=2021032312:ICAHT:tropopause:9 hour fcst:
+672:11708878:d=2021032312:HGT:tropopause:9 hour fcst:
+673:11737331:d=2021032312:TMP:tropopause:9 hour fcst:
+674:11759197:d=2021032312:UGRD:tropopause:9 hour fcst:
+675:11775120:d=2021032312:VGRD:tropopause:9 hour fcst:
+676:11790913:d=2021032312:VWSH:tropopause:9 hour fcst:
+677:11809583:d=2021032312:PRES:max wind:9 hour fcst:
+678:11844012:d=2021032312:ICAHT:max wind:9 hour fcst:
+679:11879291:d=2021032312:HGT:max wind:9 hour fcst:
+680:11914761:d=2021032312:UGRD:max wind:9 hour fcst:
+681:11931117:d=2021032312:VGRD:max wind:9 hour fcst:
+682:11948536:d=2021032312:TMP:max wind:9 hour fcst:
+683:11975242:d=2021032312:UGRD:20 m above ground:9 hour fcst:
+684:11995634:d=2021032312:VGRD:20 m above ground:9 hour fcst:
+685:12016396:d=2021032312:UGRD:30 m above ground:9 hour fcst:
+686:12037169:d=2021032312:VGRD:30 m above ground:9 hour fcst:
+687:12058133:d=2021032312:UGRD:40 m above ground:9 hour fcst:
+688:12079015:d=2021032312:VGRD:40 m above ground:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_22
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_22
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_22 pgb2file_f009_22 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=689
++ exglobal_atmos_products.sh[99]: last=719
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[107]: wgrib2 -d 719 tmpfile_f009
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 689:719 -grib tmpfile_f009_23
+689:12100096:d=2021032312:UGRD:50 m above ground:9 hour fcst:
+690:12121018:d=2021032312:VGRD:50 m above ground:9 hour fcst:
+691:12142211:d=2021032312:TMP:80 m above ground:9 hour fcst:
+692:12163181:d=2021032312:SPFH:80 m above ground:9 hour fcst:
+693:12192038:d=2021032312:PRES:80 m above ground:9 hour fcst:
+694:12217774:d=2021032312:UGRD:80 m above ground:9 hour fcst:
+695:12238678:d=2021032312:VGRD:80 m above ground:9 hour fcst:
+696:12260041:d=2021032312:TMP:100 m above ground:9 hour fcst:
+697:12281006:d=2021032312:UGRD:100 m above ground:9 hour fcst:
+698:12301991:d=2021032312:VGRD:100 m above ground:9 hour fcst:
+699:12323610:d=2021032312:TMP:1829 m above mean sea level:9 hour fcst:
+700:12345252:d=2021032312:UGRD:1829 m above mean sea level:9 hour fcst:
+701:12367401:d=2021032312:VGRD:1829 m above mean sea level:9 hour fcst:
+702:12390205:d=2021032312:TMP:2743 m above mean sea level:9 hour fcst:
+703:12411698:d=2021032312:UGRD:2743 m above mean sea level:9 hour fcst:
+704:12434229:d=2021032312:VGRD:2743 m above mean sea level:9 hour fcst:
+705:12457595:d=2021032312:TMP:3658 m above mean sea level:9 hour fcst:
+706:12479094:d=2021032312:UGRD:3658 m above mean sea level:9 hour fcst:
+707:12501951:d=2021032312:VGRD:3658 m above mean sea level:9 hour fcst:
+708:12525557:d=2021032312:HGT:0C isotherm:9 hour fcst:
+709:12547153:d=2021032312:RH:0C isotherm:9 hour fcst:
+710:12566978:d=2021032312:HGT:highest tropospheric freezing level:9 hour fcst:
+711:12588309:d=2021032312:RH:highest tropospheric freezing level:9 hour fcst:
+712:12608073:d=2021032312:TMP:30-0 mb above ground:9 hour fcst:
+713:12629138:d=2021032312:RH:30-0 mb above ground:9 hour fcst:
+714:12647487:d=2021032312:SPFH:30-0 mb above ground:9 hour fcst:
+715:12676525:d=2021032312:UGRD:30-0 mb above ground:9 hour fcst:
+716:12697513:d=2021032312:VGRD:30-0 mb above ground:9 hour fcst:
+717:12718912:d=2021032312:4LFTX:surface:9 hour fcst:
+718:12732639:d=2021032312:CAPE:180-0 mb above ground:9 hour fcst:
+719:12746426:d=2021032312:CIN:180-0 mb above ground:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_23
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_23
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_23 pgb2file_f009_23 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( iproc++  ))
++ exglobal_atmos_products.sh[127]: (( iproc <= nproc  ))
++ exglobal_atmos_products.sh[98]: first=720
++ exglobal_atmos_products.sh[99]: last=750
++ exglobal_atmos_products.sh[100]: ((  last > ncount  ))
++ exglobal_atmos_products.sh[105]: set +e
++ exglobal_atmos_products.sh[107]: wgrib2 -d 750 tmpfile_f009
++ exglobal_atmos_products.sh[107]: grep -E -i 'ugrd|ustm|uflx|u-gwd|land'
++ exglobal_atmos_products.sh[108]: rc=1
++ exglobal_atmos_products.sh[109]: set_strict
++ preamble.sh[43]: [[ YES == \Y\E\S ]]
++ preamble.sh[45]: set -eu
++ exglobal_atmos_products.sh[110]: ((  rc == 0  ))
++ exglobal_atmos_products.sh[113]: ((  iproc == nproc  ))
++ exglobal_atmos_products.sh[114]: last=751
++ exglobal_atmos_products.sh[118]: wgrib2 tmpfile_f009 -for 720:751 -grib tmpfile_f009_24
+720:12760565:d=2021032312:HPBL:surface:9 hour fcst:
+721:12791923:d=2021032312:RH:0.33-1 sigma layer:9 hour fcst:
+722:12810602:d=2021032312:RH:0.44-1 sigma layer:9 hour fcst:
+723:12829008:d=2021032312:RH:0.72-0.94 sigma layer:9 hour fcst:
+724:12848134:d=2021032312:RH:0.44-0.72 sigma layer:9 hour fcst:
+725:12867583:d=2021032312:TMP:0.995 sigma level:9 hour fcst:
+726:12888668:d=2021032312:POT:0.995 sigma level:9 hour fcst:
+727:12909921:d=2021032312:RH:0.995 sigma level:9 hour fcst:
+728:12927774:d=2021032312:UGRD:0.995 sigma level:9 hour fcst:
+729:12948689:d=2021032312:VGRD:0.995 sigma level:9 hour fcst:
+730:12969935:d=2021032312:VVEL:0.995 sigma level:9 hour fcst:
+731:12991448:d=2021032312:CAPE:90-0 mb above ground:9 hour fcst:
+732:13004219:d=2021032312:CIN:90-0 mb above ground:9 hour fcst:
+733:13018771:d=2021032312:CAPE:255-0 mb above ground:9 hour fcst:
+734:13032179:d=2021032312:CIN:255-0 mb above ground:9 hour fcst:
+735:13043955:d=2021032312:PLPL:255-0 mb above ground:9 hour fcst:
+736:13067698:d=2021032312:LAND:surface:9 hour fcst:
+737:13069639:d=2021032312:ICEC:surface:9 hour fcst:
+738:13072332:d=2021032312:ALBDO:surface:6-9 hour ave fcst:
+739:13088663:d=2021032312:ICETMP:surface:9 hour fcst:
+740:13094383:d=2021032312:UGRD:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+741:13105291:d=2021032312:VGRD:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+742:13116213:d=2021032312:TMP:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+743:13130889:d=2021032312:HGT:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+744:13148682:d=2021032312:PRES:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+745:13166138:d=2021032312:VWSH:PV=2e-06 (Km^2/kg/s) surface:9 hour fcst:
+746:13178416:d=2021032312:UGRD:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+747:13193339:d=2021032312:VGRD:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+748:13208254:d=2021032312:TMP:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+749:13222905:d=2021032312:HGT:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+750:13240553:d=2021032312:PRES:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
+751:13257673:d=2021032312:VWSH:PV=-2e-06 (Km^2/kg/s) surface:9 hour fcst:
++ exglobal_atmos_products.sh[119]: export err=0
++ exglobal_atmos_products.sh[119]: err=0
++ exglobal_atmos_products.sh[119]: err_chk
+ completed cleanly
++ exglobal_atmos_products.sh[120]: input_file=tmpfile_f009_24
++ exglobal_atmos_products.sh[121]: output_file_prefix=pgb2file_f009_24
++ exglobal_atmos_products.sh[122]: echo '/work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_24 pgb2file_f009_24 0p25:0p50:1p00'
++ exglobal_atmos_products.sh[126]: ((  last == ncount  ))
++ exglobal_atmos_products.sh[127]: (( pproc = iproc+1  ))
++ exglobal_atmos_products.sh[127]: (( pproc < nproc  ))
++ exglobal_atmos_products.sh[130]: break
++ exglobal_atmos_products.sh[135]: [[ YES = \Y\E\S ]]
++ exglobal_atmos_products.sh[136]: OMP_NUM_THREADS=1
++ exglobal_atmos_products.sh[136]: /work2/noaa/stmp/CI/ORION/2410/gfs/ush/run_mpmd.sh /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript
+Begin run_mpmd.sh at Tue Mar 19 19:33:47 UTC 2024
++ run_mpmd.sh[5](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript): cmdfile=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript
+++ run_mpmd.sh[8](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):wc -l
++ run_mpmd.sh[8](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript): nprocs=24
++ run_mpmd.sh[11](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):mpmd_cmdfile=/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/mpmd_cmdfile
++ run_mpmd.sh[12](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):[[ -s /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/mpmd_cmdfile ]]
++ run_mpmd.sh[14](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):[[ srun -l --export=ALL =~ ^srun.* ]]
++ run_mpmd.sh[18](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):nm=0
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '0 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_1 pgb2file_f009_1 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '1 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_2 pgb2file_f009_2 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '2 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_3 pgb2file_f009_3 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '3 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_4 pgb2file_f009_4 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '4 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_5 pgb2file_f009_5 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '5 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_6 pgb2file_f009_6 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '6 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_7 pgb2file_f009_7 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '7 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_8 pgb2file_f009_8 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '8 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_9 pgb2file_f009_9 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '9 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_10 pgb2file_f009_10 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '10 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_11 pgb2file_f009_11 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '11 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_12 pgb2file_f009_12 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '12 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_13 pgb2file_f009_13 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '13 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_14 pgb2file_f009_14 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '14 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_15 pgb2file_f009_15 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '15 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_16 pgb2file_f009_16 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '16 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_17 pgb2file_f009_17 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '17 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_18 pgb2file_f009_18 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '18 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_19 pgb2file_f009_19 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '19 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_20 pgb2file_f009_20 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '20 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_21 pgb2file_f009_21 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '21 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_22 pgb2file_f009_22 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '22 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_23 pgb2file_f009_23 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[21](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):echo '23 /work2/noaa/stmp/CI/ORION/2410/gfs/ush/interp_atmos_master.sh tmpfile_f009_24 pgb2file_f009_24 0p25:0p50:1p00'
++ run_mpmd.sh[22](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):(( nm=nm+1 ))
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):IFS=
++ run_mpmd.sh[20](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):read -r line
++ run_mpmd.sh[25](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):set +e
++ run_mpmd.sh[27](/work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/poescript):srun -l --export=ALL --multi-prog --output=mpmd.%j.%t.out -n 24 /work/noaa/stmp/mterry/RUNDIRS/C48_ATM_6d50ea16/atmos_products.451129/mpmd_cmdfile
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 17157315 ON Orion-10-29 CANCELLED AT 2024-03-19T14:34:20 ***
